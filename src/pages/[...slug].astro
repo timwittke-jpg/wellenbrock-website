@@ -527,6 +527,15 @@ const schema =
     padding: clamp(28px, 4vw, 48px);
   }
 
+  /* Persönlicher Text als Zitat: „ vor dem ersten, “ nach dem letzten Absatz */
+  .person .prose :global(p:first-child)::before {
+    content: '„';
+  }
+
+  .person .prose :global(p:last-child)::after {
+    content: '“';
+  }
+
   /* Unterschrift: rundes Porträt, daneben der Name in Serif */
   .byline {
     display: flex;
