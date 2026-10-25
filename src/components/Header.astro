@@ -1,8 +1,6 @@
 ---
 import Logo from '../assets/icons/logo.svg?raw';
 import { nav, practice, appointmentHref } from '../data/site';
-
-const year = new Date().getFullYear();
 ---
 
 <header class="site-header">
@@ -41,7 +39,10 @@ const year = new Date().getFullYear();
         <li class="nav-cta">
           <a class="btn btn--peach" href={appointmentHref}>Termin vereinbaren</a>
         </li>
-        <li class="nav-copy">© {year} {practice.name}, Berlin Moabit</li>
+        <li class="nav-copy">
+          {practice.hoursDisplay}<br />
+          {practice.street}, {practice.postalCode} {practice.city}-{practice.district}
+        </li>
       </ul>
     </nav>
   </div>
