@@ -9,11 +9,11 @@ import { practice } from '../data/site';
 import team from '../assets/physiotherapie-team-berlin-moabit.webp';
 import monika from '../assets/monika-wellenbrock.webp';
 import sina from '../assets/sina-wernecken.webp';
+import monikaRound from '../assets/monika-portrait-rund.webp';
 import IconPhysio from '../assets/icons/physiotherapie.svg?raw';
 import IconOsteo from '../assets/icons/osteopathie.svg?raw';
 import IconHome from '../assets/icons/hausbesuche.svg?raw';
 import IconAccess from '../assets/icons/barrierefrei.svg?raw';
-import LogoMark from '../assets/icons/logo-mark.svg?raw';
 import { appointmentHref } from '../data/site';
 
 export function getStaticPaths() {
@@ -51,6 +51,11 @@ const isTeamImage = (src: string) => /team/.test(src);
 const portraits: Record<string, { img: ImageMetadata; name: string }> = {
   'Kompetenz aus Erfahrung': { img: monika, name: 'Monika Wellenbrock' },
   'Zukunft in guten Händen': { img: sina, name: 'Sina Wernecken' },
+};
+
+// Porträts für die Unterschrift unter persönlichen Texten (z. B. Osteopathie), schon rund freigestellt
+const bylinePhotos: Record<string, ImageMetadata> = {
+  'Monika Wellenbrock': monikaRound,
 };
 
 const faqs = faqFor(page);
@@ -128,10 +133,15 @@ const schema =
             ) : s.byline ? (
               <div class="narrow">
                 <div class="card person">
-                  <span class="person-mark" set:html={LogoMark} />
                   <h2 class="section-heading">{noBreak(s.heading)}</h2>
                   <div class="prose" set:html={s.html} />
-                  <p class="byline">{s.byline}</p>
+                  {/* Unterschrift mit rundem Porträt */}
+                  <p class="byline">
+                    {bylinePhotos[s.byline] && (
+                      <Image class="byline-photo" src={bylinePhotos[s.byline]} alt="" widths={[72, 144]} sizes="72px" />
+                    )}
+                    <span>{s.byline}</span>
+                  </p>
                 </div>
               </div>
             ) : (
@@ -517,19 +527,22 @@ const schema =
     padding: clamp(28px, 4vw, 48px);
   }
 
-  .person-mark {
-    width: 64px;
-  }
-
-  .person-mark :global(svg) {
-    width: 100%;
-    height: auto;
-  }
-
+  /* Unterschrift: rundes Porträt, daneben der Name in Serif */
   .byline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.25rem;
     font-family: var(--f-serif);
     font-size: var(--fs-lead);
-    color: var(--c-brand);
+    color: var(--c-ink);
+  }
+
+  .byline :global(.byline-photo) {
+    flex: none;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
   }
 
   /* Rechtstexte */
