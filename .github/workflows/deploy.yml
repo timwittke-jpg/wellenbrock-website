@@ -42,9 +42,18 @@ jobs:
           SFTP_PATH: ${{ secrets.SFTP_PATH }}
           OUT_DIR: ${{ (vars.BUILD_SCRIPT || 'build:preview') == 'build' && 'dist' || 'dist-preview' }}
         run: |
+          # Leerzeichen und Zeilenumbrüche, die beim Einfügen in die Secrets mitkommen, entfernen
+          SFTP_HOST="$(printf '%s' "$SFTP_HOST" | tr -d '[:space:]')"
+          SFTP_USER="$(printf '%s' "$SFTP_USER" | tr -d '[:space:]')"
+          SFTP_PATH="$(printf '%s' "$SFTP_PATH" | tr -d '[:space:]' | sed 's#^/*##; s#/*$##')"
+          SSHPASS="$(printf '%s' "$SSHPASS" | sed -e 's/[[:space:]]*$//' -e 's/^[[:space:]]*//')"
+          export SSHPASS
+
           for name in SFTP_HOST SFTP_USER SSHPASS SFTP_PATH; do
             if [ -z "${!name}" ]; then echo "::error::Secret für $name fehlt oder ist leer."; exit 1; fi
           done
+          # Nur Längen ausgeben, nie die Werte
+          echo "Benutzer: ${#SFTP_USER} Zeichen, Passwort: ${#SSHPASS} Zeichen, Zielordner: $SFTP_PATH"
           sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
 
           # Inhalt des Build-Ordners in den Zielordner laden; vorhandene Dateien werden überschrieben,
@@ -52,9 +61,12 @@ jobs:
           printf -- '-mkdir %s\nput -r %s/* %s/\n' "$SFTP_PATH" "$OUT_DIR" "$SFTP_PATH" > sftp-batch.txt
 
           set +e
-          sshpass -e sftp -oBatchMode=no -oStrictHostKeyChecking=accept-new -oPubkeyAuthentication=no \
-            -b sftp-batch.txt "$SFTP_USER@$SFTP_HOST"
-          code=$?
+          # -v zeigt die Anmeldeschritte (ohne Passwort), hilfreich bei abgelehnter Anmeldung
+          sshpass -e sftp -v -oBatchMode=no -oStrictHostKeyChecking=accept-new -oPubkeyAuthentication=no \
+            -oPreferredAuthentications=password,keyboard-interactive \
+            -b sftp-batch.txt "$SFTP_USER@$SFTP_HOST" 2>&1 \
+            | awk '!/^debug1: / || /[Aa]uthentication|Authenticated|password|keyboard|denied|Connection established/'
+          code=${PIPESTATUS[0]}
           set -e
           case $code in
             0) echo "Upload abgeschlossen." ;;
