@@ -1,6 +1,6 @@
 # Baut die Seite bei jeder Änderung (z. B. Speichern im Pages CMS) und lädt sie per SFTP auf den Webspace.
 # Benötigte Repository-Secrets (GitHub → Settings → Secrets and variables → Actions):
-#   SFTP_HOST      z. B. 516171574.ssh.w1.strato.hosting
+#   SFTP_HOST      SFTP-Server, steht im Strato-Login unter „SFTP & SSH“
 #   SFTP_USER      SFTP-Benutzer bei Strato
 #   SFTP_PASSWORD  Passwort dieses SFTP-Benutzers
 #   SFTP_PATH      Zielordner auf dem Webspace, z. B. timtestseite
@@ -21,9 +21,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: npm
@@ -38,14 +38,26 @@ jobs:
         env:
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
           SFTP_USER: ${{ secrets.SFTP_USER }}
-          LFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SSHPASS: ${{ secrets.SFTP_PASSWORD }}
           SFTP_PATH: ${{ secrets.SFTP_PATH }}
           OUT_DIR: ${{ (vars.BUILD_SCRIPT || 'build:preview') == 'build' && 'dist' || 'dist-preview' }}
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-          # .htaccess und .htpasswd (Passwortschutz) auf dem Server bleiben unangetastet
-          lftp --env-password -u "$SFTP_USER" "sftp://$SFTP_HOST" -e "
-            set sftp:auto-confirm yes;
-            set net:max-retries 3;
-            mirror --reverse --verbose --parallel=4 --exclude-glob .ht* $OUT_DIR/ $SFTP_PATH/;
-            bye"
+          for name in SFTP_HOST SFTP_USER SSHPASS SFTP_PATH; do
+            if [ -z "${!name}" ]; then echo "::error::Secret für $name fehlt oder ist leer."; exit 1; fi
+          done
+          sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
+
+          # Inhalt des Build-Ordners in den Zielordner laden; vorhandene Dateien werden überschrieben,
+          # .htaccess und .htpasswd (Passwortschutz) auf dem Server bleiben unangetastet.
+          printf -- '-mkdir %s\nput -r %s/* %s/\n' "$SFTP_PATH" "$OUT_DIR" "$SFTP_PATH" > sftp-batch.txt
+
+          set +e
+          sshpass -e sftp -oBatchMode=no -oStrictHostKeyChecking=accept-new -oPubkeyAuthentication=no \
+            -b sftp-batch.txt "$SFTP_USER@$SFTP_HOST"
+          code=$?
+          set -e
+          case $code in
+            0) echo "Upload abgeschlossen." ;;
+            5) echo "::error::Anmeldung abgelehnt: SFTP_USER oder SFTP_PASSWORD stimmt nicht."; exit 1 ;;
+            *) echo "::error::Upload fehlgeschlagen (Code $code). Siehe Meldungen oben."; exit 1 ;;
+          esac
