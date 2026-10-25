@@ -190,9 +190,16 @@ const schema = [
     padding-block: clamp(32px, 4vw, 48px);
   }
 
+  /* Zwei Textspalten statt Raster: Punkte laufen lückenlos untereinander, auch bei unterschiedlicher Länge */
   .prose--columns :global(ul) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: block;
+    columns: 2;
     column-gap: 2rem;
+  }
+
+  .prose--columns :global(li) {
+    break-inside: avoid;
+    margin-bottom: 0.6rem;
   }
 
   .info {
@@ -313,7 +320,7 @@ const schema = [
 
   @media (max-width: 600px) {
     .prose--columns :global(ul) {
-      grid-template-columns: 1fr;
+      columns: 1;
     }
 
     .info {
