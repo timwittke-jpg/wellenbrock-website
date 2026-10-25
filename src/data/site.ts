@@ -54,7 +54,6 @@ export const nav = [
       { label: 'Neurologische Physiotherapie', href: '/physiotherapie/neurologische-physiotherapie/' },
       { label: 'Osteopathie', href: '/osteopathie/' },
       { label: 'Hausbesuche', href: '/hausbesuche/' },
-      { label: 'Preise', href: '/preise/' },
     ],
   },
   {
@@ -70,6 +69,7 @@ export const nav = [
     items: [
       { label: 'Kontakt', href: '/kontakt/' },
       { label: 'Häufige Fragen', href: '/haeufige-fragen/' },
+      { label: 'Preise', href: '/preise/' },
     ],
   },
 ];
