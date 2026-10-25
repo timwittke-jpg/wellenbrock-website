@@ -1,0 +1,293 @@
+---
+import { formEndpoint, formDemoMode, altchaChallengeUrl, practice } from '../data/site';
+
+interface Props {
+  subject: string;
+  submitLabel: string;
+  remedies?: string[];
+  phoneRequired?: boolean;
+  // Seite, auf die nach erfolgreichem Absenden weitergeleitet wird
+  successUrl?: string;
+}
+
+const { subject, submitLabel, remedies = [], phoneRequired = true, successUrl } = Astro.props;
+const uid = subject.toLowerCase().replace(/[^a-z]+/g, '-');
+
+// Spamschutz ALTCHA (ohne Drittanbieter): Die Aufgabe kommt später vom eigenen Server (PHP auf dem Webspace).
+// Solange es keinen gibt, simuliert der Testmodus eine erfolgreiche Prüfung.
+const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChallengeUrl } : { test: true });
+---
+
+<form class="form" method="post" action={formEndpoint || undefined} data-endpoint={formEndpoint} data-success={successUrl} data-demo={!formEndpoint && formDemoMode ? 'true' : undefined} data-phone={practice.phoneDisplay}>
+  <input type="hidden" name="betreff" value={subject} />
+  <!-- Spamschutz: Feld bleibt für Menschen unsichtbar und leer -->
+  <div class="hp" aria-hidden="true">
+    <label for={`${uid}-website`}>Website</label>
+    <input id={`${uid}-website`} name="website" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div class="field">
+    <label for={`${uid}-name`}>Name <span class="req">(Pflichtfeld)</span></label>
+    <input id={`${uid}-name`} name="name" autocomplete="name" required />
+  </div>
+  <div class="row">
+    <div class="field">
+      <label for={`${uid}-email`}>E-Mail <span class="req">(Pflichtfeld)</span></label>
+      <input id={`${uid}-email`} name="email" type="email" autocomplete="email" required />
+    </div>
+    <div class="field">
+      <label for={`${uid}-tel`}>Telefonnummer {phoneRequired && <span class="req">(Pflichtfeld)</span>}</label>
+      <input id={`${uid}-tel`} name="telefon" type="tel" autocomplete="tel" required={phoneRequired} />
+    </div>
+  </div>
+
+  {
+    remedies.length > 0 && (
+      <fieldset class="field">
+        <legend>Heilmittel laut Rezept</legend>
+        <div class="checks">
+          {remedies.map((r, i) => (
+            <label class="check">
+              <input type="checkbox" name="heilmittel[]" value={r} id={`${uid}-hm-${i}`} />
+              <span>{r}</span>
+            </label>
+          ))}
+        </div>
+        <!-- Gesundheitsdaten (Art. 9 DSGVO): Pflicht, sobald ein Heilmittel angekreuzt ist -->
+        <label class="check health-consent">
+          <input type="checkbox" name="einwilligung_gesundheitsdaten" value="ja" />
+          <span>
+            Ich willige ausdrücklich ein, dass meine Angaben zu Heilmitteln (Gesundheitsdaten) zur Terminvergabe
+            verarbeitet werden. Die Einwilligung kann ich jederzeit widerrufen.
+          </span>
+        </label>
+      </fieldset>
+    )
+  }
+
+  <div class="field">
+    <label for={`${uid}-msg`}>Nachricht</label>
+    <textarea id={`${uid}-msg`} name="nachricht" rows="5"></textarea>
+  </div>
+
+  <label class="check consent">
+    <input type="checkbox" name="datenschutz" value="ja" required />
+    <span>Ich stimme der Verarbeitung meiner Angaben gemäß der <a class="inline-link" href="/datenschutz/">Datenschutzerklärung</a> zu. <span class="req">(Pflichtfeld)</span></span>
+  </label>
+
+  <!-- „Bist du ein Mensch?“: Der Browser löst im Hintergrund eine kleine Rechenaufgabe, ohne Bilderrätsel -->
+  <altcha-widget class="human-check" name="altcha" language="de" type="checkbox" configuration={altchaConfig}></altcha-widget>
+
+  <div class="submit">
+    <button class="btn btn--pink" type="submit">{submitLabel}</button>
+    <p class="status" role="status" aria-live="polite"></p>
+  </div>
+</form>
+
+<script>
+  import 'altcha';
+  import 'altcha/i18n/de';
+
+  // ALTCHA-Texte in der Du-Form wie auf der übrigen Seite
+  const de = globalThis.$altcha.i18n.get('de');
+  globalThis.$altcha.i18n.set('de', {
+    ...de,
+    enterCodeAria: 'Gib den Code ein, den du hörst. Drück die Leertaste, um die Aufnahme abzuspielen.',
+    enterCodeFromImage: 'Gib bitte den Code aus dem Bild unten ein.',
+    error: 'Überprüfung fehlgeschlagen. Bitte versuch es gleich noch einmal.',
+    expired: 'Überprüfung abgelaufen. Bitte bestätige noch einmal.',
+    loading: 'Lädt …',
+    verificationRequired: 'Bitte bestätige, dass du kein Roboter bist.',
+    verifying: 'Wird überprüft …',
+    waitAlert: 'Überprüfung läuft … bitte warte kurz.',
+  });
+
+  // Ohne eingetragenes Ziel wird nichts verschickt; die Seite sagt das deutlich.
+  document.querySelectorAll<HTMLFormElement>('form.form').forEach((form) => {
+    // Zeitsperre: Menschen brauchen für das Formular länger als ein paar Sekunden, Bots nicht
+    const loadedAt = Date.now();
+    // Einwilligung zu Gesundheitsdaten nur verlangen, wenn Heilmittel angegeben sind
+    const healthConsent = form.querySelector<HTMLInputElement>('[name="einwilligung_gesundheitsdaten"]');
+    const remedies = [...form.querySelectorAll<HTMLInputElement>('[name="heilmittel[]"]')];
+    const syncConsent = () => {
+      if (healthConsent) healthConsent.required = remedies.some((r) => r.checked);
+    };
+    remedies.forEach((r) => r.addEventListener('change', syncConsent));
+    syncConsent(); // falls ein Heilmittel schon vorausgewählt ist
+
+    const showSuccess = () => {
+      form.reset();
+      if (form.dataset.success) {
+        window.location.href = form.dataset.success;
+        return;
+      }
+      form.querySelector<HTMLElement>('.status')!.textContent =
+        'Danke! Deine Nachricht ist bei uns angekommen. Wir melden uns so schnell wie möglich.';
+    };
+
+    form.addEventListener('submit', async (e) => {
+      const status = form.querySelector<HTMLElement>('.status')!;
+      const endpoint = form.dataset.endpoint;
+      e.preventDefault();
+      // Honeypot ausgefüllt oder viel zu schnell abgeschickt: wie ein Erfolg aussehen lassen, aber nichts senden
+      const honeypot = form.querySelector<HTMLInputElement>('[name="website"]');
+      if (honeypot?.value || Date.now() - loadedAt < 3000) {
+        showSuccess();
+        return;
+      }
+      // Demo-Modus (nur ohne Formularziel): Erfolg anzeigen, ohne etwas zu verschicken
+      if (!endpoint && form.dataset.demo) {
+        showSuccess();
+        return;
+      }
+      if (!endpoint) {
+        status.textContent = `Der Formularversand ist noch nicht eingerichtet. Ruf uns gerne an: ${form.dataset.phone}.`;
+        return;
+      }
+      status.textContent = 'Wird gesendet …';
+      try {
+        const res = await fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(String(res.status));
+        showSuccess();
+      } catch {
+        status.textContent = `Senden hat nicht geklappt. Bitte versuch es noch einmal oder ruf uns an: ${form.dataset.phone}.`;
+      }
+    });
+  });
+</script>
+
+<style>
+  .form {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .hp {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+  }
+
+  label,
+  legend {
+    font-weight: 600;
+  }
+
+  legend {
+    padding: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .req {
+    font-weight: 400;
+    font-size: var(--fs-small);
+  }
+
+  input:not([type='checkbox']),
+  textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--c-line);
+    border-radius: var(--radius);
+    background: var(--c-surface);
+    font: inherit;
+    color: inherit;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--c-brand);
+    outline-offset: 0;
+    border-color: transparent;
+  }
+
+  .checks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1.5rem;
+  }
+
+  .check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  .check input {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin-top: 0.15rem;
+    accent-color: var(--c-brand);
+  }
+
+  .health-consent {
+    margin-top: 1.25rem;
+  }
+
+  /* Einwilligungen (Datenschutz, Gesundheitsdaten) einheitlich klein */
+  .health-consent,
+  .consent {
+    font-size: var(--fs-small);
+  }
+
+  /* ALTCHA-Kästchen im Stil der Formularfelder */
+  .human-check {
+    --altcha-border-radius: var(--radius);
+    --altcha-border-color: var(--c-line);
+    --altcha-color-base: var(--c-surface);
+    --altcha-color-base-content: var(--c-ink);
+    --altcha-color-primary: var(--c-brand);
+    --altcha-color-success: var(--c-brand);
+    --altcha-max-width: 100%;
+    display: block;
+    font-size: var(--fs-small);
+  }
+
+  /* Hinweis „Geschützt durch ALTCHA“ ohne Textlink-Hinterlegung */
+  .human-check :global(a) {
+    padding: 0;
+    background: none;
+    font-weight: 600;
+    color: inherit;
+  }
+
+  .submit {
+    display: grid;
+    justify-items: start;
+    gap: 1rem;
+  }
+
+  .status:empty {
+    display: none;
+  }
+
+  .status {
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    .row,
+    .checks {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

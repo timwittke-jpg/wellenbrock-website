@@ -1,0 +1,355 @@
+---
+import Logo from '../assets/icons/logo.svg?raw';
+import { nav, practice, appointmentHref } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="logo" href="/" aria-label={`${practice.shortName} – Startseite`} set:html={Logo} />
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hauptnavigation">
+      <span class="sr-only">Menü öffnen</span>
+      <span class="burger" aria-hidden="true"></span>
+    </button>
+
+    <nav id="hauptnavigation" class="nav" aria-label="Hauptnavigation">
+      <ul class="nav-list">
+        {
+          nav.map((group, i) => (
+            <li class="nav-group">
+              <button class="nav-trigger" type="button" aria-expanded="false" aria-controls={`menu-${i}`}>
+                {group.label}
+                <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+                  <path d="M2.5 5l4.5 4.5L11.5 5" fill="none" stroke="currentColor" stroke-width="1.6" />
+                </svg>
+              </button>
+              <ul class="submenu" id={`menu-${i}`}>
+                {group.items.map((item) => (
+                  <li>
+                    <a href={item.href}>{item.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
+        <li class="nav-phone">
+          <a href={practice.phoneHref}>Tel: {practice.phoneDisplay}</a>
+        </li>
+        <li class="nav-cta">
+          <a class="btn btn--peach" href={appointmentHref}>Termin vereinbaren</a>
+        </li>
+        <li class="nav-copy">© {year} {practice.name}, Berlin Moabit</li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('.site-header')!;
+  const toggle = header.querySelector<HTMLButtonElement>('.menu-toggle')!;
+  const triggers = [...header.querySelectorAll<HTMLButtonElement>('.nav-trigger')];
+
+  const closeAll = (except?: HTMLButtonElement) =>
+    triggers.forEach((t) => t !== except && t.setAttribute('aria-expanded', 'false'));
+
+  triggers.forEach((trigger) =>
+    trigger.addEventListener('click', () => {
+      const open = trigger.getAttribute('aria-expanded') === 'true';
+      closeAll(trigger);
+      trigger.setAttribute('aria-expanded', String(!open));
+    }),
+  );
+
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.querySelector('.sr-only')!.textContent = open ? 'Menü öffnen' : 'Menü schließen';
+    document.body.classList.toggle('menu-open', !open);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!(e.target as Element).closest('.nav-group')) closeAll();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAll();
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--c-surface);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--header-h);
+    gap: 1.5rem;
+  }
+
+  .logo {
+    flex: none;
+    width: 196px;
+  }
+
+  .logo :global(svg) {
+    width: 100%;
+    height: auto;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-group {
+    position: relative;
+  }
+
+  .nav-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    border: 0;
+    background: none;
+    font: 600 1rem/1.2 var(--f-sans);
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .nav-trigger svg {
+    transition: transform 0.15s ease;
+  }
+
+  .nav-trigger[aria-expanded='true'] svg {
+    transform: rotate(180deg);
+  }
+
+  .submenu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: -1.25rem;
+    min-width: 200px;
+    margin: 0;
+    padding: 0.5rem 0;
+    list-style: none;
+    background: var(--c-surface);
+    box-shadow: var(--shadow-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: none;
+  }
+
+  .nav-trigger[aria-expanded='true'] + .submenu {
+    display: block;
+  }
+
+  .submenu a {
+    display: block;
+    padding: 0.6rem 1.25rem;
+    text-decoration: none;
+  }
+
+  .submenu a:hover {
+    background: var(--c-bg);
+  }
+
+  /* gleiche Schrift wie die Menüpunkte */
+  .nav-phone a {
+    font: 600 1rem/1.2 var(--f-sans);
+    color: var(--c-ink);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-cta .btn {
+    white-space: nowrap;
+  }
+
+  .menu-toggle,
+  .nav-copy {
+    display: none;
+  }
+
+  @media (max-width: 1080px) {
+    .nav-list {
+      gap: 1.5rem;
+    }
+    .nav-phone {
+      display: none;
+    }
+  }
+
+  @media (max-width: 880px) {
+    :root {
+      --header-h: 72px;
+    }
+
+    .logo {
+      width: 164px;
+    }
+
+    /* runder Peach-Button wie die sekundären Buttons */
+    .menu-toggle {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--c-peach);
+      color: var(--c-ink);
+      cursor: pointer;
+      transition: filter 0.15s ease;
+    }
+
+    .menu-toggle:hover {
+      filter: brightness(0.96);
+    }
+
+    /* Tippfläche bleibt 48px groß */
+    .menu-toggle::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+    }
+
+    .burger,
+    .burger::before,
+    .burger::after {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      transition: transform 0.15s ease;
+    }
+
+    .burger {
+      position: relative;
+    }
+
+    .burger::before,
+    .burger::after {
+      content: '';
+      position: absolute;
+      left: 0;
+    }
+
+    .burger::before {
+      top: -6px;
+    }
+
+    .burger::after {
+      top: 6px;
+    }
+
+    .menu-toggle[aria-expanded='true'] .burger {
+      background: transparent;
+    }
+
+    .menu-toggle[aria-expanded='true'] .burger::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded='true'] .burger::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .nav {
+      position: fixed;
+      inset: var(--header-h) 0 0 0;
+      overflow-y: auto;
+      background: var(--c-surface);
+      padding: 1rem var(--gutter) calc(1.5rem + env(safe-area-inset-bottom));
+      display: none;
+    }
+
+    .menu-toggle[aria-expanded='true'] + .nav {
+      display: block;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      /* volle Höhe, damit die Buttons am unteren Rand stehen */
+      min-height: 100%;
+    }
+
+    .nav-group {
+      border-bottom: 1px solid var(--c-line);
+    }
+
+    .nav-trigger {
+      width: 100%;
+      justify-content: space-between;
+      padding: 1rem 0;
+      font-size: var(--fs-lead);
+    }
+
+    .submenu {
+      position: static;
+      box-shadow: none;
+      padding: 0 0 0.75rem;
+    }
+
+    .submenu a {
+      padding: 0.5rem 0;
+    }
+
+    /* Mobiles Menü: „Termin vereinbaren“ als Hauptbutton, darunter Telefon als gelber Button,
+       beide am unteren Bildschirmrand, damit sie mit dem Daumen gut erreichbar sind */
+    .nav-cta {
+      order: 1;
+      margin-top: auto;
+      padding-top: 1.5rem;
+    }
+
+    .nav-cta .btn {
+      width: 100%;
+      background: var(--c-pink);
+    }
+
+    .nav-phone {
+      display: block;
+      order: 2;
+      padding-top: 0.75rem;
+    }
+
+    .nav-phone a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 48px;
+      padding: 0.7rem 1.25rem;
+      border-radius: 999px;
+      background: var(--c-peach);
+    }
+
+    .nav-copy {
+      display: block;
+      order: 3;
+      padding-top: 1.25rem;
+      font-size: var(--fs-small);
+      text-align: center;
+    }
+  }
+
+  :global(body.menu-open) {
+    overflow: hidden;
+  }
+</style>

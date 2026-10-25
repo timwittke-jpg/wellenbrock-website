@@ -1,0 +1,19 @@
+{
+  "name": "wellenbrock-wernecken",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "build:preview": "astro build --mode preview --outDir dist-preview",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/noto-sans": "^5.3.0",
+    "@fontsource-variable/noto-serif": "^5.3.0",
+    "altcha": "3.3.0",
+    "astro": "^7.4.2"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "_hinweis": "Bewertungen von Hand aus den Google-Unternehmensprofilen übernehmen (Physiotherapie und Osteopathie). Angezeigt werden nur Einträge mit rating 5. Texte wörtlich übernehmen, Namen als Vorname + Initial. date wie bei Google angezeigt (Stand Oktober 2026), bei Aktualisierung anpassen. Die Sterne wurden ohne Sternangabe übernommen und müssen in Google geprüft werden.",
+  "reviews": [
+    {
+      "name": "Kingz M.",
+      "date": "vor 5 Jahren",
+      "rating": 5,
+      "text": "Zufriedener könnte ich gar nicht sein :) Super freundlich und sehr kompetent. Sollte mir mal wieder was passieren, werd ich definitiv wieder hier her kommen. Kann ich nur wärmstens empfehlen. Dankeschön"
+    },
+    {
+      "name": "Ido P.",
+      "date": "vor 3 Jahren",
+      "rating": 5,
+      "text": "Ich kam nach einem Unfall an, die Behandlungen waren ausgezeichnet, immer verfügbar, sehr zu empfehlen"
+    },
+    {
+      "name": "Georgina A.",
+      "date": "vor 11 Monaten",
+      "rating": 5,
+      "text": "Very friendly and very professional. Top service overall."
+    },
+    {
+      "name": "SchellSy S.",
+      "date": "vor 8 Jahren",
+      "rating": 5,
+      "text": "Superkompetentes Team"
+    },
+    {
+      "name": "Recardo K.",
+      "date": "vor 9 Jahren",
+      "rating": 5,
+      "text": "Ich war sehr zufrieden mit der Praxis"
+    }
+  ]
+}

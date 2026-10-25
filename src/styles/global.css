@@ -1,0 +1,316 @@
+@import '@fontsource-variable/noto-serif';
+@import '@fontsource-variable/noto-sans';
+
+/* Farben aus den Figma-Assets gemessen */
+:root {
+  --c-bg: #f9f5f0;
+  --c-surface: #ffffff;
+  --c-ink: #000000;
+  --c-brand: #a93077;
+  --c-pink: #f2c5e0;
+  --c-pink-soft: #f0dce8;
+  --c-peach: #ffcc9a;
+  --c-peach-soft: #fee5cd;
+  --c-line: #d9d3cc;
+
+  --f-serif: 'Noto Serif Variable', Georgia, serif;
+  --f-sans: 'Noto Sans Variable', system-ui, sans-serif;
+
+  --shadow-card: 0 12px 40px rgb(60 40 20 / 0.10);
+  /* Einheitliche Rundung für Karten, Bilder, Felder und Flächen */
+  --radius: 6px;
+  /* Seitenbreite „boxed“ wie in Elementor */
+  --container: 1150px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --header-h: 88px;
+
+  /*
+    Schriftsystem: von der H1 (4rem) mit Faktor 1,25 abgeleitet.
+    Ruhig und gut lesbar für alle Altersgruppen: Fließtext 17px, großzügiger Zeilenabstand,
+    Noto Serif in Medium (500) für Überschriften, Noto Sans für Text und Bedienelemente.
+    Auf kleinen Bildschirmen skalieren die großen Stufen stufenlos herunter.
+  */
+  --fs-h1: clamp(1.97rem, 1.05rem + 4.62vw, 4rem); /* 64px – Seitentitel (Handy ca. 32–34px, damit lange Wörter passen) */
+  --fs-xxl: clamp(2.25rem, 1.6rem + 2.4vw, 3.2rem); /* 51px – große Abschnittstitel, Abschluss-CTA */
+  --fs-xl: clamp(1.625rem, 1.2rem + 1.6vw, 2.5rem); /* 40px – Abschnittsüberschriften (kleinste Handys 26px) */
+  --fs-lg: clamp(1.5rem, 1.2rem + 1.1vw, 2rem); /* 32px – Statements, Listentitel, Rechtstext-H2 */
+  --fs-md: clamp(1.375rem, 1.25rem + 0.5vw, 1.6rem); /* 26px – Kartentitel */
+  --fs-lead: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem); /* 20px – Einleitungen, Fragen */
+  --fs-body: 1.0625rem; /* 17px – Fließtext */
+  --fs-small: 0.875rem; /* 14px – Hinweise, Brotkrümel, Labels */
+  --fs-xs: 0.75rem; /* 12px – nur Quellenangaben */
+
+  --lh-tight: 1.1;
+  --lh-heading: 1.2;
+  --lh-title: 1.3;
+  --lh-lead: 1.6;
+  --lh-body: 1.7;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--f-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--f-serif);
+  /* alle Überschriften in Medium */
+  font-weight: 500;
+  line-height: var(--lh-heading);
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* Hervorhebungen überall Semibold statt Bold */
+strong,
+b {
+  font-weight: 600;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-brand);
+  outline-offset: 3px;
+}
+
+.container {
+  width: min(100% - 2 * var(--gutter), var(--container));
+  margin-inline: auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.7rem 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  font: 600 1rem/1.2 var(--f-sans);
+  color: var(--c-ink);
+  text-decoration: none;
+  text-align: center;
+  /* lange Button-Texte dürfen auf kleinen Bildschirmen umbrechen */
+  max-width: 100%;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.btn:hover {
+  filter: brightness(0.96);
+}
+
+/* Sekundäre Aktionen neben einem rosa Hauptbutton, gleiche Farbe wie der Header-Button */
+.btn--peach,
+.btn--secondary {
+  background: var(--c-peach);
+}
+
+.btn--pink {
+  background: var(--c-pink);
+}
+
+/* Alleinstehende Links („Mehr erfahren“): fett, ohne Hinterlegung */
+.text-link {
+  width: fit-content;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Links mitten im Fließtext: hell Peach hinterlegt (wie der Menü-Hover) */
+main p a:not(.btn, .text-link, .plain-link),
+.prose li a,
+.inline-link {
+  padding: 0.05em 0.3em;
+  border-radius: 4px;
+  background: var(--c-peach-soft);
+  font-weight: 600;
+  color: var(--c-ink);
+  text-decoration: none;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: filter 0.15s ease;
+}
+
+main p a:not(.btn, .text-link, .plain-link):hover,
+.prose li a:hover,
+.inline-link:hover {
+  filter: brightness(0.96);
+}
+
+/* Ausnahme: schlichter Link ohne Hinterlegung */
+.plain-link {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+.card {
+  background: var(--c-surface);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius);
+}
+
+/* Klickbare Karten: ganze Fläche ist Link, beim Hover stärkerer Schatten und unterstrichener Titel */
+.card--link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease;
+}
+
+.card--link:hover,
+.card--link:focus-within {
+  box-shadow: 0 18px 52px rgb(60 40 20 / 0.18);
+}
+
+.card--link:hover :is(h2, h3),
+.card--link:focus-within :is(h2, h3) {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+/* Für Karten, deren Link sichtbaren Text behält (Kontakt, Termin): Link deckt die Karte ab */
+.stretched-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Rundung der Karte, nicht die des Buttons (sonst fehlen die Ecken) */
+  border-radius: var(--radius);
+}
+
+/* Folgt der Termin-Block direkt auf die Karte (Kontaktseite), reicht der Abstand der Karte */
+main .map ~ .cta {
+  padding-top: 0;
+}
+
+/* Lesespalte für Fließtext auf den Unterseiten */
+.narrow {
+  width: min(100% - 2 * var(--gutter), 744px);
+  margin-inline: auto;
+}
+
+.prose {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+.prose > * + * {
+  margin-top: 1rem;
+}
+
+.prose ul {
+  margin-block: 1rem 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.prose li {
+  position: relative;
+  padding-left: 2rem;
+}
+
+/* Aufzählungen mit Häkchen statt Punkt */
+.prose li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 22px;
+  height: 22px;
+  background: url('/icons/check.svg') no-repeat center / contain;
+}
+
+.section-heading {
+  font-size: var(--fs-xl);
+  line-height: var(--lh-heading);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Eingangsanimation (Script im Grundlayout): sanfter Fade von unten, 24px, 600ms */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 600ms ease-out,
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js-reveal .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media print {
+  .js-reveal .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

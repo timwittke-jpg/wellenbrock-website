@@ -1,0 +1,386 @@
+---
+// Google-Bewertungen, von Hand gepflegt in src/data/reviews.json. Es werden nur 5-Sterne-Bewertungen gezeigt.
+import IconUser from '../assets/icons/user.svg?raw';
+import IconGoogle from '../assets/icons/google.svg?raw';
+import data from '../data/reviews.json';
+import { practice } from '../data/site';
+
+type Review = { name: string; date: string; rating: number; text: string; placeholder?: boolean };
+const reviews = (data.reviews as Review[]).filter((r) => r.rating === 5);
+
+// Stern aus media/Frame 796.svg
+const star = 'M5.825 21L7.45 13.975L2 9.25L9.2 8.625L12 2L14.8 8.625L22 9.25L16.55 13.975L18.175 21L12 17.275L5.825 21Z';
+---
+
+{
+  reviews.length > 0 && (
+    <section class="reviews" aria-labelledby="bewertungen">
+      <div class="head">
+        <h2 id="bewertungen">Das sagen unsere Patientinnen und Patienten</h2>
+        {/* Transparenz: Auswahl offenlegen (§ 5b UWG) */}
+        <p class="note">Eine Auswahl unserer Bewertungen bei Google.</p>
+      </div>
+
+      <div class="carousel">
+        <button class="nav nav--prev" type="button" aria-label="Vorherige Bewertungen" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+        </button>
+
+        <ul class="track" aria-label="Bewertungen">
+          {reviews.map((r) => (
+            <li class="card review">
+              {/* Inhalt wie in der Vorlage: 8px Abstand untereinander, 16px bis „Weiterlesen“ */}
+              <div class="content">
+                <div class="review-head">
+                  <span class="avatar" aria-hidden="true" set:html={IconUser} />
+                  <p class="who">
+                    <span class="name">{r.name}</span>
+                    <span class="date">
+                      {r.date}
+                      {r.placeholder && <span class="badge">Platzhalter</span>}
+                    </span>
+                  </p>
+                  <span class="google" role="img" aria-label="Bewertung bei Google" set:html={IconGoogle} />
+                </div>
+                <svg class="stars" viewBox="0 0 120 24" role="img" aria-label="5 von 5 Sternen">
+                  {[0, 24, 48, 72, 96].map((x) => <path d={star} transform={`translate(${x} 0)`} />)}
+                </svg>
+                <blockquote>
+                  <p class="text">{r.text}</p>
+                </blockquote>
+              </div>
+              <button class="more" type="button" aria-expanded="false" hidden>Weiterlesen</button>
+            </li>
+          ))}
+        </ul>
+
+        <button class="nav nav--next" type="button" aria-label="Weitere Bewertungen">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </button>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn--pink" href={practice.mapsUrl} rel="noopener">Alle Bewertungen bei Google</a>
+      </div>    </section>
+  )
+}
+
+<script>
+  document.querySelectorAll<HTMLElement>('.reviews').forEach((section) => {
+    const track = section.querySelector<HTMLElement>('.track')!;
+    const prev = section.querySelector<HTMLButtonElement>('.nav--prev')!;
+    const next = section.querySelector<HTMLButtonElement>('.nav--next')!;
+
+    // Pfeile: zur vorherigen/nächsten Karte springen (gezielt, damit das Einrasten nicht zurückspringt),
+    // am Anfang/Ende deaktivieren
+    const cards = [...track.querySelectorAll<HTMLElement>('li.review')];
+    const firstVisible = () => {
+      const start = track.getBoundingClientRect().left + parseFloat(getComputedStyle(track).paddingLeft);
+      const i = cards.findIndex((c) => c.getBoundingClientRect().left >= start - 4);
+      return i < 0 ? cards.length - 1 : i;
+    };
+    // Zielkarte merken, damit schnelles Klicken während der Bewegung weiterzählt
+    let index = 0;
+    let settle: number | undefined;
+    const go = (dir: number) => {
+      index = Math.min(Math.max(index + dir, 0), cards.length - 1);
+      // bei scrollLeft 0 steht die erste Karte am Anfang; Abstand der Zielkarte dazu = Scrollposition
+      track.scrollTo({ left: cards[index].offsetLeft - cards[0].offsetLeft, behavior: 'smooth' });
+    };
+    const update = () => {
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      // nach dem Wischen/Scrollen die tatsächlich sichtbare Karte übernehmen
+      clearTimeout(settle);
+      settle = window.setTimeout(() => (index = firstVisible()), 150);
+    };
+    prev.addEventListener('click', () => go(-1));
+    next.addEventListener('click', () => go(1));
+    track.addEventListener('scroll', update, { passive: true });
+    track.addEventListener('scrollend', update);
+    addEventListener('resize', update);
+    update();
+
+    // „Weiterlesen“ nur zeigen, wenn der Text gekürzt ist
+    section.querySelectorAll<HTMLElement>('li.review').forEach((card) => {
+      const text = card.querySelector<HTMLElement>('.text')!;
+      const more = card.querySelector<HTMLButtonElement>('.more')!;
+      const check = () => {
+        if (card.classList.contains('is-open')) return;
+        more.hidden = text.scrollHeight <= text.clientHeight + 1;
+      };
+      more.addEventListener('click', () => {
+        const open = card.classList.toggle('is-open');
+        more.setAttribute('aria-expanded', String(open));
+        more.textContent = open ? 'Weniger anzeigen' : 'Weiterlesen';
+      });
+      check();
+      addEventListener('resize', check);
+    });
+  });
+</script>
+
+<style>
+  .reviews {
+    width: min(100% - 2 * var(--gutter), var(--container));
+    margin-inline: auto;
+    padding-bottom: clamp(80px, 11vw, 160px);
+  }
+
+  .head {
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  h2 {
+    max-width: 900px;
+    font-size: var(--fs-xxl);
+  }
+
+  .note {
+    font-size: var(--fs-small);
+    color: #5f5954;
+  }
+
+  /* Karussell: Karten nebeneinander, seitlich blättern (Pfeile oder Wischen) */
+  .carousel {
+    position: relative;
+    margin-top: 56px;
+  }
+
+  .track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 2 * 24px) / 3);
+    align-items: start;
+    gap: 24px;
+    /* Platz für die Kartenschatten, die sonst abgeschnitten würden; seitlich so breit wie der Kartenabstand,
+       damit am Desktop genau drei Karten sichtbar sind */
+    --edge: 24px;
+    margin: -64px calc(-1 * var(--edge));
+    padding: 64px var(--edge);
+    scroll-padding-inline: var(--edge);
+    /* Schatten seitlich weich ausblenden statt hart abschneiden */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--edge), #000 calc(100% - var(--edge)), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 var(--edge), #000 calc(100% - var(--edge)), transparent);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    list-style: none;
+  }
+
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .review {
+    position: relative;
+    display: grid;
+    justify-items: start;
+    gap: 16px;
+    padding: 24px;
+    scroll-snap-align: start;
+  }
+
+  .content {
+    display: grid;
+    justify-items: start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .review-head {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .avatar {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--c-pink-soft);
+  }
+
+  .review:nth-child(even) .avatar {
+    background: var(--c-peach-soft);
+  }
+
+  .avatar :global(svg) {
+    width: 20px;
+    height: auto;
+  }
+
+  .who {
+    display: grid;
+  }
+
+  .name {
+    font-family: var(--f-serif);
+    font-weight: 500;
+    font-size: var(--fs-md);
+    line-height: var(--lh-title);
+  }
+
+  .date {
+    font-size: var(--fs-small);
+    color: #7a746f;
+  }
+
+  .google {
+    align-self: start;
+  }
+
+  .google :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+
+  .stars {
+    width: 120px;
+    height: auto;
+    fill: var(--c-peach);
+  }
+
+  blockquote {
+    margin: 0;
+  }
+
+  /* zunächst vier Zeilen, „Weiterlesen“ zeigt den ganzen Text */
+  .text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+  }
+
+  .is-open .text {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: none;
+  }
+
+  .more {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: var(--fs-small);
+    color: #7a746f;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  .more:hover {
+    color: var(--c-ink);
+  }
+
+  .badge {
+    margin-left: 0.5rem;
+    padding: 1px 8px;
+    color: var(--c-ink);
+    border-radius: 999px;
+    background: var(--c-pink-soft);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+  }
+
+  /* runde Pfeil-Buttons in Peach links und rechts neben den Karten */
+  .nav {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--c-peach);
+    color: var(--c-ink);
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition:
+      filter 0.15s ease,
+      opacity 0.15s ease;
+  }
+
+  .nav:hover {
+    filter: brightness(0.96);
+  }
+
+  .nav:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  .nav svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .nav--prev {
+    left: -72px;
+  }
+
+  .nav--next {
+    right: -72px;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(40px, 5vw, 56px);
+  }
+
+  /* zu wenig Platz neben den Karten: Pfeile unter das Karussell */
+  @media (max-width: 1320px) {
+    .carousel {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .track {
+      flex: 0 0 calc(100% + 2 * var(--edge));
+      order: -1;
+    }
+
+    .nav {
+      position: static;
+      transform: none;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .track {
+      grid-auto-columns: calc((100% - 24px) / 2);
+    }
+  }
+
+  /* Handy: eine Karte, die nächste schaut an der Seite heraus */
+  @media (max-width: 600px) {
+    /* bis an den Bildschirmrand wischen */
+    .track {
+      --edge: var(--gutter);
+      grid-auto-columns: 86%;
+      gap: 16px;
+    }
+  }
+</style>

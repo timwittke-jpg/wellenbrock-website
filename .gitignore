@@ -1,0 +1,18 @@
+# Abhängigkeiten und Build-Ausgaben
+node_modules/
+dist/
+dist-preview/
+.astro/
+
+# Lokale Einstellungen und Geheimnisse
+.env
+.env.local
+.claude/
+
+# Rohdateien und alte Stände (bleiben nur lokal)
+media/
+versionen/
+
+# Betriebssystem
+.DS_Store
+Thumbs.db

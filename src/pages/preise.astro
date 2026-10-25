@@ -1,0 +1,272 @@
+---
+import SubPage from '../layouts/SubPage.astro';
+import { getPage } from '../data/pages';
+import tabs from '../data/preise.json';
+
+const page = getPage('/preise/')!;
+
+// „Beispiele:6× …(+10 € Rezeptgebühr)…“ in Einleitung und Liste aufteilen
+const splitExamples = (text: string) => {
+  const [intro, rest] = text.split('Beispiele:');
+  const examples = rest ? rest.match(/\d+×[^)]*\)/g) ?? [] : [];
+  return { intro: intro.trim(), examples };
+};
+---
+
+<SubPage
+  title={page.title}
+  description={page.description}
+  h1="Preise"
+  lead={page.lead}
+  crumbs={[{ label: 'Startseite', href: '/' }, { label: 'Preise', href: '/preise/' }]}
+  heroActions={false}
+>
+  <div class="narrow prices">
+    <div class="tablist" role="tablist" aria-label="Versicherungsart">
+      {
+        tabs.map((t, i) => (
+          <button
+            class="tab"
+            role="tab"
+            id={`tab-${i}`}
+            aria-controls={`panel-${i}`}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? 0 : -1}
+            type="button"
+          >
+            {t.tab}
+          </button>
+        ))
+      }
+    </div>
+
+    {
+      tabs.map((t, i) => (
+        <div class="panel" role="tabpanel" id={`panel-${i}`} aria-labelledby={`tab-${i}`} hidden={i !== 0}>
+          {t.groups.map((g) => (
+            <section class="group">
+              <h2 class="section-heading">{g.heading}</h2>
+              {g.text && <p class="prose">{g.text}</p>}
+
+              {g.info.map((info) => {
+                const { intro, examples } = splitExamples(info.text);
+                return (
+                  <div class="card info">
+                    <h3>{info.title}</h3>
+                    <p>{intro}</p>
+                    {examples.length > 0 && (
+                      <>
+                        <p class="examples-title">Beispiele:</p>
+                        <ul class="examples">
+                          {examples.map((e) => (
+                            <li>{e}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                  </div>
+                );
+              })}
+
+              {g.items.length > 0 && (
+                <table class="price-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Behandlung</th>
+                      <th scope="col">Dauer</th>
+                      <th scope="col">Preis</th>
+                      {/* Spalte nur, wenn mindestens eine Leistung eine Erstattung hat (leere Felder aus dem CMS zählen nicht) */}
+                      {g.items.some((x) => x.refund) && <th scope="col">Erstattung</th>}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {g.items.map((item) => (
+                      <tr>
+                        <th scope="row">{item.name}</th>
+                        <td data-label="Dauer">{item.duration}</td>
+                        <td data-label="Preis" class="price">
+                          {item.price}
+                        </td>
+                        {g.items.some((x) => x.refund) && <td data-label="Erstattung">{item.refund}</td>}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+              {g.note && <p class="note">{g.note}</p>}
+            </section>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</SubPage>
+
+<script>
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>('.tab')];
+  const select = (tab: HTMLButtonElement) => {
+    tabs.forEach((t) => {
+      const active = t === tab;
+      t.setAttribute('aria-selected', String(active));
+      t.tabIndex = active ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')!)!.hidden = !active;
+    });
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', (e) => {
+      const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!dir) return;
+      const next = tabs[(i + dir + tabs.length) % tabs.length];
+      select(next);
+      next.focus();
+    });
+  });
+</script>
+
+<style>
+  .prices {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .tablist {
+    display: inline-flex;
+    justify-self: center;
+    gap: 0.5rem;
+    padding: 6px;
+    border-radius: 999px;
+    background: var(--c-surface);
+    box-shadow: var(--shadow-card);
+  }
+
+  .tab {
+    min-height: 44px;
+    padding: 0.6rem 1.5rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    font: 600 1rem/1.2 var(--f-sans);
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .tab[aria-selected='true'] {
+    background: var(--c-pink);
+  }
+
+  .panel {
+    display: grid;
+    gap: 3.5rem;
+  }
+
+  .panel[hidden] {
+    display: none;
+  }
+
+  .group {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .info {
+    display: grid;
+    gap: 0.75rem;
+    padding: 28px 32px;
+  }
+  .info h3 {
+    font-size: var(--fs-md);
+  }
+
+  .examples-title {
+    font-weight: 600;
+  }
+
+  .examples {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .price-table {
+    width: 100%;
+    /* separate statt collapse, damit die Rundung greift */
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--c-surface);
+    box-shadow: var(--shadow-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .price-table tbody tr:last-child > * {
+    border-bottom: 0;
+  }
+
+  .price-table th,
+  .price-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--c-line);
+    vertical-align: top;
+  }
+
+  .price-table thead th {
+    font-size: var(--fs-small);
+    font-weight: 600;
+  }
+
+  .price-table tbody th {
+    font-weight: 400;
+  }
+
+  .price {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .note {
+    font-size: var(--fs-small);
+  }
+
+  @media (max-width: 640px) {
+    .price-table thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    .price-table tr {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.25rem 1rem;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--c-line);
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 0;
+      border: 0;
+    }
+
+    .price-table tbody th {
+      grid-column: 1 / -1;
+      font-weight: 600;
+    }
+
+    .price-table td::before {
+      content: attr(data-label) ': ';
+      font-size: var(--fs-small);
+    }
+
+    .price {
+      grid-row: 2;
+      grid-column: 2;
+    }
+  }
+</style>

@@ -1,0 +1,37 @@
+---
+import Base from './Base.astro';
+import PageHero, { type Crumb, type HeroService } from '../components/PageHero.astro';
+import CtaCard from '../components/CtaCard.astro';
+import { practice } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  h1: string;
+  lead?: string;
+  crumbs: Crumb[];
+  schema?: object[];
+  heroActions?: boolean;
+  heroService?: HeroService;
+  cta?: boolean;
+}
+
+const { title, description, h1, lead, crumbs, schema = [], heroActions = true, heroService, cta = true } = Astro.props;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    item: new URL(c.href, practice.url + '/').href,
+  })),
+};
+---
+
+<Base title={title} description={description} schema={[breadcrumbSchema, ...schema]}>
+  <PageHero title={h1} lead={lead} crumbs={crumbs} actions={heroActions} service={heroService} />
+  <slot />
+  {cta && <CtaCard />}
+</Base>

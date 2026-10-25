@@ -1,0 +1,83 @@
+---
+import SubPage from '../layouts/SubPage.astro';
+import { getPage } from '../data/pages';
+import faq from '../data/faq.json';
+
+const page = getPage('/haeufige-fragen/')!;
+const stripTags = (html: string) => html.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim();
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: stripTags(f.a) },
+  })),
+};
+---
+
+<SubPage
+  title={page.title}
+  description={page.description}
+  h1="Häufige Fragen"
+  lead={page.lead}
+  crumbs={[{ label: 'Startseite', href: '/' }, { label: 'Häufige Fragen', href: '/haeufige-fragen/' }]}
+  schema={[faqSchema]}
+>
+  <section class="narrow faq" aria-label="Fragen und Antworten">
+    {
+      faq.map((f) => (
+        <details>
+          <summary>
+            <span>{f.q}</span>
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M4 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.2" />
+            </svg>
+          </summary>
+          <div class="prose" set:html={f.a} />
+        </details>
+      ))
+    }
+  </section>
+</SubPage>
+
+<style>
+  .faq details {
+    border-bottom: 1px solid var(--c-line);
+  }
+
+  .faq details:first-child {
+    border-top: 1px solid var(--c-line);
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 1.75rem;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-title);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary svg {
+    flex: none;
+    transition: transform 0.15s ease;
+  }
+
+  details[open] summary svg {
+    transform: rotate(180deg);
+  }
+
+  details .prose {
+    padding-bottom: 1.75rem;
+    max-width: 40em;
+  }
+</style>

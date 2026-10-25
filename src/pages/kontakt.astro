@@ -1,0 +1,166 @@
+---
+import SubPage from '../layouts/SubPage.astro';
+import ContactForm from '../components/ContactForm.astro';
+import MapConsent from '../components/MapConsent.astro';
+import { getPage } from '../data/pages';
+import { practice } from '../data/site';
+
+const page = getPage('/kontakt/')!;
+
+const ways = [
+  {
+    title: 'Telefon',
+    lines: [practice.phoneDisplay, practice.hoursDisplay],
+    action: { label: 'Anrufen', href: practice.phoneHref },
+    tone: 'peach',
+    icon: '<path d="M5 4h3.5l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5l1.5-2 4 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />',
+  },
+  {
+    title: 'E-Mail',
+    lines: [practice.email],
+    action: { label: 'Mail schreiben', href: `mailto:${practice.email}` },
+    tone: 'pink',
+    icon: '<rect x="3.5" y="5.5" width="17" height="13" rx="1.5" /><path d="M4 7l8 6 8-6" />',
+  },
+  {
+    title: 'Adresse',
+    lines: [`${practice.street},`, `${practice.postalCode} ${practice.city}`],
+    action: { label: 'Route planen', href: practice.mapsUrl },
+    tone: 'pink',
+    icon: '<path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z" /><circle cx="12" cy="10" r="2.3" />',
+  },
+  {
+    title: 'Behandlungszeiten',
+    lines: [practice.hoursDisplay, practice.hoursNote].filter(Boolean),
+    tone: 'peach',
+    icon: '<rect x="3.5" y="5" width="17" height="15" rx="1.5" /><path d="M3.5 10h17M8 3v4M16 3v4" />',
+  },
+];
+---
+
+<SubPage
+  title={page.title}
+  description={page.description}
+  h1="Kontakt"
+  crumbs={[{ label: 'Startseite', href: '/' }, { label: 'Kontakt', href: '/kontakt/' }]}
+  heroActions={false}
+>
+  <section class="container block" aria-labelledby="erreichen">
+    <h2 id="erreichen" class="section-heading">So erreichst du uns</h2>
+    <ul class="ways">
+      {
+        ways.map((w) => (
+          <li class:list={['card', 'way', { 'card--link': w.action }]}>
+            <span class:list={['way-icon', `way-icon--${w.tone}`]} aria-hidden="true">
+              <svg viewBox="0 0 24 24" set:html={w.icon} />
+            </span>
+            <h3>{w.title}</h3>
+            <p>
+              {w.lines.map((l, i) => (
+                <>
+                  {i > 0 && <br />}
+                  {l}
+                </>
+              ))}
+            </p>
+            {w.action && (
+              <a class="text-link stretched-link" href={w.action.href} rel={w.action.href.startsWith('http') ? 'noopener' : undefined}>
+                {w.action.label}
+              </a>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="narrow block" aria-labelledby="fragen-anregungen">
+    <div class="card form-card">
+      <h2 id="fragen-anregungen" class="section-heading">Fragen &amp; Anregungen</h2>
+      <p>Wir freuen uns über deine Nachricht!</p>
+      <ContactForm subject="Kontaktanfrage" submitLabel="Nachricht senden" />
+    </div>
+  </section>
+
+  <MapConsent />
+</SubPage>
+
+<style>
+  .block {
+    padding-bottom: clamp(56px, 7vw, 88px);
+  }
+
+  .ways {
+    display: grid;
+    /* 2 × 2 Karten, auf dem Handy untereinander */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .way {
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    gap: 0.9rem;
+    padding: 28px;
+  }
+
+  .way p {
+    overflow-wrap: anywhere;
+  }
+
+  .way h3 {
+    font-size: var(--fs-md);
+  }
+
+  .way-icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+
+  .way-icon svg {
+    width: 26px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+
+  .way-icon--pink {
+    background: var(--c-pink);
+  }
+
+  .way-icon--peach {
+    background: var(--c-peach);
+  }
+
+  .form-card {
+    display: grid;
+    gap: 1.25rem;
+    padding: clamp(24px, 4vw, 48px);
+  }
+
+  @media (max-width: 560px) {
+    .ways {
+      grid-template-columns: 1fr;
+    }
+
+    /* Icon-Kreise auf dem Handy etwas kleiner */
+    .way-icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    .way-icon svg {
+      width: 22px;
+    }
+  }
+</style>

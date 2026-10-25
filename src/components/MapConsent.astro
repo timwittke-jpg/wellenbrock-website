@@ -1,0 +1,116 @@
+---
+import { Image } from 'astro:assets';
+import { practice } from '../data/site';
+// Kartenbild als Platzhalter: liegt lokal, beim Laden der Seite gehen keine Daten an Google.
+import mapImage from '../assets/karte-praxis-moabit.webp';
+---
+
+<section class="map container" aria-label="Anfahrt">
+  <div class="frame" data-src={practice.mapsEmbed}>
+    <Image
+      class="map-image"
+      src={mapImage}
+      alt=""
+      widths={[640, 1150, 1600, 2300]}
+      sizes="(max-width: 1200px) 100vw, 1150px"
+      quality={85}
+      loading="lazy"
+    />
+    <span class="attribution">Kartendaten © Google</span>
+    <div class="placeholder">
+      <p class="address">
+        {practice.name}<br />
+        {practice.street}, {practice.postalCode} {practice.city}-{practice.district}
+      </p>
+      <p class="note">
+        Wenn du die Karte lädst, werden Daten an Google übertragen. Mehr dazu in der <a class="plain-link" href="/datenschutz/">Datenschutzerklärung</a>.
+      </p>
+      <div class="actions">
+        <button class="btn btn--pink" type="button">Karte laden</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.map .frame').forEach((frame) => {
+    frame.querySelector('button')?.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = frame.dataset.src!;
+      iframe.title = 'Karte: Praxis an der Bochumer Strasse 9 in Berlin-Moabit';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      frame.replaceChildren(iframe);
+    });
+  });
+</script>
+
+<style>
+  /* gleicher Abstand nach unten wie die übrigen Abschnitte (z. B. Termin-Block) */
+  .map {
+    padding-bottom: clamp(80px, 10vw, 140px);
+  }
+  .frame {
+    position: relative;
+    min-height: clamp(460px, 44vw, 580px);
+    display: grid;
+    place-items: center;
+    padding: 32px 16px;
+    background: var(--c-pink-soft);
+    box-shadow: var(--shadow-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .frame :global(iframe),
+  .frame :global(.map-image) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .frame :global(.map-image) {
+    object-fit: cover;
+  }
+
+  .attribution {
+    position: absolute;
+    right: 8px;
+    bottom: 6px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: rgb(255 255 255 / 0.8);
+    font-size: var(--fs-xs);
+  }
+
+  .placeholder {
+    position: relative;
+    width: min(100%, 520px);
+    padding: 2rem;
+    background: var(--c-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    display: grid;
+    gap: 1rem;
+  }
+
+  /* wie die Überschriften: Noto Serif Medium */
+  .address {
+    font-family: var(--f-serif);
+    font-weight: 500;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-title);
+  }
+
+  .note {
+    font-size: var(--fs-small);
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+  }
+</style>

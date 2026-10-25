@@ -1,0 +1,1983 @@
+[
+  {
+    "path": "/",
+    "kind": "special",
+    "title": "Physiotherapie Moabit – Physiotherapie mit Haltung",
+    "description": "Physiotherapie & Osteopathie in Moabit ✓ Seit {jahrePraxis} Jahren ✓ Kassenzulassung ✓ Barrierefrei ✓ Hausbesuche in Moabit, Hansaviertel & Tiergarten",
+    "h1": "Physiotherapie in Moabit",
+    "lead": "<p>Physiotherapie &amp; Osteopathie in Berlin Moabit – vielseitig, kompetent, mit Haltung. Wir kommen auch zu dir: Hausbesuche in Charlottenburg, Hansaviertel und Tiergarten.</p><p>Kassen &amp; Privat ✓<br>Seit {jahrePraxis} Jahren ✓<br>Barrierefreie Praxis ✓<br>Hausbesuche ✓</p>",
+    "sections": [
+      {
+        "heading": "",
+        "level": 2,
+        "html": "<p>Unsere Praxis für Physiotherapie und Osteopathie in Berlin Moabit steht für Kompetenz, Einfühlungsvermögen und Therapien, die nachhaltig wirken. Für Privat- und Kassenpatienten.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Leistungen",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Physiotherapie, Basisleistungen",
+            "html": "<p>Ob Manuelle Therapie, Krankengymnastik oder Fango-Behandlung: Wir decken ein breites Spektrum an physiotherapeutischen Leistungen ab – mit Kassenzulassung und über 35 Jahren Erfahrung in Berlin Moabit.</p><p>Mehr erfahren</p>",
+            "buttons": []
+          },
+          {
+            "title": "Osteopathie",
+            "html": "<p>Über {jahreOsteo} Jahre Erfahrung in allen Teilgebieten der Osteopathie – einer Therapieform, die den Menschen ganzheitlich betrachtet. Besonders bei Säuglingen, Kindern und chronischen Beschwerden erzielen wir nachhaltige Ergebnisse.</p><p>Mehr erfahren</p>",
+            "buttons": []
+          },
+          {
+            "title": "Neurologische Physiotherapie",
+            "html": "<p>Unsere besondere Expertise ist die Therapie von Menschen mit neurologischen Erkrankungen wie Multipler Sklerose, Parkinson oder nach Schlaganfall – mit langjähriger Erfahrung, Zusatzausbildungen und Einfühlungsvermögen.</p><p>Mehr erfahren</p>",
+            "buttons": []
+          }
+        ],
+        "buttons": [],
+        "images": [
+          {
+            "src": "https://physiotherapie-wellenbrock-wernecken.de/wp-content/uploads/2026/07/neuro-1-2.svg",
+            "alt": ""
+          }
+        ]
+      },
+      {
+        "heading": "Über uns",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Physiotherapie Hausbesuche in Moabit und Umgebung",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich – zum Beispiel nach einer OP, mit Gehhilfe oder wenn die Schmerzen zu stark sind. Wir machen Hausbesuche in Moabit und den umliegenden Kiezen – rund um die Stromstraße, Beusselstraße, Turmstraße und im Tiergarten.</p><p>Mehr erfahren</p>",
+            "buttons": []
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Unsere Haltung",
+            "href": "/haltung/"
+          },
+          {
+            "text": "Das Team",
+            "href": "/team/"
+          }
+        ],
+        "images": [
+          {
+            "src": "https://physiotherapie-wellenbrock-wernecken.de/wp-content/uploads/2026/07/house-1.svg",
+            "alt": ""
+          }
+        ]
+      },
+      {
+        "heading": "Häufige Fragen zur Physiotherapie & Osteopathie",
+        "level": 2,
+        "html": "",
+        "cards": [],
+        "buttons": [
+          {
+            "text": "Alle Fragen",
+            "href": "/haeufige-fragen/"
+          }
+        ],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/datenschutz/",
+    "kind": "legal",
+    "title": "Datenschutz – Wellenbrock & Wernecken Physiotherapie & Osteopathie Moabit",
+    "description": "Datenschutzerklärung der Physiotherapie Wellenbrock & Wernecken in Berlin Moabit.",
+    "h1": "Datenschutz",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "1. Datenschutz auf einen Blick",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Allgemeine Hinweise",
+            "html": "<p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.</p>",
+            "buttons": []
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Datenerfassung auf unserer Website",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
+            "html": "<p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>",
+            "buttons": []
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie erfassen wir Ihre Daten?",
+        "level": 2,
+        "html": "<p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.B. um Daten handeln, die Sie in ein Kontaktformular eingeben. <br><br>Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie unsere Website betreten.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wofür nutzen wir Ihre Daten?",
+        "level": 2,
+        "html": "<p>Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Welche Rechte haben Sie bezüglich Ihrer Daten?",
+        "level": 2,
+        "html": "<p>Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. <br><br>Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Details hierzu entnehmen Sie der Datenschutzerklärung unter „Recht auf Einschränkung der Verarbeitung“.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "2. Allgemeine Hinweise und Pflichtinformationen",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Datenschutz",
+            "html": "<p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung. <br><br>Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht. <br><br>Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>",
+            "buttons": []
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Hinweis zur verantwortlichen Stelle",
+        "level": 2,
+        "html": "<p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist: <br><br>Monika Wellenbrock <br>Bochumer Str. 9 <br>10555 Berlin <br><br>Telefon: 030 – 392 44 46 <br>E-Mail: info@physiotherapie-wellenbrock-wernecken.de <br><br>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Widerruf Ihrer Einwilligung zur Datenverarbeitung",
+        "level": 2,
+        "html": "<p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Dazu reicht eine formlose Mitteilung per E-Mail an uns. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen sowie gegen Direktwerbung (Art. 21 DSGVO)",
+        "level": 2,
+        "html": "<p>Wenn die Datenverarbeitung auf Grundlage von Art. 6 Abs. 1 lit. e oder f DSGVO erfolgt, haben Sie jederzeit das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, gegen die Verarbeitung Ihrer personenbezogenen Daten Widerspruch einzulegen; dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling. Die jeweilige Rechtsgrundlage, auf denen eine Verarbeitung beruht, entnehmen Sie dieser Datenschutzerklärung. Wenn Sie Widerspruch einlegen, werden wir Ihre betroffenen personenbezogenen Daten nicht mehr verarbeiten, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen (Widerspruch nach Art. 21 Abs. 1 DSGVO). <br><br>Werden Ihre personenbezogenen Daten verarbeitet, um Direktwerbung zu betreiben, so haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung Sie betreffender personenbezogener Daten zum Zwecke derartiger Werbung einzulegen; dies gilt auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht. Wenn Sie widersprechen, werden Ihre personenbezogenen Daten anschließend nicht mehr zum Zwecke der Direktwerbung verwendet (Widerspruch nach Art. 21 Abs. 2 DSGVO). <br>Beschwerderecht bei der zuständigen Aufsichtsbehörde <br><br>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Recht auf Datenübertragbarkeit",
+        "level": 2,
+        "html": "<p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "SSL- bzw. TLS-Verschlüsselung",
+        "level": 2,
+        "html": "<p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL-bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von “http://” auf “https://” wechselt und an dem Schloss-Symbol in Ihrer Browserzeile. <br><br>Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Auskunft, Sperrung, Löschung und Berichtigung",
+        "level": 2,
+        "html": "<p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "SSL- bzw. TLS-Verschlüsselung",
+        "level": 2,
+        "html": "<p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL-bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von “http://” auf “https://” wechselt und an dem Schloss-Symbol in Ihrer Browserzeile. <br><br>Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Recht auf Einschränkung der Verarbeitung",
+        "level": 2,
+        "html": "<p>Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden. Das Recht auf Einschränkung der Verarbeitung besteht in folgenden Fällen: <br><br> Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten bestreiten, benötigen wir in der Regel Zeit, um dies zu überprüfen. Für die Dauer der Prüfung haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. <br> Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtmäßig geschah / geschieht, können Sie statt der Löschung die Einschränkung der Datenverarbeitung verlangen. <br> Wenn wir Ihre personenbezogenen Daten nicht mehr benötigen, Sie sie jedoch zur Ausübung, Verteidigung oder Geltendmachung von Rechtsansprüchen benötigen, haben Sie das Recht, statt der Löschung die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. <br> Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, muss eine Abwägung zwischen Ihren und unseren Interessen vorgenommen werden. Solange noch nicht feststeht, wessen Interessen überwiegen, haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. <br><br>Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten eingeschränkt haben, dürfen diese Daten – von ihrer Speicherung abgesehen – nur mit Ihrer Einwilligung oder zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen oder juristischen Person oder aus Gründen eines wichtigen öffentlichen Interesses der Europäischen Union oder eines Mitgliedstaats verarbeitet werden.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Widerspruch gegen Werbe-E-Mails",
+        "level": 2,
+        "html": "<p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "3. Datenerfassung auf unserer Website",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Cookies",
+            "html": "<p>Die Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen. Cookies sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert. <br><br>Die meisten der von uns verwendeten Cookies sind so genannte “Session-Cookies”. Sie werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies bleiben auf Ihrem Endgerät gespeichert bis Sie diese löschen. Diese Cookies ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen. <br><br>Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des Browser aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalität dieser Website eingeschränkt sein. <br><br>Cookies, die zur Durchführung des elektronischen Kommunikationsvorgangs oder zur Bereitstellung bestimmter, von Ihnen erwünschter Funktionen (z.B. Warenkorbfunktion) erforderlich sind, werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert. Der Websitebetreiber hat ein berechtigtes Interesse an der Speicherung von Cookies zur technisch fehlerfreien und optimierten Bereitstellung seiner Dienste. Soweit andere Cookies (z.B. Cookies zur Analyse Ihres Surfverhaltens) gespeichert werden, werden diese in dieser Datenschutzerklärung gesondert behandelt.</p>",
+            "buttons": []
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Server-Log-Dateien",
+        "level": 2,
+        "html": "<p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:<br><br></p><ul><li>Browsertyp und Browserversion</li><li>verwendetes Betriebssystem</li><li>Referrer URL</li><li>Hostname des zugreifenden Rechners</li><li>Uhrzeit der Serveranfrage</li><li>IP-Adresse</li></ul><p><br>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.<br>Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "4. Plugins und Tools",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Google Web Fonts",
+            "html": "<p>Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web Fonts, die von Google bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web Fonts in ihren Browsercache, um Texte und Schriftarten korrekt anzuzeigen. <br><br>Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen. Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse unsere Website aufgerufen wurde. Die Nutzung von Google Web Fonts erfolgt im Interesse einer einheitlichen und ansprechenden Darstellung unserer Online-Angebote. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. <br><br>Wenn Ihr Browser Web Fonts nicht unterstützt, wird eine Standardschrift von Ihrem Computer genutzt. <br><br>Weitere Informationen zu Google Web Fonts finden Sie unter https://developers.google.com/fonts/faq und in der Datenschutzerklärung von Google: https://www.google.com/policies/privacy/.</p>",
+            "buttons": []
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Google Maps",
+        "level": 2,
+        "html": "<p>Diese Seite nutzt über eine API den Kartendienst Google Maps. Anbieter ist die Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. <br><br>Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP Adresse zu speichern. Diese Informationen werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Der Anbieter dieser Seite hat keinen Einfluss auf diese Datenübertragung. <br><br>Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote und an einer leichten Auffindbarkeit der von uns auf der Website angegebenen Orte. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. <br><br>Mehr Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: https://www.google.de/intl/de/policies/privacy/.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/haeufige-fragen/",
+    "kind": "special",
+    "title": "Physiotherapie Berlin Moabit FAQ | Wellenbrock & Wernecken",
+    "description": "Physiotherapie Berlin Moabit FAQ: Antworten auf Fragen zu Rezept, Kosten, Dauer und Hausbesuchen. Klar, verständlich, direkt.",
+    "h1": "Häufige Fragen",
+    "lead": "<p>Physiotherapie Berlin Moabit FAQ: Du willst wissen, wie ein Termin abläuft, ob du ein Rezept brauchst oder was die Behandlung kostet? Hier findest du die wichtigsten Antworten.</p>",
+    "sections": []
+  },
+  {
+    "path": "/haltung/",
+    "kind": "content",
+    "title": "Haltung – Physiotherapie & Osteopathie Berlin Moabit",
+    "description": "Wir behandeln nicht nur Beschwerden, sondern Menschen. Erfahre, was Haltung für uns bedeutet – Physiotherapie & Osteopathie Berlin Moabit.",
+    "h1": "Haltung",
+    "lead": "<p>Seit {jahrePraxis} Jahren verbinden wir Menschlichkeit mit fachlicher Vielseitigkeit. Neben fundierten Kenntnissen in der Physiotherapie und Osteopathie verfügen wir über spezielle Zusatzausbildungen. Besonders in der Therapie von Menschen mit Erkrankungen des zentralen Nervensystems bringen wir langjährige Erfahrung und viel Einfühlungsvermögen mit.</p>",
+    "sections": [
+      {
+        "heading": "",
+        "level": 2,
+        "html": "<p>Wir behandeln nicht nur deine Beschwerden – sondern dich als Menschen. Menschlichkeit, Respekt und Professionalität sind bei uns gelebter Alltag. Wir freuen uns, dich Schritt für Schritt zu begleiten.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Unsere Haltung",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Dein Ziel ist unser Plan",
+            "html": "<p>Bei uns beginnt jede Therapie mit Zuhören. Anschließend entwickeln wir gemeinsam einen individuellen Plan, um deine persönlichen Ziele zu erreichen. Wir arbeiten mit einem ganzheitlichen Ansatz. Nicht nur an den Symptomen, sondern an der Ursache. Dabei kannst du dich auf unsere langjährige und vielseitige Ausbildung verlassen.</p>",
+            "buttons": []
+          },
+          {
+            "title": "Vielseitigkeit ist unsere Stärke",
+            "html": "<p>Durch unser vielseitig ausgebildetes Team, können wir ein breites Spektrum an Behandlungen anbieten: Von Massage über Fango-Behandlung und Krankengymnastik bis zu Bobath und PNF für Menschen mit Erkrankungen des zentralen Nervensystems. Wir begleiten dich in jeder Lebenslage Schritt für Schritt. Ganz gleich, ob es um weniger Schmerzen, mehr Beweglichkeit, oder Prävention geht.</p> <p>Außerdem haben wir langjährige Erfahrung in allen Teilgebieten der Osteopathie. Sie ist eine Therapieform, die den Menschen ganzheitlich betrachtet: Einerseits den Körper und andererseits die äußeren Einflüsse. Diese Philosophie zieht sich als Leitfaden durch unser umfangreiches Angebot.</p>",
+            "buttons": []
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Unser Team",
+        "level": 2,
+        "html": "",
+        "cards": [],
+        "buttons": [
+          {
+            "text": "Lerne uns kennen",
+            "href": "/team/"
+          }
+        ],
+        "images": [
+          {
+            "src": "https://physiotherapie-wellenbrock-wernecken.de/wp-content/uploads/2026/07/physiotherapie-moabit-team-wellenbrock-wernecken-1.webp",
+            "alt": "Team der Physiotherapiepraxis Wellenbrock & Wernecken in Berlin Moabit"
+          }
+        ]
+      },
+      {
+        "heading": "Unser Angebot",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Physiotherapie",
+            "html": "<p>Ob Manuelle Therapie, Krankengymnastik, oder Fango-Behandlung: Durch unsere fachliche Vielseitigkeit decken wir ein breites Angebot an physiotherapeutischen Basisleistungen ab.</p>",
+            "buttons": [
+              {
+                "text": "Physiotherapie",
+                "href": "/physiotherapie/"
+              }
+            ]
+          },
+          {
+            "title": "Osteopathie",
+            "html": "<p>Wir haben über {jahreOsteo} Jahre Erfahrung in allen Teilgebieten der Osteopathie. Sie ist eine Therapieform, die den Menschen ganzheitlich betrachtet. Diese Philosophie zieht sich als Leitfaden durch unser umfangreiches Angebot.</p>",
+            "buttons": [
+              {
+                "text": "Osteopathie",
+                "href": "/osteopathie/"
+              }
+            ]
+          }
+        ],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/hausbesuche/",
+    "kind": "content",
+    "title": "Physiotherapie Hausbesuche in Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Hausbesuche in Berlin Moabit: Wir bringen Physiotherapie & Osteopathie direkt zu dir – professionell, einfühlsam und flexibel.",
+    "h1": "Hausbesuche",
+    "lead": "<p>Physiotherapie Hausbesuche in Berlin-Moabit: Manchmal ist der Weg in die Praxis nicht möglich – zum Beispiel nach einer OP, mit Gehhilfe oder bei starken Schmerzen. Deshalb kommen wir zu dir nach Hause und behandeln dich in deinem vertrauten Umfeld</p>",
+    "sections": [
+      {
+        "heading": "Warum Hausbesuche?",
+        "level": 2,
+        "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich – zum Beispiel nach einer OP, mit Gehhilfe oder wenn Schmerzen zu stark sind. In solchen Situationen kommen wir zu dir nach Hause. In deiner gewohnten Umgebung, kannst du optimal behandelt werden und musst dich nicht um die Anfahrt kümmern.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktionieren Hausbesuche?",
+        "level": 2,
+        "html": "<p>Wir vereinbaren einen Termin, kommen zu dir und bringen alles mit, was wir für die Behandlung brauchen. Vor Ort prüfen wir deine Beschwerden. Danach starten wir die individuelle Behandlung. Die Qualität der Therapie ist die Gleiche, wie in unserer Praxis in Berlin Moabit.</p>",
+        "cards": [
+          {
+            "title": "Information",
+            "html": "<ul><li>Für einen Hausbesuch brauchst du eine ärztliche Verordnung, auf der ‚Hausbesuch‘ angekreuzt ist.</li><li>Für Osteopathie und Sonder-Leistungen bieten wir keine Hausbesuche an.</li></ul>",
+            "buttons": []
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Infos rund um Physiotherapie Hausbesuche in Berlin-Moabit und Charlottenburg.",
+        "level": 2,
+        "html": "<p>Die Dauer des Hausbesuchs hängt von der verordneten Therapie ab. Wichtig: Auf deinem Rezept muss „Hausbesuch“ vermerkt sein, damit die Krankenkasse die Kosten übernimmt. Preise für privat Versicherte findest du auf unserer Preisliste.</p><p>Unsere Hausbesuche machen wir mit dem Fahrrad. Deswegen ist die Anfahrt auf einen Radius von ca. 1,5 Kilometern um unsere Praxis begrenzt.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Unser Angebot",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Physiotherapie",
+            "html": "<p>Ob Manuelle Therapie, Krankengymnastik, oder Fango-Behandlung: Durch unsere fachliche Vielseitigkeit decken wir ein breites Angebot an physiotherapeutischen Basisleistungen ab.</p>",
+            "buttons": [
+              {
+                "text": "Physiotherapie",
+                "href": "/physiotherapie/"
+              }
+            ]
+          },
+          {
+            "title": "Osteopathie",
+            "html": "<p>Wir haben über {jahreOsteo} Jahre Erfahrung in allen Teilgebieten der Osteopathie. Sie ist eine Therapieform, die den Menschen ganzheitlich betrachtet. Diese Philosophie zieht sich als Leitfaden durch unser umfangreiches Angebot.</p>",
+            "buttons": [
+              {
+                "text": "Osteopathie",
+                "href": "/osteopathie/"
+              }
+            ]
+          }
+        ],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/impressum/",
+    "kind": "legal",
+    "title": "Impressum – Wellenbrock & Wernecken Physiotherapie & Osteopathie Moabit",
+    "description": "Impressum der Physiotherapie Wellenbrock & Wernecken, Bochumer Strasse 9, 10555 Berlin Moabit.",
+    "h1": "Impressum",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Angaben gemäß § 5 TMG:",
+        "level": 2,
+        "html": "<p>Praxis für Physiotherapie – Wellenbrock &amp; Wernecken<br>Bochumer Str. 9<br>10555 Berlin</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Vertreten durch:",
+        "level": 2,
+        "html": "<p>Monika Wellenbrock</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Kontakt:",
+        "level": 2,
+        "html": "<p>Telefon: 030 – 392 44 46<br>Telefax: 030 – 39 90 40 25<br>E-Mail: info@physiotherapie-wellenbrock-wernecken.de</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Steuernummer",
+        "level": 2,
+        "html": "<p>Steuernummer: 585 / 500 / 13<br>Zuständiges Finanzamt: FA Berlin Mitte-Tiergarten</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Berufsbezeichnung und berufsrechtliche Regelungen",
+        "level": 2,
+        "html": "<p>Berufsbezeichnung: Physiotherapeut-/in<br>Zuständige Kammer: Senatsverwaltung für Gesundheit Berlin<br>Verliehen durch: Land Berlin Deutschland<br>Es gelten folgende berufsrechtliche Regelungen: Gesetz über die Berufe in der Physiotherapie (Masseur- und Physiotherapeutengesetz – MPhG)<br>Regelungen einsehbar unter: <a href=\"http://www.gesetze-im-internet.de/mphg/BJNR108400994.html\">http://www.gesetze-im-internet.de/mphg/BJNR108400994.html</a></p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Streitschlichtung",
+        "level": 2,
+        "html": "<p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href=\"https://ec.europa.eu/consumers/odr\">https://ec.europa.eu/consumers/odr</a>.<br>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p><p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Haftung für Inhalte",
+        "level": 2,
+        "html": "<p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p><p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Haftung für Links",
+        "level": 2,
+        "html": "<p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p><p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Urheberrecht",
+        "level": 2,
+        "html": "<p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p><p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/jobs/",
+    "kind": "content",
+    "title": "Jobs | Physiotherapeut Physiotherapeutin Berlin Moabit",
+    "description": "Werde Teil unseres Teams in Berlin Moabit: Jobs als Physiotherapeut & Physiotherapeutin. Bewirb dich jetzt bei uns.",
+    "h1": "Jobs",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Wir arbeiten ganzheitlich – jede:r bringt eigene Stärken ein.",
+        "level": 2,
+        "html": "<p>Jede Therapeutin und jeder Therapeut hat einen eigenen Stil und besondere Kompetenzen. Wir glauben, dass echte Qualität entsteht, wenn jede:r das einbringt, was sie oder ihn ausmacht. Deshalb setzen wir auf Vielfalt statt Einheitskonzept. Wir sehen deine Stärken, setzen sie gezielt ein und fördern sie durch Fortbildungen und Austausch. Wir unterstützen uns gegenseitig und geben jeden Tag unser Bestes.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Unsere Jobs",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Physiotherapeut/in (Teilzeit/Vollzeit)",
+            "html": "<p><strong>Physiotherapie Jobs in Berlin-Moabit – Deine Aufgaben:</strong></p><ul><li>Du behandelst Patient:innen mit unterschiedlichen Beschwerden und Krankheitsbildern</li><li>Du entwickelst individuelle Therapieansätze und dokumentierst die Behandlungsverläufe sorgfältig</li><li>Du begleitest und motivierst Deine Patient:innen bei Übungen zur Rehabilitation und Prävention</li><li>Du arbeitest eng mit Ärzt:innen, Therapeut:innen und weiteren Fachkräften zusammen</li></ul><p><strong>Dein Profil als Physiotherapeut:in:</strong></p><ul><li>Du hast eine abgeschlossene Ausbildung als Physiotherapeut:in</li><li>Idealerweise bringst Du erste Berufserfahrung mit – Berufseinsteiger:innen sind ebenso willkommen</li><li>Du gehst einfühlsam auf Patient:innen ein und arbeitest gerne mit Menschen</li><li>Du überzeugst durch Teamfähigkeit und klare Kommunikation</li><li>Du arbeitest selbstständig, strukturiert und verantwortungsbewusst</li></ul><p><strong>Das bieten wir Dir:</strong></p><ul><li>Eine unbefristete Anstellung in Teil- oder Vollzeit</li><li>Eine faire, attraktive Vergütung sowie flexible Arbeitszeiten</li><li>Moderne Praxisräume und eine hochwertige Ausstattung</li><li>Regelmäßige Fort- und Weiterbildungen</li><li>Unterstützung bei Deiner fachlichen und persönlichen Weiterentwicklung</li></ul><p>Du hast Interesse, Teil unseres Teams zu werden? Dann sende uns Deine Bewerbungsunterlagen (Anschreiben, Lebenslauf, Zeugnisse) ganz unkompliziert über unser Kontaktformular.</p><p><strong>Wir freuen uns auf Dich!</strong></p>",
+            "buttons": [
+              {
+                "text": "Jetzt bewerben",
+                "href": "/kontakt/"
+              }
+            ]
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Unser Team",
+        "level": 2,
+        "html": "",
+        "cards": [],
+        "buttons": [
+          {
+            "text": "Lerne uns kennen",
+            "href": "/team/"
+          }
+        ],
+        "images": [
+          {
+            "src": "https://physiotherapie-wellenbrock-wernecken.de/wp-content/uploads/2026/07/physiotherapie-moabit-team-wellenbrock-wernecken-1.webp",
+            "alt": "Team der Physiotherapiepraxis Wellenbrock & Wernecken in Berlin Moabit"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/kontakt/",
+    "kind": "special",
+    "title": "Kontakt | Physiotherapie & Osteopathie Berlin Moabit",
+    "description": "Wellenbrock & Wernecken – Physiotherapie & Osteopathie in Berlin Moabit. Hier findest du Kontakt, Adresse und Öffnungszeiten.",
+    "h1": "Kontakt",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "So erreichst du uns",
+        "level": 2,
+        "html": "",
+        "cards": [
+          {
+            "title": "Telefon",
+            "html": "<p>{telefon}<br>Mo–Fr: 09:00 – 20:00 </p><p>Anrufen</p>",
+            "buttons": []
+          },
+          {
+            "title": "E-Mail",
+            "html": "<p>info@physiotherapie-wellenbrock-wernecken.de</p><p>Mail schreiben</p>",
+            "buttons": []
+          },
+          {
+            "title": "Adresse",
+            "html": "<p>Bochumer Strasse 9, <br>10555 Berlin</p><p>Route planen</p>",
+            "buttons": []
+          },
+          {
+            "title": "Behandlungszeiten",
+            "html": "<p>Mo–Fr: 09:00 – 20:00 <br>Sa: Nach Absprache</p>",
+            "buttons": []
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Fragen & Anregungen",
+        "level": 2,
+        "html": "<p>Wir freuen uns über deine Nachricht!</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/osteopathie/",
+    "kind": "overview",
+    "title": "Osteopathie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Osteopathie Berlin Moabit – ganzheitliche Behandlung bei Schmerzen, Verdauungsbeschwerden & mehr. {jahreOsteo} Jahre Erfahrung. Termin: {telefon}",
+    "h1": "Osteopathie",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Osteopathie in Berlin-Moabit",
+        "level": 2,
+        "html": "<p>Die Osteopathie betrachtet den Körper als Einheit. Mit sanften, gezielten Handgriffen fördern wir das Zusammenspiel von Muskeln, Gelenken und Organen. Dadurch aktivieren wir die Selbstheilungskräfte.</p>",
+        "cards": [
+          {
+            "title": "Parietale Osteopathie",
+            "html": "",
+            "buttons": [],
+            "href": "/osteopathie/parietale-osteopathie/"
+          },
+          {
+            "title": "Craniosacrale Osteopathie",
+            "html": "",
+            "buttons": [],
+            "href": "/osteopathie/craniosacrale-osteopathie/"
+          },
+          {
+            "title": "Viscerale Osteopathie",
+            "html": "",
+            "buttons": [],
+            "href": "/osteopathie/viszerale-osteopathie/"
+          },
+          {
+            "title": "Osteopathie für Kinder",
+            "html": "",
+            "buttons": [],
+            "href": "/osteopathie/osteopathie-fuer-kinder/"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "{jahrePraxis} Jahre Erfahrung in der Osteopathie",
+        "level": 2,
+        "html": "<p>Seit über {jahrePraxis} Jahren begleite ich Menschen mit Osteopathie in Berlin Moabit. Meine Ausbildung umfasst parietale, viszerale und craniosacrale Osteopathie. Für dich bedeutet das: Beschwerden werden nicht isoliert betrachtet, sondern im Zusammenspiel deines Körpers.</p><p>Du profitierst von meiner langjährigen Erfahrung und zahlreichen Zusatzausbildungen, unter anderem in biodynamischer Osteopathie und in der Kinderosteopathie. Viele unserer Patient:innen kommen aus Moabit, Charlottenburg und Tiergarten. Durch regelmäßige Fortbildungen im In- und Ausland sichern wir dir eine moderne und wirksame Behandlung.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": [],
+        "byline": "Monika Wellenbrock"
+      }
+    ]
+  },
+  {
+    "path": "/osteopathie/craniosacrale-osteopathie/",
+    "kind": "treatment",
+    "title": "Craniosacrale Osteopathie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Craniosacrale Osteopathie Berlin Moabit – sanfte Behandlung bei Kopfschmerzen, Stress & Schlafproblemen. {jahreOsteo} Jahre Erfahrung. {telefon}",
+    "h1": "Craniosacrale Osteopathie",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Craniosacrale Osteopathie?",
+        "level": 2,
+        "html": "<p>Bei Kopfschmerzen, Stress oder Verspannungen kann Craniale Osteopathie helfen. Die Therapie stellt das innere Gleichgewicht wieder her und löst körperliche und emotionale Anspannung. Viele Patient:innen berichten von tiefer Entspannung und langfristig mehr Wohlbefinden.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Craniosacrale Osteopathie?",
+        "level": 2,
+        "html": "<p>Unsere Therapeut:innen arbeiten mit sanften manuellen Techniken. Mit präzisen Berührungen ertasten unsere Therapeut:innen die feinen Bewegungen von Schädel, Wirbelsäule und Kreuzbein. Die Craniosacrale Osteopathie ist hoch individualisiert. Jede Behandlung wird auf dich abgestimmt.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Sitzung dauert meist 30–60 Minuten. Wir starten mit einem ausführlichen Gespräch und einer Untersuchung deines Bewegungsapparats. Danach folgt die gezielte Behandlung in ruhiger, entspannter Atmosphäre.</p><p>Craniosacrale Osteopathie ist eine Selbstzahlerleistung. Private Kassen erstatten oft anteilig. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Craniosacrale Osteopathie?",
+        "level": 2,
+        "html": "<ul><li>Spannungskopfschmerzen und Migräne</li><li>Kiefergelenksbeschwerden (CMD)</li><li>Schwindel und Gleichgewichtsstörungen</li><li>Chronische Nacken- und Rückenverspannungen</li><li>Stressbedingte Beschwerden und Schlafprobleme</li><li>Unterstützend bei Tinnitus</li><li>Begleitend bei Erschöpfung und Konzentrationsproblemen</li><li>Förderung der allgemeinen Entspannung und Regeneration</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/osteopathie/osteopathie-fuer-kinder/",
+    "kind": "treatment",
+    "title": "Osteopathie für Kinder Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Osteopathie für Kinder in Berlin Moabit. Sanfte Behandlung mit viel Erfahrung und individueller Begleitung.",
+    "h1": "Osteopathie für Kinder",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Osteopathie für Kinder?",
+        "level": 2,
+        "html": "<p>Osteopathie geht den Ursachen von Beschwerden auf den Grund und fördert die gesunde Entwicklung. Gerade bei Kindern ist es wichtig, frühzeitig Blockaden zu erkennen und sanft zu lösen. So unterstützen wir das Wohlbefinden, bevor aus kleinen Problemen größere Einschränkungen entstehen.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Osteopathie für Kinder?",
+        "level": 2,
+        "html": "<p>Zu Beginn sprechen wir ausführlich mit dir über die Beschwerden deines Kindes. Danach beobachten wir Haltung und Bewegung und behandeln sanft mit den Händen. Alles geschieht spielerisch, ohne Druck und ohne Schmerzen – Eltern sind selbstverständlich in den Ablauf eingebunden.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Ein Termin dauert ca. 60 Minuten. Osteopathie ist in der Regel eine Selbstzahlerleistung. Viele Krankenkassen erstatten jedoch anteilig die Kosten – informiere dich am besten vorab bei deiner Kasse. Unsere aktuellen Preise findest du in der Preisliste. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Osteopathie für Kinder?",
+        "level": 2,
+        "html": "<ul><li>Verdauungsprobleme (Koliken, Blähungen, Verstopfung)</li><li>Schlafstörungen und Unruhe</li><li>Haltungsasymmetrien und Verspannungen</li><li>Entwicklungsverzögerungen</li><li>Folgen von schwierigen Geburten oder Kaiserschnitt</li><li>Konzentrationsprobleme &amp; Stressbelastungen</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/osteopathie/parietale-osteopathie/",
+    "kind": "treatment",
+    "title": "Parietale Osteopathie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Parietale Osteopathie in Berlin Moabit: Behandlung von Beschwerden des Bewegungsapparats. Erfahre mehr über unsere ganzheitliche Therapie.",
+    "h1": "Parietale Osteopathie",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Parietale Osteopathie?",
+        "level": 2,
+        "html": "<p>Oft liegen Beschwerden nicht nur am schmerzenden Bereich selbst, sondern an gestörten Zusammenhängen im Bewegungsapparat. Der Bewegungsapparat besteht aus Gelenken, Muskeln, Sehnen, Bändern und Faszien. Parietale Osteopathie setzt dort an und bringt dein System wieder in Balance.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Parietale Osteopathie?",
+        "level": 2,
+        "html": "<p>Unsere Therapeut:innen arbeiten mit sanften manuellen Techniken. Durch gezielte Handgriffe erspüren wir Bewegungseinschränkungen, mobilisieren betroffene Bereiche und aktivieren körpereigene Regenerationsprozesse. Die parietale Osteopathie ist hoch individualisiert. Jede Behandlung wird auf dich abgestimmt.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Sitzung dauert meist 60 Minuten. Wir starten mit einem ausführlichen Gespräch und einer Untersuchung deines Bewegungsapparats. Danach folgt die gezielte Behandlung in ruhiger, entspannter Atmosphäre.</p><p>Parietale Osteopathie ist eine Selbstzahlerleistung. Private Kassen erstatten oft anteilig. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Parietale Osteopathie?",
+        "level": 2,
+        "html": "<ul><li>Rückenschmerzen &amp; Nackenschmerzen</li><li>Gelenkbeschwerden (Schulter, Knie, Hüfte)</li><li>Sportverletzungen</li><li>Verspannungen</li><li>Bewegungseinschränkungen</li><li>Muskel- und Faszienschmerzen</li><li>Beschwerden nach Unfällen oder Operationen</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/osteopathie/viszerale-osteopathie/",
+    "kind": "treatment",
+    "title": "Viszerale Osteopathie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Viszerale Osteopathie in Berlin Moabit: Sanfte Behandlung für innere Organe und Faszien. Ganzheitliche Therapie in unserer Praxis.",
+    "h1": "Viszerale Osteopathie",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Viszerale Osteopathie?",
+        "level": 2,
+        "html": "<p>Viele Beschwerden haben ihren Ursprung nicht dort, wo sie sich die Symptome zeigen. Einschränkungen in der Beweglichkeit der Organe können eine Vielzahl von Beschwerden verursachen. Zum Beispiel Verdauungsprobleme, Rückenschmerze, Spannungskopfschmerzen oder diffuse Schmerzen.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Viszerale Osteopathie?",
+        "level": 2,
+        "html": "<p>Unsere Therapeut:innen arbeiten mit sanften manuellen Techniken. Durch gezielte Handgriffe erspüren wir Bewegungseinschränkungen der Organe, mobilisieren betroffene Bereiche und aktivieren körpereigene Regenerationsprozesse. Die viszerale Osteopathie ist hoch individualisiert. Jede Behandlung wird auf dich abgestimmt.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Sitzung dauert meist 30–60 Minuten. Wir starten mit einem ausführlichen Gespräch und einer Untersuchung deines Bewegungsapparats. Danach folgt die gezielte Behandlung in ruhiger, entspannter Atmosphäre.</p><p>Viszerale Osteopathie ist eine Selbstzahlerleistung. Private Kassen erstatten oft anteilig. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Viszerale Osteopathie?",
+        "level": 2,
+        "html": "<ul><li>Verdauungsbeschwerden (z. B. Reizdarm)</li><li>Bauchschmerzen &amp; Blähungen</li><li>Beschwerden nach Operationen</li><li>Menstruationsbeschwerden</li><li>Chronische Rückenschmerzen mit Organbeteiligung</li><li>Spannungskopfschmerzen</li><li>Bewegungseinschränkungen im Brust- oder Bauchraum</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/",
+    "kind": "overview",
+    "title": "Physiotherapie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Physiotherapie in Berlin Moabit ✓ Manuelle Therapie ✓ Krankengymnastik ✓ Kassenzulassung ✓ Hausbesuche in Moabit, Hansaviertel & Tiergarten",
+    "h1": "Physiotherapie in Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Physiotherapie in Berlin-Moabit: unsere Basisleistungen",
+        "level": 2,
+        "html": "<p>Ob Manuelle Therapie, Krankengymnastik, oder Fango-Behandlung: Durch unsere fachliche Vielseitigkeit decken wir ein breites Angebot an physiotherapeutischen Basisleistungen ab.</p>",
+        "cards": [
+          {
+            "title": "Krankengymnastik (KG)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/krankengymnastik/"
+          },
+          {
+            "title": "Krankengymnastik für Kinder (KG)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/krankengymnastik-fuer-kinder/"
+          },
+          {
+            "title": "Manuelle Therapie (MT)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/manuelle-therapie/"
+          },
+          {
+            "title": "Klassische Massagetherapie (KMT)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/klassische-massage/"
+          },
+          {
+            "title": "Manuelle Lymphdrainage (MLD)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/manuelle-lymphdrainage/"
+          },
+          {
+            "title": "Atemtherapie (KG-AT)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/atem-therapie/"
+          },
+          {
+            "title": "Fango-Behandlung (WT)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/fango-behandlung/"
+          },
+          {
+            "title": "Heißluft-Therapie (WT)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/heissluft-therapie/"
+          },
+          {
+            "title": "Kälte-Therapie (KT)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/kaelte-therapie/"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Neurologische Physiotherapie",
+        "level": 2,
+        "html": "<p>Unsere besondere Expertise ist die Therapie von Menschen mit neurologischen Erkrankungen wie Multiple Sklerose, Parkinson oder Schlaganfall. Hier bringen wir viel Erfahrung und Einfühlungsvermögen mit. Wir behandeln dich entweder in unserer Praxis in Berlin Moabit, oder zu Hausbesuchen.</p>",
+        "cards": [
+          {
+            "title": "Bobath-Therapie für Erwachsene (KG-ZNS)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/bobath-therapie/"
+          },
+          {
+            "title": "Propriozeptive neuromuskuläre Fazilitation (PNF)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/propriozeptive-neuromuskulaere-fazilitation/"
+          },
+          {
+            "title": "Atemtherapie (KG-AT)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/atem-therapie/"
+          }
+        ],
+        "buttons": [],
+        "images": [],
+        "id": "neuro"
+      },
+      {
+        "heading": "Sonder-Leistungen",
+        "level": 2,
+        "html": "<p>Ergänzende Angebote, um deine Behandlung noch passender und vielseitiger zu gestalten.</p>",
+        "cards": [
+          {
+            "title": "CMD-Behandlung (CMD)",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/cmd-behandlung/"
+          },
+          {
+            "title": "Medical Kinesio-Taping",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/medical-kinesio-taping/"
+          },
+          {
+            "title": "Medical Flossing-Therapie",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/medical-flossing-therapie/"
+          },
+          {
+            "title": "Faszientherapie",
+            "html": "",
+            "buttons": [],
+            "href": "/physiotherapie/faszientherapie/"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/atem-therapie/",
+    "kind": "treatment",
+    "title": "Atemtherapie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Atemtherapie in Berlin Moabit: Behandlung bei Atembeschwerden und zur Unterstützung von Lunge & Wohlbefinden. Individuell & professionell.",
+    "h1": "Atemtherapie in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Atem-Therapie?",
+        "level": 2,
+        "html": "<p>Mit Atemtherapie helfen wir dir, die Atmung zu verbessern. So kannst du Atemnot reduzieren und mehr Ausdauer gewinnen. Außerdem wird der Abtransport von Schleim in den Atemwegen gefördert.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Atem-Therapie?",
+        "level": 2,
+        "html": "<p>Die Therapie kombiniert Atemübungen mit Mobilisation des Brustkorbs. So wird gleichzeitig die Atem-Muskulatur gestärkt und die Lunge entlastet.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Atem-Therapie dauert ca. 20 Minuten. Bevor wir starten, hören wir dir genau zu: Wo sitzt der Schmerz? Was fällt dir schwer? Anschließend beginnt die individuelle Behandlung.</p><p>Du hast ein Rezept mit dem Kürzel „KG-AT“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten vollständig. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich.</p><p>Atem-Therapie bieten wir auch als Hausbesuch an. Zum Beispiel in Moabit, Tiergarten oder Charlottenburg. Hier findest du mehr über <a href=\"/hausbesuche/\">unsere Hausbesuche.</a></p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Atem-Therapie?",
+        "level": 2,
+        "html": "<ul><li>COPD &amp; chronische Bronchitis</li><li>Asthma bronchiale</li><li>Post-Covid-Beschwerden</li><li>Lungenfibrose</li><li>Atemnot im Alltag</li><li>Rehabilitation nach Lungenerkrankungen</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/bobath-therapie/",
+    "kind": "treatment",
+    "title": "Bobath-Therapie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Bobath-Therapie in Berlin Moabit: Spezialisierte Behandlung bei neurologischen Erkrankungen. Erfahren & einfühlsam. Jetzt Termin vereinbaren.",
+    "h1": "Bobath-Therapie in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Bobath-Therapie?",
+        "level": 2,
+        "html": "<p>Ob beim Anziehen, Gehen oder Greifen: Neurologische Erkrankungen verändern den Körper und können viele Alltagsbewegungen beeinträchtigen. Bobath-Therapie setzt hier an. Sie hat das Ziel verloren gegangene Fähigkeiten zurückzugewinnen. Es können sogar neue Bewegungen erlernt werden. So möchten wir Selbstständigkeit und Sicherheit in deinem Alltag ermöglichen.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Bobath-Therapie?",
+        "level": 2,
+        "html": "<p>Das Bobath-Konzept basiert auf Wiederholung gezielter Bewegungen. Die Übungen sind alltagsnah, um dein Leben gezielt zu erleichtern. Gemeinsam arbeiten wir aktiv an Haltung, Gleichgewicht und Koordination. So wird dein Nervensystem stimuliert und du kannst Bewegungsabläufe zurückgewinnen, oder neu lernen.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Die Bobath-Therapie dauert in der Regel 30–60 Minuten. Vor der Behandlung nehmen wir uns Zeit für ein Gespräch und eine genaue Bewegungsanalyse. Danach beginnt die individuell auf dich abgestimmte Behandlung. Wir arbeiten dabei mit Ruhe und Einfühlungsvermögen.</p><p>Du hast ein Rezept mit dem Kürzel „KG-ZNS“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten vollständig. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich. </p><p>Bobath-Behandlung bieten wir auch als Hausbesuch an. Zum Beispiel in Moabit, Tiergarten oder Charlottenburg. Hier findest du mehr über <a href=\"/hausbesuche/\">unsere Hausbesuche.</a></p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Bobath-Therapie?",
+        "level": 2,
+        "html": "<ul><li>Lähmungen oder Bewegungseinschränkungen nach Schlaganfall</li><li>Spastik oder Muskeltonusveränderungen</li><li>Gangunsicherheit oder Gleichgewichtsstörungen</li><li>Koordinationsprobleme bei neurologischen Erkrankungen</li><li>Einschränkungen durch Multiple Sklerose (MS)</li><li>Beschwerden bei Morbus Parkinson (z. B. Gangbild, Bewegungsarmut)</li><li>Halbseitenlähmungen (Hemiparese)</li><li>Einschränkungen der Feinmotorik</li><li>Kraftverlust nach längerer Immobilität (z. B. Krankenhausaufenthalt)</li><li>Probleme bei alltäglichen Bewegungsabläufen (z. B. Anziehen, Aufstehen, Greifen)</li><li>Unsicherheit im Alltag aufgrund neurologischer Symptome</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/cmd-behandlung/",
+    "kind": "treatment",
+    "title": "CMD-Behandlung Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "CMD Behandlung in Berlin Moabit: Physiotherapie bei Kieferbeschwerden & craniomandibulärer Dysfunktion. Erfahre mehr über uns",
+    "h1": "CMD-Behandlung in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum CMD-Behandlung?",
+        "level": 2,
+        "html": "<p>CMD kann nicht nur Kieferprobleme verusachen. Auch Kopf-, Nacken- und Rückenschmerzen können auftreten. Unsere Therapie hilft dir, die Ursache zu behandeln und nicht nur die Symptome.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert CMD-Behandlung?",
+        "level": 2,
+        "html": "<p>Eine CMD-Behandlung ist manuelle Therapie am Kiefergelenk. Kombiniert mit Übungen zur Verbesserung der Kieferfunktion. Oft hängen die Beschwerden eng mit der Nacken- und Schulterregion zusammen. Deswegen behandeln häufig auch diese Regionen. Wir lockern verspannte Muskulatur und verbessern die Bewegung deines Kiefers.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine CMD-Behandlung dauert ca. 20 Minuten. Bevor wir starten, hören wir dir genau zu: Wo sitzt der Schmerz? Was fällt dir schwer? Anschließend beginnt die individuelle Behandlung.</p><p>Du hast ein Rezept mit dem Kürzel „CMD“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten vollständig. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U-Turmstraße und S-Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich. Propriozeptive neuromuskuläre Fazilitation bieten wir auch als Hausbesuche in Moabit, Tiergarten und Charlottenburg an.</p><p>CMD-Behandlung bieten wir auch als Hausbesuch an. Zum Beispiel in Moabit, Tiergarten oder Charlottenburg. Hier findest du mehr über <a href=\"/hausbesuche/\">unsere Hausbesuche.</a></p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft CMD-Behandlung?",
+        "level": 2,
+        "html": "<ul><li>Chronische Rückenschmerzen</li><li>Nacken- und Schulterschmerzen</li><li>Verspannungen &amp; Muskelverhärtungen</li><li>Arthrose (unterstützend)</li><li>Stressbedingte Beschwerden</li><li>Regeneration nach Sport oder Verletzungen</li><li>Vorbereitung auf Krankengymnastik oder Manuelle Therapie</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/fango-behandlung/",
+    "kind": "treatment",
+    "title": "Fango-Behandlung Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Fangotherapie Berlin Moabit – wohltuende Wärmebehandlung für Muskeln & Gelenke. Ergänzung zu Physiotherapie & Osteopathie.",
+    "h1": "Fango-Behandlung Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Fango-Behandlung?",
+        "level": 2,
+        "html": "<p>Wärme kann heilen. Sowohl akute Verspannung als auch chronische Beschwerden. Die natürliche Wärme von Fango dringt tief ins Gewebe ein und regt die Durchblutung an. Das hilft dir dabei, schneller zu regenerieren. Fango eignet sich außerdem zur Vorbereitung auf weitere Behandlungen.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Fango-Behandlung?",
+        "level": 2,
+        "html": "<p>Wir verwenden sogenannte Fangopackungen. Das sind spezielle Wärmeträger aus Naturmoor. Diese werden auf ca. 50 °C erhitzt und auf die betroffene Körperregion gelegt. Dort wirken sie etwa 20 Minuten lang. So kann die Wärme tief ins Gewebe eindringen und die Muskulatur lockern.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Fangobehandlung dauert ca. 20 Minuten. Du legst dich bequem hin, während die warme Packung aufgebracht wird. Die Wärme entfaltet ihre Wirkung und du kannst entspannen.</p><p>Du hast ein Rezept mit dem Kürzel „WT“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten vollständig. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich. </p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Fango-Behandlung?",
+        "level": 2,
+        "html": "<ul><li>Chronische Rückenschmerzen</li><li>Nacken- und Schulterschmerzen</li><li>Verspannungen &amp; Muskelverhärtungen</li><li>Arthrose (unterstützend)</li><li>Stressbedingte Beschwerden</li><li>Regeneration nach Sport oder Verletzungen</li><li>Vorbereitung auf Krankengymnastik oder Manuelle Therapie</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/faszientherapie/",
+    "kind": "treatment",
+    "title": "Faszientherapie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Faszientherapie in Berlin Moabit: Behandlung & Training für mehr Beweglichkeit, weniger Schmerzen & bessere Körperhaltung.",
+    "h1": "Faszientherapie in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Faszientherapie?",
+        "level": 2,
+        "html": "<p>Verklebte oder verhärtete Faszien können Schmerzen oder Bewegungseinschränkungen verursachen. Dabei kann dir Faszientherapie helfen. Wir verbessern deine Beweglichkeit und lindern deine Schmerzen.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Faszientherapie?",
+        "level": 2,
+        "html": "<p>Mit gezielten Dehn- und Drucktechniken behandeln wir die tiefen Bindegewebsschichten. Je nach deinem Beschwerdebild, kann die Behandlung sanft oder intensiver sein. Das Ziel der Therapie ist die Durchblutung anzuregen, um die Faszien wieder beweglich zu machen.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Sitzung dauert meist 20 Minuten. Wir starten mit einem ausführlichen Gespräch und einer Untersuchung deiner Beschwerden. Danach folgt die gezielte Behandlung in ruhiger, entspannter Atmosphäre.</p><p>Faszientherapie ist eine Selbstzahlerleistung. Private Kassen erstatten oft anteilig. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich. </p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Faszientherapie?",
+        "level": 2,
+        "html": "<ul><li>Rückenschmerzen &amp; Verspannungen</li><li>Bewegungseinschränkungen</li><li>Sportverletzungen &amp; Regeneration</li><li>Fehlhaltungen</li><li>Chronische Muskelverhärtungen</li><li>Kopfschmerzen durch Nackenverspannungen</li><li> </li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/heissluft-therapie/",
+    "kind": "treatment",
+    "title": "Heißluft-Therapie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Heißluft-Therapie in Berlin Moabit: Wärmetherapie zur Muskelentspannung & Schmerzlinderung. Ideal als Ergänzung zur Physiotherapie.",
+    "h1": "Heißluft-Therapie in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Heißluft-Therapie?",
+        "level": 2,
+        "html": "<p>Wärme ist eines der ältesten Mittel gegen Verspannungen. Sowohl akute Verspannung als auch chronische Beschwerden. Die Wärme dringt tief ins Gewebe ein und regt die Durchblutung an. Das hilft dir dabei, schneller zu regenerieren. Heißluft-Therapie eignet sich außerdem zur Vorbereitung auf weitere Behandlungen.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Heißluft-Therapie?",
+        "level": 2,
+        "html": "<p>Du liegst entspannt, während ein Infrarot-Licht gezielt auf die betroffenen Stellen gerichtet wird. Die tiefenwirksame Wärme verbessert die Durchblutung im Gewebe. Dadurch können Verspannungen gelöst und Schmerzen gelindert werden.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Heißluft-Therapie dauert ca. 20 Minuten. Du legst dich bequem hin, während die Wärme ihre Wirkung entfaltet.</p><p>Du hast ein Rezept mit dem Kürzel „WT“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten vollständig. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U-Turmstraße und S-Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich.</p><p>Heißluft-Therapie bieten wir auch als Hausbesuche in Moabit, Tiergarten und Charlottenburg an. Hier findest du mehr über <a href=\"/hausbesuche/\">unsere Hausbesuche.</a></p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Heißluft-Therapie?",
+        "level": 2,
+        "html": "<ul><li>Chronische Rückenschmerzen</li><li>Nacken- und Schulterschmerzen</li><li>Verspannungen &amp; Muskelverhärtungen</li><li>Arthrose (unterstützend)</li><li>Stressbedingte Beschwerden</li><li>Regeneration nach Sport oder Verletzungen</li><li>Vorbereitung auf Krankengymnastik oder Manuelle Therapie</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/kaelte-therapie/",
+    "kind": "treatment",
+    "title": "Kälte-Therapie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Kältetherapie in Berlin-Moabit: Eisbehandlung gegen Schmerzen und Schwellungen. Jetzt Termin bei Wellenbrock & Wernecken nahe Turmstraße.",
+    "h1": "Kälte-Therapie in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Kälte-Therapie?",
+        "level": 2,
+        "html": "<p>Kälte-Therapie ist oft die erste Wahl bei frischen Beschwerden. Zum Beispiel bei Verstauchungen oder Entzündungen. Sie hilft deinem Körper Schwellungen zu minimieren. So werden Schmerzen reduziert und die Heilung kann beschleunigt werden.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Kälte-Therapie?",
+        "level": 2,
+        "html": "<p>Die Behandlung erfolgt meist im Liegen oder Sitzen, in entspannter Atmosphäre. Unsere Therapeut:innen tragen gezielt Kühlpackungen oder Kältekompressen auf die betroffenen Körperstellen auf. Die Behandlung hemmt Enzündungen und reduziert Schwellungen und Schmerzen.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Kälte-Therapie dauert ca. 10-15 Minuten. Du machst es dir bequem, während die Kälte ihre Wirkung entfaltet.<br><br>Du hast ein Rezept mit dem Kürzel „KT“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten vollständig. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U-Turmstraße und S-Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich.</p><p>Kälte-Therapie bieten wir auch als Hausbesuche in Moabit, Tiergarten und Charlottenburg an. Hier findest du mehr über <a href=\"/hausbesuche/\">unsere Hausbesuche.</a></p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Kälte-Therapie?",
+        "level": 2,
+        "html": "<ul><li>akuten Entzündungen und Schwellungen</li><li>Schmerzen durch Arthrose oder Rheuma</li><li>Sportverletzungen (z. B. Bänderriss, Zerrung)</li><li>Nachbehandlung von Operationen</li><li>Prellungen &amp; Reizungen von Sehnen/Gelenken</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/klassische-massage/",
+    "kind": "treatment",
+    "title": "Klassische Massagetherapie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Klassische Massage Berlin Moabit: Entspannung & Schmerzlinderung mit Massage. Physiotherapie nahe Turmstraße – jetzt informieren.",
+    "h1": "Klassische Massagetherapie in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Klassische Massage?",
+        "level": 2,
+        "html": "<p>Du fühlst dich verspannt oder leidest unter Rückenschmerzen? Die klassische Massage hilft dir, Muskeln zu lockern und Verspannungen zu lösen. Sie kann außerdem präventiv wirken. Zum Beispiel, wenn du viel sitzt oder körperlich stark belastet bist.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Klassische Massage?",
+        "level": 2,
+        "html": "<p>Mit speziellen Griff-, Streich- und Drucktechniken bearbeiten unsere Therapeut:innen die verspannte Muskulatur. Dabei werden Muskeln gelockert und die die Durchblutung wird gefördert. So lösen wir Verspannungen und lindern Schmerzen. Dabei passen wir die Intensität immer individuell an dein Empfinden an.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Deine Massage beginnt mit einem kurzen Gespräch: Was tut weh, wo sitzt die Verspannung? Danach startet die 20-minütige Behandlung. Du sollst dich entspannen und gleichzeitig spüren, dass sich etwas löst.</p><p>Du hast ein Rezept mit dem Kürzel „KMT“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten vollständig. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich. Klassische Massage bieten wir auch als Hausbesuch an. Zum Beispiel in Moabit, Tiergarten oder Charlottenburg.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Klassische Massage?",
+        "level": 2,
+        "html": "<ul><li>Rückenschmerzen (z. B. Lendenwirbelsäule, ISG, HWS-Syndrom)</li><li>Nackenschmerzen oder steifer Nacken</li><li>Blockaden in Wirbelsäule oder Gelenken</li><li>Bewegungseinschränkungen der Schulter, Hüfte oder Knie</li><li>Kiefergelenksprobleme (CMD)</li><li>Kopfschmerzen durch muskuläre Verspannungen</li><li>Schwindel bei muskulären Ursachen</li><li>Schmerzen nach Bandscheibenvorfall (begleitend)</li><li>Fehlhaltungen und muskuläre Dysbalancen</li><li>Beschwerden durch Fehl- oder Überbelastung im Alltag oder Beruf</li><li>Gelenkschmerzen nach Verletzungen oder Operationen</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/krankengymnastik-fuer-kinder/",
+    "kind": "treatment",
+    "title": "Krankengymnastik für Kinder Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Krankengymnastik Kinder Berlin: Unterstützung bei Haltung, Entwicklung und Beschwerden. Praxis W&W in Moabit – jetzt Termin vereinbaren.",
+    "h1": "Krankengymnastik für Kinder in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Krankengymnastik für Kinder?",
+        "level": 2,
+        "html": "<p>Mit Krankengymnastik für Kinder stärken wir Kraft, Beweglichkeit und Koordination. Altersgerecht und einfühlsam. Spielerische Übungen helfen, die motorische Entwicklung zu fördern, Schmerzen zu lindern und Haltungsschäden vorzubeugen.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Krankengymnastik für Kinder?",
+        "level": 2,
+        "html": "<p>Krankengymnastik für Kinder verbindet gezielte, spielerische Übungen mit fachlicher Begleitung. Die Methoden reichen von sanften Dehnungen bis zu kräftigenden Bewegungen. Immer kindgerecht und im passenden Tempo. Wir achten auf saubere Ausführung und darauf, dass dein Kind Freude an der Bewegung hat. Viele Übungen lassen sich leicht zu Hause wiederholen.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Einheit dauert in der Regel 20 Minuten. Wir beginnen mit einem Gespräch mit dir und deinem Kind, um die Beschwerden zu verstehen und gemeinsam einen passenden Übungsplan zu entwickeln. Danach startet die Behandlung und wir begleiten dein Kind individuell bei seiner Entwicklung.</p><p>Du hast ein Rezept mit dem Kürzel „KG“? Dann übernimmt die gesetzliche Krankenkasse die Kosten vollständig. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U-Turmstraße und S-Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf euch.</p><p>Krankengymnastik für Kinder bieten wir auch als Hausbesuch an. Zum Beispiel in Moabit, Tiergarten oder Charlottenburg. Hier findest du mehr über <a href=\"/hausbesuche/\">unsere Hausbesuche.</a></p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Krankengymnastik für Kinder?",
+        "level": 2,
+        "html": "<ul><li>Muskelverspannungen und Fehlhaltungen</li><li>Rückenschmerzen und Haltungsschwächen</li><li>Bewegungseinschränkungen nach Operationen oder Verletzungen</li><li>Gelenkschmerzen (z. B. Knie, Schulter, Hüfte)</li><li>Bandscheibenprobleme</li><li>Muskelschwäche oder Koordinationsstörungen</li><li>Gleichgewichtsprobleme</li><li>Schmerzen durch Arthrose oder Rheuma</li><li>Beschwerden nach Knochenbrüchen (z. B. eingeschränkte Mobilität)</li><li>Reha-Begleitung bei orthopädischen Erkrankungen</li><li>Fehlbelastungen durch sitzende Tätigkeiten oder einseitige Bewegungsmuster</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/krankengymnastik/",
+    "kind": "treatment",
+    "title": "Krankengymnastik Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Physiotherapie Krankengymnastik Berlin Moabit: Übungen für Gesundheit, Kraft und Beweglichkeit. Praxis nahe Turmstraße.",
+    "h1": "Krankengymnastik in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Krankengymnastik?",
+        "level": 2,
+        "html": "<p>Krankengymnastik hilft dir, Beweglichkeit zu verbessern und deine Muskulatur zu kräftigen. Mit gezielten Übungen unterstützen wir dich dabei Beweglichkeit zurückzugewinnen, oder Fehlhaltungen zu korrigieren. Außerdem kann dir Krankengymnastik helfen Schmerzen zu lindern.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Krankengymnastik?",
+        "level": 2,
+        "html": "<p>Krankengymnastik verbindet gezielte Übungen mit fachlicher Begleitung. Die Methoden reichen von sanften Dehnungen bis hin zu Kraftübungen. Dabei achten wir auf saubere Bewegungen, die richtige Belastung und dein eigenes Tempo. Alle Übungen werden so angepasst, dass du sie auch zu Hause ausführen kannst. So entwickeln wir gemeinsam dein optimales Training und erreichen nachhaltige Besserung.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Einheit dauert in der Regel 20 Minuten. Wir beginnen mit einem Gespräch, um deine Beschwerden zu verstehen und gemeinsam einen gezielten Trainingsplan zu entwickeln. Danach startet die Behandlung und wir begleiten dich individuell bei deiner Entwicklung.</p><p>Du hast ein Rezept mit dem Kürzel „KG“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten vollständig. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U-Turmstraße und S-Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich. </p><p>Krankengymnastik bieten wir auch als Hausbesuch an. Zum Beispiel in Moabit, Tiergarten oder Charlottenburg. Hier findest du mehr über <a href=\"/hausbesuche/\">unsere Hausbesuche.</a></p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Krankengymnastik?",
+        "level": 2,
+        "html": "<ul><li>Muskelverspannungen und Fehlhaltungen</li><li>Rückenschmerzen und Haltungsschwächen</li><li>Bewegungseinschränkungen nach Operationen oder Verletzungen</li><li>Gelenkschmerzen (z. B. Knie, Schulter, Hüfte)</li><li>Bandscheibenprobleme</li><li>Muskelschwäche oder Koordinationsstörungen</li><li>Gleichgewichtsprobleme</li><li>Schmerzen durch Arthrose oder Rheuma</li><li>Beschwerden nach Knochenbrüchen (z. B. eingeschränkte Mobilität)</li><li>Reha-Begleitung bei orthopädischen Erkrankungen</li><li>Fehlbelastungen durch sitzende Tätigkeiten oder einseitige Bewegungsmuster</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/manuelle-lymphdrainage/",
+    "kind": "treatment",
+    "title": "Manuelle Lymphdrainage Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Lymphdrainage Berlin-Moabit: Unterstützung bei Lymphstau, Ödemen und nach Operationen. Deine Physiotherapie W&W – jetzt Termin vereinbaren.",
+    "h1": "Manuelle Lymphdrainage in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Manuelle Lymphdrainage?",
+        "level": 2,
+        "html": "<p>Nach einer Operation, bei Verletzungen oder bei chronischen Lymphproblemen wie z.B. Lymphödemen, kann es zu Schwellungen und Spannungsgefühlen kommen. Manuelle Lymphdrainage lindert diese Beschwerden und fördert die Heilung. So helfen wir dir, dich schneller zu erholen und wieder beweglich zu werden.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Sitzung dauert 30–60 Minuten, je nach ärztlicher Verordnung. Zunächst besprechen wir deine Beschwerden und Ziele, dann beginnt die individuelle Behandlung. Die MLD führen wir mit Ruhe und Präzision durch, um optimale Ergebnisse zu erzielen.</p><p>Du hast ein Rezept mit dem Kürzel „MLD“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten vollständig. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du <a href=\"/preise/\">unter Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U-Turmstraße und S-Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich.</p><p>Manuelle Lymphdrainage bieten wir auch als Hausbesuch an. Zum Beispiel in Moabit, Tiergarten oder Charlottenburg. Hier findest du mehr über <a href=\"/hausbesuche/\">unsere Hausbesuche.</a></p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Manuelle Lymphdrainage?",
+        "level": 2,
+        "html": "<ul><li>Lymphödeme (primär oder sekundär, z. B. nach OP oder Bestrahlung)</li><li>Schwellungen nach Operationen (z. B. Knie- oder Brust-OP)</li><li>Schwellungen nach Sportverletzungen (z. B. Verstauchungen, Prellungen)</li><li>Lipödeme (in Kombination mit Kompressionstherapie)</li><li>Chronisch-venöse Insuffizienz (CVVI)</li><li>Schwere- oder Spannungsgefühl in Armen oder Beinen</li><li>Hämatome und Blutergüsse nach Trauma oder Eingriff</li><li>Nach Tumorbehandlungen mit Lymphknotenentfernung</li><li>Entstauungstherapie bei Schwangerschaftsödemen (in Absprache mit Ärzt:innen)</li><li>Postoperative Narbenverhärtung oder -verklebung</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/manuelle-therapie/",
+    "kind": "treatment",
+    "title": "Manuelle Therapie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Manuelle Therapie in Berlin-Moabit: Linderung von Schmerzen und Blockaden durch gezielte Handgriffe. Praxis W&W nahe Turmstraße.",
+    "h1": "Manuelle Therapie in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Manuelle Therapie?",
+        "level": 2,
+        "html": "<p>Du hast Rückenschmerzen, blockierte Gelenke oder einen steifen Nacken? Wir gehen der Ursache auf den Grund. Unsere zertifizierten Therapeut:innen behandeln abgestimmt auf deine Ziele. Damit du dich wieder frei und ohne Schmerzen bewegen kannst.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Manuelle Therapie?",
+        "level": 2,
+        "html": "<p>Unsere Therapeut:innen lösen Blockaden durch gezielte Behandlung mit den Händen. Mit präzisen Griff- und Drucktechniken arbeiten wir an Gelenken, Muskeln und Nerven. Effektiv und individuell auf dich abgestimmt. Ziel ist es, Bewegungen zu erleichtern, Schmerzen zu lindern und deine körperliche Belastbarkeit zu stärken.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Behandlung dauert in der Regel 20 Minuten. Bevor wir starten, hören wir dir genau zu: Wo sitzt der Schmerz? Was fällt dir schwer? Anschließend beginnt die individuelle Behandlung.</p><p>Du hast ein Rezept mit dem Kürzel „MT“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich. Manuelle Therapie bieten wir auch als Hausbesuch an. Zum Beispiel in Moabit, Tiergarten oder Charlottenburg.</p><p>Manuelle Therapie bieten wir auch als Hausbesuch an. Zum Beispiel in Moabit, Tiergarten oder Charlottenburg. Hier findest du mehr über <a href=\"/hausbesuche/\">unsere Hausbesuche.</a></p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Manuelle Therapie?",
+        "level": 2,
+        "html": "<ul><li>Rückenschmerzen (z. B. Lendenwirbelsäule, ISG, HWS-Syndrom)</li><li>Nackenschmerzen oder steifer Nacken</li><li>Blockaden in Wirbelsäule oder Gelenken</li><li>Bewegungseinschränkungen der Schulter, Hüfte oder Knie</li><li>Kiefergelenksprobleme (CMD)</li><li>Kopfschmerzen durch muskuläre Verspannungen</li><li>Schwindel bei muskulären Ursachen</li><li>Schmerzen nach Bandscheibenvorfall (begleitend)</li><li>Fehlhaltungen und muskuläre Dysbalancen</li><li>Beschwerden durch Fehl- oder Überbelastung im Alltag oder Beruf</li><li>Gelenkschmerzen nach Verletzungen oder Operationen</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/medical-flossing-therapie/",
+    "kind": "treatment",
+    "title": "Medical Flossing Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Medical Flossing in Berlin-Moabit: Innovative Kompressionstechnik zur Schmerzlinderung und Bewegungsverbesserung. Praxis W&W nahe Turmstraße.",
+    "h1": "Medical Flossing in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Medical Flossing-Therapie?",
+        "level": 2,
+        "html": "<p>Nach Verletzungen, bei Gelenkbeschwerden oder Verspannungen, kann dir Medical-Flossing helfen, wieder beweglich und belastbar zu werden. Wir lösen Verspannungen und beschleunigen Heilungsprozesse.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Medical Flossing-Therapie?",
+        "level": 2,
+        "html": "<p>Mit elastischen Bändern wird der betroffene Bereiche komprimiert. Während der Kompression machst du leichte Bewegungen, um den Prozess zu unterstützen. Nach dem anschließenden Lösen des Bandes, ist das Gewebe besser durchblutet, Schmerzen lassen nach und Bewegungen fallen leichter.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Medical Flossing-Therapie dauert ca. 20 Minuten. Bevor wir starten, hören wir dir genau zu: Wo sitzt der Schmerz? Was fällt dir schwer? Anschließend beginnt die individuelle Behandlung.</p><p>Medical Flossing-Therapie ist eine Selbstzahlerleistung. Private Kassen erstatten oft anteilig. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich. </p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Medical Flossing-Therapie?",
+        "level": 2,
+        "html": "<ul><li>Gelenkschmerzen (Knie, Schulter, Sprunggelenk)</li><li>Muskelschmerzen und Verspannungen</li><li>Bewegungseinschränkungen nach Verletzungen</li><li>Arthrose-Beschwerden</li><li>Sehnen- und Bänderverletzungen</li><li>Unterstützung bei Sportverletzungen und Regeneration</li><li>Chronische Schmerzen und Fehlhaltungen</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/medical-kinesio-taping/",
+    "kind": "treatment",
+    "title": "Medical Kinesio-Taping Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Medical Kinesio Tape Berlin Moabit Turmstraße: Therapie zur Entlastung und Stabilisierung. Praxis W&W in Moabit – jetzt Termin sichern.",
+    "h1": "Medical Kinesio-Taping in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Medical Kinesio-Taping?",
+        "level": 2,
+        "html": "<p>Diese Therapie ist vielseitig einsetzbar: nach Verletzungen, bei chronischen Schmerzen oder zur Prävention und Unterstützung im Sport. Die Behandlung mit Tapes gibt dir Stabilität, fördert die Durchblutung und entlastet das Gewebe. Wir geben dir Sicherheit im Alltag oder beim Training.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Medical Kinesio-Taping?",
+        "level": 2,
+        "html": "<p>Unsere Therapeut:innen arbeiten mit sanften manuellen Techniken. Mit präzisen Berührungen ertasten unsere Therapeut:innen die feinen Bewegungen von Schädel, Wirbelsäule und Kreuzbein.. Die Craniale Osteopathie ist hoch individualisiert. Jede Behandlung wird auf dich abgestimmt.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Eine Sitzung dauert meist 20 Minuten. Wir starten mit einem ausführlichen Gespräch und einer Untersuchung deiner Beschwerden. Danach folgt die gezielte Behandlung in ruhiger, entspannter Atmosphäre.</p><p>Medical Kinesio-Taping ist eine Selbstzahlerleistung. Private Kassen erstatten oft anteilig.</p><p>Beim Medical Kinesio-Taping fallen zusätzlich zu den Behandlungskosten Materialkosten an. Je nach Größe des Tapes betragen diese 5 €, 10 € oder 15 €. Alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich. </p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Medical Kinesio-Taping?",
+        "level": 2,
+        "html": "<ul><li>Sportverletzungen</li><li>Muskelverspannungen</li><li>Gelenküberlastungen</li><li>Sehnenentzündungen</li><li>Lymphstau</li><li>Unterstützung bei Fehlhaltungen</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/physiotherapie/propriozeptive-neuromuskulaere-fazilitation/",
+    "kind": "treatment",
+    "title": "PNF-Therapie Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Propriozeptive neuromuskuläre Fazilitation Berlin: Individuelle PNF Physiotherapie für Menschen mit neurologischen Erkrankungen. Praxis W&W Moabit",
+    "h1": "PNF-Therapie in Berlin Moabit",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Warum Propriozeptive neuromuskuläre Fazilitation?",
+        "level": 2,
+        "html": "<p>Du hast Schwierigkeiten bei Bewegungen im Alltag? PNF-Therapie trainiert Bewegungsabläufe, um deine Selbstständigkeit im Alltag zu fördern. Ob nach einem Schlaganfall, bei Multipler Sklerose oder bei orthopädischen Problemen. Propriozeptive neuromuskuläre Fazilitation kann dir helfen Bewegungen zurückzugewinnen, oder neue zu erlernen.</p>",
+        "cards": [
+          {
+            "title": "Direkt vom Bürgersteig in den Behandlungsraum.",
+            "html": "<p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>",
+            "buttons": [],
+            "variant": "barrierefrei"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wie funktioniert Propriozeptive neuromuskuläre Fazilitation?",
+        "level": 2,
+        "html": "<p>Wir arbeiten mit aktiven und passiven Bewegungen, die diagonal und rotationsbasiert sind. Genau so wie dein Körper im Alltag funktioniert. Dadurch aktivieren wir ganze Muskelketten statt nur einzelne Muskeln. Diese speziellen Bewegungen fördern die Zusammenarbeit von Gehirn, Nerven und Muskeln. So kannst du alte Bewegungen wiedererlangen oder neue erlernen.</p>",
+        "cards": [
+          {
+            "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
+            "html": "<p>Manchmal ist der Weg in die Praxis nicht möglich. Deshalb bieten wir Hausbesuche in den umliegenden Kiezen an. Zum Beispiel Moabit, Charlottenburg, Hansaviertel oder Tiergarten</p>",
+            "buttons": [
+              {
+                "text": "Hausbesuche",
+                "href": "/hausbesuche/"
+              }
+            ],
+            "variant": "hausbesuche"
+          }
+        ],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Gut zu wissen vor deinem Termin",
+        "level": 2,
+        "html": "<p>Propriozeptive neuromuskuläre Fazilitation dauert in der Regel 30–60 Minuten. Vor der Behandlung nehmen wir uns Zeit für ein Gespräch und eine genaue Bewegungsanalyse. Danach beginnt die individuell auf dich abgestimmte Behandlung. Wir arbeiten dabei mit Ruhe und Einfühlungsvermögen.</p><p>Du hast ein Rezept mit dem Kürzel „PNF“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten vollständig. Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen – alle Details findest du unter <a href=\"/preise/\">Preise &amp; Kostenerstattung.</a></p><p>Unsere barrierefreie Altbaupraxis zwischen U‑Turmstraße und S‑Tiergarten empfängt dich mit hohen Decken und echtem Charme. Ein erfahrenes, motiviertes Team freut sich auf dich. </p><p>Propriozeptive neuromuskuläre Fazilitation bieten wir auch als Hausbesuch an. Zum Beispiel in Moabit, Tiergarten oder Charlottenburg. Hier findest du mehr über <a href=\"/hausbesuche/\">unsere Hausbesuche.</a></p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Wobei hilft Propriozeptive neuromuskuläre Fazilitation?",
+        "level": 2,
+        "html": "<ul><li>Neurologische Erkrankungen (Schlaganfall, MS, Parkinson)</li><li>Einschränkungen nach Schlaganfall</li><li>Spastik oder Muskeltonusveränderungen</li><li>Gangunsicherheit</li><li>Parkinson-Symptome</li><li>Einschränkungen bei MS</li><li>Gleichgewichtsprobleme</li><li>Kraftverlust nach Immobilität</li><li>Verbesserung komplexer Alltagsbewegungen</li></ul>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/preise/",
+    "kind": "special",
+    "title": "Physiotherapie & Osteopathie Preise Berlin Moabit | W&W",
+    "description": "Preise & Kosten für Physiotherapie und Osteopathie: Transparente Übersicht für gesetzlich Versicherte, Privatpatient:innen und Selbstzahler.",
+    "h1": "Preise",
+    "lead": "<p>Transparente Infos zu unseren Preisen – für Kassenpatient:innen, Privatversicherte und Selbstzahler:innen.</p>",
+    "sections": []
+  },
+  {
+    "path": "/team/",
+    "kind": "content",
+    "title": "Team | Physiotherapie & Osteopathie Berlin Moabit",
+    "description": "Dein Team für Physiotherapie & Osteopathie in Berlin Moabit: Erfahrung, Menschlichkeit & vielseitige Spezialisierungen.",
+    "h1": "Team",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "",
+        "level": 2,
+        "html": "<p>Unser Team von links nach rechts: Rafaela, Linde, Gretje, Sina, Lily, Silvia, Monika</p>",
+        "cards": [],
+        "buttons": [],
+        "images": [
+          {
+            "src": "https://physiotherapie-wellenbrock-wernecken.de/wp-content/uploads/2026/07/physiotherapie-moabit-team-wellenbrock-wernecken-1-1024x943.webp",
+            "alt": "Team der Physiotherapiepraxis Wellenbrock & Wernecken in Berlin Moabit"
+          }
+        ]
+      },
+      {
+        "heading": "Kompetenz aus Erfahrung",
+        "level": 2,
+        "html": "<p>Mit der Gründung vor über {jahrePraxis} Jahren legte Monika Wellenbrock den Grundstein für unsere Praxis. Ihre langjährige Erfahrung, ihr geschulter Blick und ihr Anspruch an Qualität prägen unsere Arbeit bis heute. Für sie steht der Mensch im Mittelpunkt</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      },
+      {
+        "heading": "Zukunft in guten Händen",
+        "level": 2,
+        "html": "<p>Mit Sina übernimmt eine neue Generation die Leitung unserer Praxis. Sina hat einen Background im Leistungssport und lebt Bewegung vor. Neben ihrer täglichen Arbeit als Physiotherapeutin setzt sie ihr Wissen auch ehrenamtlich ein – dort, wo Hilfe gebraucht wird. Sina versteht Bewegung und Heilung ganzheitlich: Nicht nur als Behandlung – sondern als Haltung.</p>",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  },
+  {
+    "path": "/termin-vereinbaren/",
+    "kind": "special",
+    "title": "Termin vereinbaren | Physiotherapie & Osteopathie Berlin Moabit",
+    "description": "Termin vereinbaren bei Wellenbrock & Wernecken in Berlin Moabit – wir freuen uns auf dich!",
+    "h1": "Termin vereinbaren",
+    "lead": "",
+    "sections": [
+      {
+        "heading": "Bitte fülle die Felder aus",
+        "level": 2,
+        "html": "",
+        "cards": [],
+        "buttons": [],
+        "images": []
+      }
+    ]
+  }
+]

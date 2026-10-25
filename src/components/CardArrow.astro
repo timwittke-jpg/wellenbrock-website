@@ -1,0 +1,59 @@
+---
+// Pfeil unten rechts in klickbaren Karten (aus media/Vector.svg).
+// Der Link deckt per ::after die ganze Karte ab; der Text ist nur für Screenreader.
+interface Props {
+  href: string;
+  label: string;
+}
+
+const { href, label } = Astro.props;
+---
+
+<a class="card-arrow" href={href}>
+  <span class="sr-only">{label}</span>
+  <svg viewBox="0 0 65 28" width="65" height="28" aria-hidden="true">
+    <path
+      d="M50.8333 26.1667L63.1667 13.8333L50.8333 1.5M63.1667 13.8333H1.5"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</a>
+
+<style>
+  .card-arrow {
+    align-self: flex-end;
+    justify-self: end;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    color: var(--c-ink);
+  }
+
+  /* ganze Karte klickbar */
+  .card-arrow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  .card-arrow:focus-visible {
+    outline: none;
+  }
+
+  .card-arrow:focus-visible::after {
+    outline: 2px solid var(--c-brand);
+    outline-offset: 3px;
+  }
+
+  /* auf dem Handy etwas kleiner */
+  @media (max-width: 560px) {
+    .card-arrow svg {
+      width: 48px;
+      height: auto;
+    }
+  }
+</style>

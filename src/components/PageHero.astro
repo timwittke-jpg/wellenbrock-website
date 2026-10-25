@@ -1,0 +1,151 @@
+---
+import { practice, appointmentHref } from '../data/site';
+import { noBreak } from '../data/pages';
+
+export interface Crumb {
+  label: string;
+  href: string;
+}
+
+export interface HeroService {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  lead?: string;
+  crumbs: Crumb[];
+  actions?: boolean;
+  // Leistungsseiten: ein Button „<Leistung> anfragen“ statt Termin- und Telefon-Button
+  service?: HeroService;
+}
+
+const { title, lead, crumbs, actions = true, service } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="container inner">
+    <nav class="crumbs" aria-label="Brotkrümelnavigation">
+      <ol>
+        {
+          crumbs.map((c, i) => (
+            <li>
+              {i < crumbs.length - 1 ? <a href={c.href}>{c.label}</a> : <span aria-current="page">{c.label}</span>}
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+    <h1>{noBreak(title)}</h1>
+    {lead && <div class="lead" set:html={lead} />}
+    {
+      actions &&
+        (service ? (
+          <div class="service">
+            <a class="btn btn--pink" href={service.href}>
+              {service.label}
+            </a>
+            <p class="phone">
+              Oder telefonisch: <a class="plain-link" href={practice.phoneHref}>{practice.phoneDisplay}</a>
+            </p>
+          </div>
+        ) : (
+          <div class="actions">
+            <a class="btn btn--pink" href={appointmentHref}>
+              Termin vereinbaren
+            </a>
+            <a class="btn btn--secondary" href={practice.phoneHref}>
+              Tel: {practice.phoneDisplay}
+            </a>
+          </div>
+        ))
+    }
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    padding-block: clamp(40px, 6vw, 64px) clamp(56px, 8vw, 88px);
+    text-align: center;
+  }
+
+  .inner {
+    display: grid;
+    justify-items: center;
+    gap: 1.5rem;
+  }
+
+  /* Ruhige Brotkrümel: grau, feine Trenner, aktuelle Seite dunkel */
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--fs-small);
+    color: #7a746f;
+  }
+
+  .crumbs li + li::before {
+    content: '/';
+    margin-right: 0.75rem;
+    color: #c4beb8;
+  }
+
+  .crumbs a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .crumbs a:hover {
+    color: var(--c-ink);
+  }
+
+  .crumbs [aria-current] {
+    color: var(--c-ink);
+  }
+
+  h1 {
+    /* breit genug, dass lange Wörter nie getrennt werden */
+    max-width: 980px;
+    font-size: var(--fs-h1);
+    line-height: var(--lh-tight);
+  }
+
+  .lead {
+    max-width: 36em;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-lead);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem 1.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .service {
+    display: grid;
+    justify-items: center;
+    gap: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .phone {
+    color: #5f5a56;
+  }
+
+  .phone a {
+    text-decoration: none;
+  }
+
+  .phone a:hover {
+    text-decoration: underline;
+  }
+</style>

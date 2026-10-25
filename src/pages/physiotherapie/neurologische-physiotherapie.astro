@@ -1,0 +1,337 @@
+---
+import SubPage from '../../layouts/SubPage.astro';
+import CardArrow from '../../components/CardArrow.astro';
+import LegalReview from '../../components/LegalReview.astro';
+import { practice, appointmentHref } from '../../data/site';
+import IconHome from '../../assets/icons/hausbesuche.svg?raw';
+import IconAccess from '../../assets/icons/barrierefrei.svg?raw';
+
+// Neue Landingpage für die Spezialisierung der Praxis. Alle Aussagen stammen aus vorhandenen Texten der Seite.
+const path = '/physiotherapie/neurologische-physiotherapie/';
+const title = 'Neurologische Physiotherapie Berlin Moabit | Wellenbrock & Wernecken';
+const description =
+  'Neurologische Physiotherapie in Berlin Moabit: Bobath, PNF und Atemtherapie bei MS, Parkinson und nach Schlaganfall. Barrierefrei ✓ Hausbesuche ✓';
+
+const complaints = [
+  'Lähmungen oder Bewegungseinschränkungen nach Schlaganfall',
+  'Halbseitenlähmungen (Hemiparese)',
+  'Spastik oder Muskeltonusveränderungen',
+  'Einschränkungen durch Multiple Sklerose (MS)',
+  'Beschwerden bei Morbus Parkinson (z. B. Gangbild, Bewegungsarmut)',
+  'Gangunsicherheit oder Gleichgewichtsstörungen',
+  'Koordinationsprobleme bei neurologischen Erkrankungen',
+  'Einschränkungen der Feinmotorik',
+  'Kraftverlust nach längerer Immobilität (z. B. Krankenhausaufenthalt)',
+  'Probleme bei alltäglichen Bewegungsabläufen (z. B. Anziehen, Aufstehen, Greifen)',
+];
+
+const treatments = [
+  {
+    title: 'Bobath-Therapie für Erwachsene (KG-ZNS)',
+    text: 'Alltagsnahe, gezielt wiederholte Bewegungen. Gemeinsam arbeiten wir an Haltung, Gleichgewicht und Koordination, damit du Bewegungsabläufe zurückgewinnst oder neu lernst.',
+    href: '/physiotherapie/bobath-therapie/',
+  },
+  {
+    title: 'Propriozeptive neuromuskuläre Fazilitation (PNF)',
+    text: 'Diagonale, rotationsbasierte Bewegungen – so wie dein Körper im Alltag funktioniert. Dadurch aktivieren wir ganze Muskelketten statt einzelner Muskeln.',
+    href: '/physiotherapie/propriozeptive-neuromuskulaere-fazilitation/',
+  },
+  {
+    title: 'Atemtherapie (KG-AT)',
+    text: 'Atemübungen kombiniert mit Mobilisation des Brustkorbs. So stärken wir die Atemmuskulatur und entlasten die Lunge.',
+    href: '/physiotherapie/atem-therapie/',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Habt ihr Erfahrung mit neurologischen Erkrankungen wie MS oder Parkinson?',
+    a: 'Ja – das ist sogar eine unserer besonderen Stärken. Wir behandeln seit vielen Jahren Menschen mit Multipler Sklerose, Parkinson und nach Schlaganfällen. Neurologische Physiotherapie erfordert viel Erfahrung, Geduld und ein tiefes Verständnis für die individuellen Einschränkungen jedes Menschen. Wenn du oder jemand aus deiner Familie betroffen ist – ruf uns an, wir nehmen uns Zeit für dich.',
+  },
+  {
+    q: 'Kommt ihr auch zu mir nach Hause?',
+    a: 'Ja. Wenn der Weg in die Praxis nicht möglich ist, kommen wir zu dir. Dafür brauchst du eine ärztliche Verordnung, auf der „Hausbesuch“ angekreuzt ist. Unsere Hausbesuche machen wir mit dem Fahrrad, deshalb ist die Anfahrt auf einen Radius von ca. 1,5 Kilometern um unsere Praxis begrenzt.',
+  },
+  {
+    q: 'Ist die Praxis barrierefrei?',
+    a: 'Ja. Wir haben einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt. Wenn du besondere Unterstützung brauchst, ruf uns gerne vorab an.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Neurologische Physiotherapie',
+    serviceType: 'Neurologische Physiotherapie',
+    description,
+    url: new URL(path, practice.url + '/').href,
+    provider: { '@id': `${practice.url}/#praxis` },
+    areaServed: practice.areaServed.map((name) => ({ '@type': 'Place', name: `${name}, Berlin` })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+---
+
+<SubPage
+  title={title}
+  description={description}
+  h1="Neurologische Physiotherapie in Berlin Moabit"
+  crumbs={[
+    { label: 'Startseite', href: '/' },
+    { label: 'Physiotherapie in Moabit', href: '/physiotherapie/' },
+    { label: 'Neurologische Physiotherapie', href: path },
+  ]}
+  schema={schema}
+  heroService={{ label: 'Neurologische Physiotherapie anfragen', href: `${appointmentHref}?leistung=${encodeURIComponent(path)}` }}
+>
+  <div class="narrow">
+    <LegalReview kind="content">Neue Seite, zusammengestellt aus vorhandenen Texten der Website. Bitte fachlich prüfen.</LegalReview>
+  </div>
+
+  <section class="block narrow">
+    <h2 class="section-heading">Unsere besondere Expertise</h2>
+    <div class="prose">
+      <p>
+        Die Therapie von Menschen mit neurologischen Erkrankungen wie Multipler Sklerose, Parkinson oder nach einem
+        Schlaganfall ist unsere besondere Stärke. Hier bringen wir langjährige Erfahrung, Zusatzausbildungen und viel
+        Einfühlungsvermögen mit.
+      </p>
+      <p>
+        Ob beim Anziehen, Gehen oder Greifen: Neurologische Erkrankungen verändern den Körper und können viele
+        Alltagsbewegungen beeinträchtigen. Gemeinsam arbeiten wir daran, Selbstständigkeit und Sicherheit in deinem Alltag
+        zurückzugewinnen – in unserer Praxis in Berlin Moabit oder bei dir zu Hause.
+      </p>
+    </div>
+    <div class="card info">
+      <span class="icon icon--access" aria-hidden="true" set:html={IconAccess} />
+      <div class="info-body">
+        <h3>Direkt vom Bürgersteig in den Behandlungsraum.</h3>
+        <p>Unsere Praxis ist barrierefrei: Wir verfügen über einen ebenerdigen Eingang, der direkt vom Gehweg in den Behandlungsraum führt.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block narrow">
+    <h2 class="section-heading">Wobei wir dich begleiten</h2>
+    <div class="prose prose--columns">
+      <ul>{complaints.map((c) => <li>{c}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="block container">
+    <h2 class="section-heading treatments-title">Unsere Behandlungen</h2>
+    <ul class="treatments">
+      {
+        treatments.map((t) => (
+          <li class="card card--link treatment">
+            <h3>{t.title}</h3>
+            <p>{t.text}</p>
+            <CardArrow href={t.href} label={`Mehr zu ${t.title}`} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="block narrow">
+    <h2 class="section-heading">Gut zu wissen vor deinem Termin</h2>
+    <div class="prose">
+      <p>
+        Vor der Behandlung nehmen wir uns Zeit für ein Gespräch und eine genaue Bewegungsanalyse. Danach beginnt die
+        individuell auf dich abgestimmte Behandlung – mit Ruhe und Einfühlungsvermögen.
+      </p>
+      <p>
+        Du hast ein Rezept mit dem Kürzel „KG-ZNS“? Dann übernimmt deine gesetzliche Krankenkasse die Kosten vollständig.
+        Natürlich kannst du die Behandlung auch privat oder als Selbstzahler:in nutzen. Alle Details findest du unter
+        <a href="/preise/">Preise &amp; Kostenerstattung</a>.
+      </p>
+    </div>
+    <div class="card card--link info">
+      <span class="icon" set:html={IconHome} />
+      <div class="info-body">
+        <h3>Hausbesuche in Moabit und Umgebung</h3>
+        <p>Manchmal ist der Weg in die Praxis nicht möglich. Dann kommen wir zu dir nach Hause – in Moabit und den umliegenden Kiezen.</p>
+        <CardArrow href="/hausbesuche/" label="Mehr über unsere Hausbesuche" />
+      </div>
+    </div>
+  </section>
+
+  <section class="block narrow" aria-labelledby="neuro-fragen">
+    <h2 id="neuro-fragen" class="section-heading">Häufige Fragen</h2>
+    <div class="faq">
+      {
+        faqs.map((f) => (
+          <details>
+            <summary>
+              <span>{f.q}</span>
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+                <path d="M4 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.2" />
+              </svg>
+            </summary>
+            <p>{f.a}</p>
+          </details>
+        ))
+      }
+    </div>
+    <a class="btn btn--pink all-questions" href="/haeufige-fragen/">Alle Fragen</a>
+  </section>
+</SubPage>
+
+<style>
+  .block {
+    display: grid;
+    justify-items: start;
+    gap: 1.25rem;
+    padding-block: clamp(32px, 4vw, 48px);
+  }
+
+  .prose--columns :global(ul) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+
+  .info {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: 1.5rem 2rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 32px;
+  }
+
+  .icon {
+    width: 80px;
+  }
+
+  .icon--access {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--c-pink-soft);
+  }
+
+  .icon--access :global(svg) {
+    width: 44px;
+    height: auto;
+  }
+
+  .info-body {
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+  }
+
+  .info h3,
+  .treatment h3 {
+    font-size: var(--fs-md);
+    line-height: var(--lh-title);
+  }
+
+  .treatments-title {
+    max-width: 744px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .treatments {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 24px;
+    width: 100%;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .treatment {
+    display: grid;
+    gap: 1rem;
+    padding: 32px;
+  }
+
+  .faq {
+    width: 100%;
+  }
+
+  .faq details {
+    border-bottom: 1px solid var(--c-line);
+  }
+
+  .faq details:first-child {
+    border-top: 1px solid var(--c-line);
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 1.5rem;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-title);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary svg {
+    flex: none;
+    transition: transform 0.15s ease;
+  }
+
+  details[open] summary svg {
+    transform: rotate(180deg);
+  }
+
+  details p {
+    padding-bottom: 1.5rem;
+    max-width: 40em;
+  }
+
+  .all-questions {
+    margin-top: 1.25rem;
+  }
+
+  @media (max-width: 960px) {
+    .treatments {
+      grid-template-columns: 1fr;
+      max-width: 560px;
+      margin-inline: auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .prose--columns :global(ul) {
+      grid-template-columns: 1fr;
+    }
+
+    .info {
+      grid-template-columns: 1fr;
+      padding: 24px;
+    }
+
+    /* Icon-Kreise auf dem Handy etwas kleiner */
+    .icon {
+      width: 64px;
+    }
+
+    .icon:not(.icon--access) :global(svg) {
+      height: auto;
+    }
+
+    .icon--access :global(svg) {
+      width: 34px;
+    }
+  }
+</style>

@@ -1,0 +1,517 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import MapConsent from '../components/MapConsent.astro';
+import CardArrow from '../components/CardArrow.astro';
+import { practice, appointmentHref, practiceYears, osteopathyYears } from '../data/site';
+import team from '../assets/physiotherapie-team-berlin-moabit.webp';
+import IconPhysio from '../assets/icons/physiotherapie.svg?raw';
+import IconOsteo from '../assets/icons/osteopathie.svg?raw';
+import IconNeuro from '../assets/icons/neurologie.svg?raw';
+import IconHome from '../assets/icons/hausbesuche.svg?raw';
+import CtaCard from '../components/CtaCard.astro';
+import Reviews from '../components/Reviews.astro';
+
+const services = [
+  {
+    icon: IconPhysio,
+    title: 'Physiotherapie, Basistherapien',
+    text: `Ob Manuelle Therapie, Krankengymnastik oder Fango-Behandlung: Wir decken ein breites Spektrum an physiotherapeutischen Leistungen ab – mit Kassenzulassung und über ${practiceYears} Jahren Erfahrung in Berlin Moabit.`,
+    href: '/physiotherapie/',
+    linkLabel: 'Mehr zur Physiotherapie',
+  },
+  {
+    icon: IconOsteo,
+    title: 'Osteopathie',
+    text: `Wir haben über ${osteopathyYears} Jahre Erfahrung in allen Teilgebieten der Osteopathie. Einer Therapieform, die den Menschen ganzheitlich betrachtet. Besonders bei Säuglingen, Kindern und chronischen Beschwerden erzielen wir nachhaltige Ergebnisse.`,
+    href: '/osteopathie/',
+    linkLabel: 'Mehr zur Osteopathie',
+  },
+  {
+    icon: IconNeuro,
+    title: 'Neurologische Physiotherapie',
+    text: 'Unsere besondere Expertise ist die Therapie von Menschen mit neurologischen Erkrankungen wie Multipler Sklerose, Parkinson oder nach Schlaganfall – mit langjähriger Erfahrung, Zusatzausbildungen und Einfühlungsvermögen.',
+    href: '/physiotherapie/neurologische-physiotherapie/',
+    linkLabel: 'Mehr zur neurologischen Physiotherapie',
+  },
+];
+
+// Antworten mit Links als HTML; für das FAQ-Schema werden die Tags entfernt.
+const faqs = [
+  {
+    q: 'Was passiert, wenn ich einen Termin absagen muss?',
+    a: 'Bitte sag uns mindestens 24 h vorher Bescheid, damit wir den Termin anderweitig vergeben können. Kurzfristig abgesagte Termine müssen wir ggf. privat berechnen. Am schnellsten erreichst du uns telefonisch unter <a href="' + practice.phoneHref + '">' + practice.phoneDisplay + '</a> oder über unsere <a href="/kontakt/">Kontaktseite</a>.',
+  },
+  {
+    q: 'Wird Physiotherapie von der Krankenkasse übernommen?',
+    a: 'Ja – Physiotherapie ist eine Kassenleistung. Mit einem ärztlichen Rezept übernimmt deine gesetzliche Krankenkasse die Kosten der Behandlung, du zahlst lediglich die gesetzliche Zuzahlung von 10 € pro Rezept plus 10 % der Behandlungskosten. Privat versicherte Patienten rechnen direkt mit ihrer Versicherung ab. Osteopathie hingegen ist keine Kassenleistung – viele private Zusatzversicherungen übernehmen die Kosten jedoch teilweise oder vollständig. Wir helfen dir gerne bei Fragen zur Abrechnung. Mehr erfährst du unter <a href="/preise/">Preise &amp; Zuzahlung</a>.',
+  },
+  {
+    q: 'Hilft Osteopathie auch bei Kindern und Säuglingen?',
+    a: 'Ja, und gerade bei Säuglingen und Kleinkindern ist Osteopathie besonders wirkungsvoll. Geburtsstress, Schreibabys, Schlafprobleme, Haltungsprobleme oder Verdauungsbeschwerden – viele Eltern aus Moabit, Tiergarten und Charlottenburg kommen mit ihren Kindern zu uns, weil die sanfte osteopathische Behandlung ohne Medikamente auskommt. Unsere Therapeut:innen haben über ' + osteopathyYears + ' Jahre Erfahrung auch in der Behandlung von Kindern und Säuglingen. Mehr dazu unter <a href="/osteopathie/osteopathie-fuer-kinder/">Osteopathie für Säuglinge und Kinder</a>.',
+  },
+  {
+    q: 'Warum gehört Eigeninitiative zur Physiotherapie dazu?',
+    a: 'Deine aktive Mitarbeit ist entscheidend für eine wirkungsvolle Behandlung. Wir zeigen dir außerdem, wie du Bewegungen auch zuhause üben kannst. So beschleunigst du den Erfolg und sicherst nachhaltige Verbesserungen. Mehr über unsere Arbeitsweise findest du unter <a href="/haltung/">Unsere Haltung</a>.',
+  },
+  {
+    q: 'Nehmt ihr auch Kassenpatienten an – und wie schnell bekomme ich einen Termin?',
+    a: 'Ja, wir behandeln sowohl Kassenpatienten als auch Privatpatienten. Termine vergeben wir so schnell wie möglich – ruf uns direkt an unter <a href="' + practice.phoneHref + '">' + practice.phoneDisplay + '</a> und wir schauen gemeinsam, was geht. Gerade wenn du ein akutes Problem hast, versuchen wir kurzfristig einen Termin zu finden. Wir sind ' + practice.hoursText + ' erreichbar.',
+  },
+];
+
+const stripTags = (html: string) => html.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&');
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: stripTags(f.a) },
+  })),
+};
+---
+
+<Base
+  title="Physiotherapie Moabit & Osteopathie | Wellenbrock & Wernecken"
+  description={`Physiotherapie & Osteopathie in Berlin Moabit ✓ Seit ${practiceYears} Jahren ✓ Kasse & Privat ✓ Barrierefrei ✓ Hausbesuche in Moabit, Hansaviertel, Tiergarten & Charlottenburg`}
+  schema={[faqSchema]}
+>
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Physiotherapie<br /> mit Haltung</h1>
+      <p class="lead">
+        Physiotherapie &amp; Osteopathie in Berlin Moabit. Für Privat- und Kassenpatienten. Hausbesuche in Moabit,
+        Hansaviertel, Tiergarten und Charlottenburg.
+      </p>
+      <a class="btn btn--pink" href={appointmentHref}>Termin vereinbaren</a>
+    </div>
+  </section>
+
+  <Image
+    class="team"
+    src={team}
+    alt="Das Team der Physiotherapie Wellenbrock & Wernecken in der Praxis in Berlin-Moabit"
+    widths={[640, 1024, 1440, 2000]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+  />
+
+  <section class="intro container" aria-label="Die Praxis">
+    <p class="intro-text">
+      Unsere Praxis für Physiotherapie und Osteopathie in Berlin Moabit steht seit {practiceYears} Jahren für Kompetenz,
+      Einfühlungsvermögen und Therapien, die nachhaltig wirken.
+    </p>
+    <ul class="facts">
+      <li>
+        <span class="fact-icon fact-icon--pink" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z" /><circle cx="12" cy="10" r="2.3" /></svg>
+        </span>
+        <a href={practice.mapsUrl} rel="noopener">{practice.street}, {practice.postalCode} {practice.city}</a>
+      </li>
+      <li>
+        <span class="fact-icon fact-icon--peach" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 4h3.5l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5l1.5-2 4 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" /></svg>
+        </span>
+        <a href={practice.phoneHref}>Tel: {practice.phoneDisplay}</a>
+      </li>
+      <li>
+        <span class="fact-icon fact-icon--pink" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
+        </span>
+        <span>{practice.hoursDisplay}</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="services" aria-labelledby="leistungen">
+    <h2 id="leistungen" class="section-title">Leistungen</h2>
+    <ul class="service-grid">
+      {
+        services.map((s) => (
+          <li class="card card--link service">
+            <span class="icon" set:html={s.icon} />
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+            <CardArrow href={s.href} label={s.linkLabel} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="about container" aria-labelledby="ueber-uns">
+    <h2 id="ueber-uns" class="section-title">Über uns</h2>
+    <div class="about-body">
+      <p>
+        Seit {practiceYears} Jahren verbinden wir in unserer Praxis in Berlin Moabit Menschlichkeit mit fachlicher Vielseitigkeit.
+        Neben fundierten Kenntnissen in der Physiotherapie und Osteopathie verfügen wir über spezielle
+        Zusatzausbildungen. Besonders in der Therapie von Menschen mit Erkrankungen des zentralen Nervensystems bringen
+        wir langjährige Erfahrung und viel Einfühlungsvermögen mit.
+      </p>
+      <div class="about-links">
+        <a class="btn btn--pink" href="/haltung/">Unsere Haltung</a>
+        <a class="btn btn--secondary" href="/team/">Lerne das Team kennen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="house container" aria-labelledby="hausbesuche">
+    <div class="card card--link house-card">
+      <span class="icon" set:html={IconHome} />
+      <div class="house-body">
+        <h2 id="hausbesuche" class="card-title">Hausbesuche in Moabit und Umgebung</h2>
+        <p>
+          Wir bieten Hausbesuche für Physiotherapie in Moabit und den umliegenden Kiezen an – rund um die Stromstraße,
+          Beusselstraße, Turmstraße und in ganz Moabit.
+        </p>
+        <CardArrow href="/hausbesuche/" label="Mehr über unsere Hausbesuche" />
+      </div>
+    </div>
+  </section>
+
+  <Reviews />
+
+  <section class="faq container" aria-labelledby="fragen">
+    <h2 id="fragen" class="section-title">Häufige Fragen zur Physiotherapie &amp; Osteopathie</h2>
+    <div class="faq-list">
+      {
+        faqs.map((f) => (
+          <details>
+            <summary>
+              <span>{f.q}</span>
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+                <path d="M4 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.2" />
+              </svg>
+            </summary>
+            <p set:html={f.a} />
+          </details>
+        ))
+      }
+    </div>
+    <a class="btn btn--pink" href="/haeufige-fragen/">Alle Fragen</a>
+  </section>
+
+  <CtaCard />
+
+  <MapConsent />
+</Base>
+
+<style>
+  /* Hero */
+  .hero {
+    padding-block: clamp(48px, 7vw, 72px) clamp(56px, 8vw, 72px);
+    text-align: center;
+  }
+
+  .hero-inner {
+    display: grid;
+    justify-items: center;
+    gap: 1.75rem;
+  }
+
+  h1 {
+    font-size: var(--fs-h1);
+    line-height: var(--lh-tight);
+  }
+
+  .lead {
+    max-width: 34em;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-lead);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Teamfoto mit Abstand zum Fensterrand */
+  /* Teamfoto randlos über die volle Breite, auf großen Bildschirmen höchstens 1440px */
+  .team {
+    width: min(100%, 1440px);
+    height: auto;
+    margin-inline: auto;
+    /* Format des Fotos (16:9), damit oben und unten nichts abgeschnitten wird */
+    aspect-ratio: 2880 / 1620;
+    object-fit: cover;
+  }
+
+  /* erst wenn das Foto nicht mehr bis an den Rand reicht, bekommt es die Eckenrundung
+     (Puffer für Scrollleisten, die zur Fensterbreite zählen) */
+  @media (min-width: 1460px) {
+    .team {
+      border-radius: var(--radius);
+    }
+  }
+
+  /* Praxis-Intro mit Kontaktdaten */
+  .intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem 5rem;
+    padding-block: clamp(56px, 8vw, 84px) clamp(64px, 10vw, 140px);
+  }
+
+  .intro-text {
+    font-family: var(--f-serif);
+    font-weight: 400;
+    font-size: var(--fs-lg);
+    line-height: 1.4;
+    /* einzige Stelle mit Silbentrennung: große Schrift in schmaler Spalte */
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  .facts {
+    display: grid;
+    align-content: start;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--fs-lead);
+  }
+
+  .facts li {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .facts a {
+    text-decoration: none;
+  }
+
+  .facts a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .fact-icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+
+  /* Icon 20px im 32px-Kreis, Linie exakt 1,5px (unabhängig von der Skalierung) */
+  .fact-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+
+  .fact-icon svg :is(path, circle) {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .fact-icon--pink {
+    background: var(--c-pink);
+  }
+
+  .fact-icon--peach {
+    background: var(--c-peach);
+  }
+
+  /* Abschnittstitel */
+  .section-title {
+    font-size: var(--fs-xxl);
+  }
+
+  /* Leistungen */
+  .services {
+    /* einzige Sektion breiter als die Seitenbreite */
+    width: min(100% - 2 * var(--gutter), 1250px);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 24px;
+    margin: 56px 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+  }
+
+  .service {
+    display: grid;
+    gap: 1.5rem;
+    padding: 32px;
+  }
+
+  .icon {
+    display: block;
+    width: 96px;
+  }
+
+  .service h3 {
+    margin-top: 0.75rem;
+    font-size: var(--fs-md);
+    line-height: var(--lh-title);
+  }
+
+  .service p {
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    margin-bottom: 1rem;
+  }
+
+  /* Über uns */
+  .about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 2rem 5rem;
+    padding-block: clamp(80px, 11vw, 160px) 0;
+  }
+
+  .about-body {
+    display: grid;
+    gap: 2rem;
+    max-width: 38em;
+  }
+
+  .about-body p {
+    font-size: var(--fs-lead);
+    line-height: var(--lh-lead);
+  }
+
+  .about-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* Hausbesuche */
+  .house {
+    max-width: 744px;
+    padding-block: clamp(80px, 11vw, 160px);
+  }
+
+  .house-card {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 2rem 2.5rem;
+    padding: 32px;
+  }
+
+  .house-body {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .house-body h2 {
+    font-size: var(--fs-md);
+    line-height: var(--lh-title);
+  }
+
+  .house-body p {
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    margin-bottom: 0.5rem;
+  }
+
+  /* FAQ */
+  .faq {
+    max-width: 744px;
+    display: grid;
+    justify-items: start;
+    gap: 2.5rem;
+  }
+
+  .faq-list {
+    width: 100%;
+  }
+
+  .faq details {
+    border-bottom: 1px solid var(--c-line);
+  }
+
+  .faq summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 1.75rem;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-title);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq summary svg {
+    flex: none;
+    transition: transform 0.15s ease;
+  }
+
+  .faq details[open] summary svg {
+    transform: rotate(180deg);
+  }
+
+  .faq details p {
+    padding-bottom: 1.75rem;
+    max-width: 40em;
+    line-height: var(--lh-body);
+  }
+
+  @media (max-width: 960px) {
+    .service-grid {
+      grid-template-columns: 1fr;
+      max-width: 560px;
+      margin-inline: auto;
+    }
+
+    .intro,
+    .about {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    /* Icon-Kreise auf dem Handy etwas kleiner */
+    .icon {
+      width: 72px;
+    }
+
+    .icon :global(svg) {
+      height: auto;
+    }
+
+    /* Hausbesuche: wie die Leistungskarten Icon → Überschrift und Text → Pfeil je 8px enger */
+    .house-card {
+      grid-template-columns: 1fr;
+      row-gap: 24px;
+      padding: 24px;
+    }
+
+    .house-body p {
+      margin-bottom: 0;
+    }
+
+    .service {
+      padding: 24px;
+    }
+
+    /* Leistungskarten: Icon → Überschrift und Text → Pfeil je 8px enger (Überschrift → Text bleibt) */
+    .service h3 {
+      margin-top: 4px;
+    }
+
+    .service p {
+      margin-bottom: 8px;
+    }
+  }
+</style>

@@ -1,0 +1,179 @@
+[
+  {
+    "tab": "Gesetzlich",
+    "groups": [
+      {
+        "heading": "Für gesetzlich Versicherte",
+        "text": "Wir behandeln gesetzlich Versicherte mit ärztlicher Verordnung. Deine Krankenkasse übernimmt die Kosten. Du zahlst lediglich die gesetzliche Zuzahlung – es sei denn, du bist davon befreit.",
+        "info": [
+          {
+            "title": "Zuzahlung & Rezeptgebühren",
+            "text": "Es gilt die gesetzliche Zuzahlung: Einmalig 10 € Rezeptgebühr plus 10 % der Behandlungskosten.Beispiele:6× Manuelle-Therapie = 25 € Zuzahlung (+10 € Rezeptgebühr)10× Krankengymnastik = 35 € Zuzahlung (+10 € Rezeptgebühr)20× Bobath-Therapie = 98 € Zuzahlung (+10 € Rezeptgebühr)"
+          }
+        ],
+        "items": [],
+        "note": ""
+      },
+      {
+        "heading": "Zusatzleistungen für Selbstzahler:innen",
+        "text": "Einige Behandlungen wie Osteopathie oder Taping werden nicht von gesetzlichen Kassen erstattet. Du kannst sie bei uns jederzeit als Selbstzahler-Leistungen nutzen.",
+        "info": [],
+        "items": [
+          {
+            "name": "Osteopathie",
+            "price": "90,00 €",
+            "duration": "60 min"
+          },
+          {
+            "name": "Faszien-Therapie",
+            "price": "34,80 €",
+            "duration": "20 min"
+          },
+          {
+            "name": "Medical Flossing-Therapie",
+            "price": "34,80 €",
+            "duration": "20 min"
+          },
+          {
+            "name": "Medical Kinesio-Taping",
+            "price": "34,80 €",
+            "duration": "20 min"
+          }
+        ],
+        "note": "Beim Medical Kinesio-Taping fallen zusätzlich zu den Behandlungskosten Materialkosten an. Je nach Größe des Tapes betragen diese 5 €, 10 € oder 15 €."
+      }
+    ]
+  },
+  {
+    "tab": "Privat",
+    "groups": [
+      {
+        "heading": "Für privat Versicherte",
+        "text": "Natürlich kannst du unsere Leistungen auch als Privatversicherte:r oder Selbstzahler:in in Anspruch nehmen.",
+        "info": [
+          {
+            "title": "Information",
+            "text": "Unsere Preise orientieren sich an der aktuellen Gebührenübersicht für Physiotherapie (GebüTh). In der Regel erstatten private Kassen diese Kosten bei vorliegender ärztlicher Empfehlung voll oder teilweise. Erkundige dich im Zweifel direkt bei deiner Versicherung."
+          }
+        ],
+        "items": [
+          {
+            "name": "Krankengymnastik (KG)",
+            "price": "34,80 €",
+            "duration": "20 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Krankengymnastik für Kinder (KG)",
+            "price": "34,80 €",
+            "duration": "20 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Osteopathie",
+            "price": "90,00 €",
+            "duration": "60 min",
+            "refund": "Teilweise erstattungsfähig"
+          },
+          {
+            "name": "Manuelle Therapie (MT)",
+            "price": "41,76 €",
+            "duration": "20 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Manuelle Lymphdrainage 30 (MLD)",
+            "price": "41,40 €",
+            "duration": "30 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Manuelle Lymphdrainage 45 (MLD)",
+            "price": "64,24 €",
+            "duration": "45 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Manuelle Lymphdrainage 60 (MLD)",
+            "price": "82,80 €",
+            "duration": "60 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Klassische Massage (KMT)",
+            "price": "25,32 €",
+            "duration": "20 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Atemtherapie (KG-AT)",
+            "price": "34,80 €",
+            "duration": "20 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Fango-Behandlung (WT)",
+            "price": "36,20 €",
+            "duration": "20 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Heißluft-Therapie (WT)",
+            "price": "16,00 €",
+            "duration": "20 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Kälte-Therapie (KT)",
+            "price": "13,92 €",
+            "duration": "10-15 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Bobath-Therapie für Erwachsene (KG-ZNS)",
+            "price": "60,00 €",
+            "duration": "30 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Propriozeptive neuromuskuläre Fazilitation (PNF)",
+            "price": "34,80 €",
+            "duration": "20 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "CMD-Behandlung (CMD)",
+            "price": "34,80 €",
+            "duration": "20 min",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Hausbesuche",
+            "price": "25,60 €",
+            "duration": "-",
+            "refund": "Voll erstattungsfähig"
+          },
+          {
+            "name": "Medical Flossing-Therapie",
+            "price": "34,80 €",
+            "duration": "20 min",
+            "refund": "Teilweise erstattungsfähig"
+          },
+          {
+            "name": "Faszientherapie",
+            "price": "34,80 €",
+            "duration": "20 min",
+            "refund": "Teilweise erstattungsfähig"
+          },
+          {
+            "name": "Medical Kinesio-Taping",
+            "price": "34,80 €",
+            "duration": "20 min",
+            "refund": "Teilweise erstattungsfähig"
+          }
+        ],
+        "note": "Beim Medical Kinesio-Taping fallen zusätzlich zu den Behandlungskosten Materialkosten an. Je nach Größe des Tapes betragen diese 5 €, 10 € oder 15 €."
+      }
+    ]
+  }
+]

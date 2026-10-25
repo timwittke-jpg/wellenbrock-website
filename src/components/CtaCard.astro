@@ -1,0 +1,92 @@
+---
+import LogoMark from '../assets/icons/wellenbrock-icon.svg?raw';
+import CardArrow from './CardArrow.astro';
+import { appointmentHref } from '../data/site';
+---
+
+<section class="cta container" aria-labelledby="termin">
+  <div class="card card--link cta-card">
+    <div class="cta-inner">
+      <span class="cta-mark" set:html={LogoMark} />
+      <h2 id="termin">Jetzt Termin vereinbaren</h2>
+      <p>
+        Vereinbare jetzt deinen Termin in unserer Praxis in Berlin-Moabit.{' '}<br />Wir freuen uns auf dich!
+      </p>
+      <CardArrow href={appointmentHref} label="Termin vereinbaren" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    max-width: 984px;
+    padding-block: clamp(80px, 10vw, 140px);
+  }
+
+  /* Ganz klickbare Karte in Markenfarbe, Inhalt in Weiß */
+  .cta-card {
+    padding: clamp(40px, 5vw, 48px) 24px;
+    background: var(--c-brand);
+    color: #fff;
+    text-align: center;
+    transition:
+      background-color 250ms ease,
+      box-shadow 0.2s ease;
+  }
+
+  /* Hover: minimal dunkleres Magenta */
+  .cta-card:hover,
+  .cta-card:focus-within {
+    background: color-mix(in srgb, var(--c-brand) 92%, #000);
+  }
+
+  .cta-card :global(.card-arrow) {
+    color: #fff;
+  }
+
+  .cta-card :global(.card-arrow:focus-visible::after) {
+    outline-color: #fff;
+  }
+
+  .cta-inner {
+    display: grid;
+    justify-items: center;
+    gap: 1.5rem;
+    width: min(100%, 36em);
+    margin-inline: auto;
+  }
+
+  .cta-mark {
+    width: clamp(80px, 8vw, 111px);
+  }
+
+  .cta-mark :global(svg) {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Überschrift darf breiter laufen als der Text darunter */
+  h2 {
+    width: max-content;
+    max-width: min(100vw - 2 * var(--gutter) - 48px, 900px);
+    /* Ausnahme im Schriftsystem: 52px Bold */
+    font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.25rem);
+    font-weight: 700;
+  }
+
+  p {
+    font-size: var(--fs-lead);
+    line-height: var(--lh-lead);
+  }
+
+  /* Pfeil rechtsbündig unter dem Text */
+  .cta-inner :global(.card-arrow) {
+    justify-self: end;
+    padding-top: 0.5rem;
+  }
+
+  @media (max-width: 560px) {
+    p br {
+      display: none;
+    }  }
+</style>

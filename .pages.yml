@@ -1,0 +1,125 @@
+# Pages CMS (https://app.pagescms.org): Bearbeitungsoberfläche für die Praxis.
+# Nach dem Speichern baut GitHub die Seite neu und lädt sie hoch (.github/workflows/deploy.yml).
+content:
+  - name: kontakt
+    label: Kontakt & Behandlungszeiten
+    type: file
+    path: src/data/kontakt.json
+    format: json
+    fields:
+      - name: phone
+        label: Telefon
+        type: string
+        required: true
+        description: "So, wie die Nummer auf der Seite stehen soll, z. B. (030) 392 44 46. Der Anruf-Link wird daraus automatisch erzeugt."
+      - name: email
+        label: E-Mail
+        type: string
+        required: true
+        pattern:
+          regex: "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+          message: "Bitte eine gültige E-Mail-Adresse eingeben."
+      - name: firstDay
+        label: Behandlungstage von
+        type: select
+        required: true
+        options:
+          values: [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag]
+      - name: lastDay
+        label: Behandlungstage bis
+        type: select
+        required: true
+        options:
+          values: [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag]
+      - name: opens
+        label: Geöffnet ab
+        type: string
+        required: true
+        description: "Uhrzeit, z. B. 09:00"
+        pattern:
+          regex: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+          message: "Bitte im Format HH:MM eingeben, z. B. 09:00."
+      - name: closes
+        label: Geöffnet bis
+        type: string
+        required: true
+        description: "Uhrzeit, z. B. 20:00"
+        pattern:
+          regex: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+          message: "Bitte im Format HH:MM eingeben, z. B. 20:00."
+      - name: hoursNote
+        label: Zusatz zu den Behandlungszeiten
+        type: string
+        description: "Erscheint auf der Kontaktseite unter den Zeiten, z. B. „Sa: Nach Absprache“. Leer lassen, wenn nicht nötig."
+
+  - name: preise
+    label: Preise
+    type: file
+    path: src/data/preise.json
+    format: json
+    list: true
+    fields:
+      - name: tab
+        label: Reiter
+        type: string
+        required: true
+        description: "Name des Reiters auf der Preisseite, z. B. Gesetzlich oder Privat."
+      - name: groups
+        label: Abschnitte
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{heading}"
+        fields:
+          - name: heading
+            label: Überschrift
+            type: string
+            required: true
+          - name: text
+            label: Einleitung
+            type: text
+          - name: info
+            label: Infokästen
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Titel
+                type: string
+              - name: text
+                label: Text
+                type: text
+          - name: items
+            label: Leistungen und Preise
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name} – {price}"
+            fields:
+              - name: name
+                label: Leistung
+                type: string
+                required: true
+              - name: price
+                label: Preis
+                type: string
+                required: true
+                description: "Mit Komma und Euro-Zeichen, z. B. 34,80 €"
+              - name: duration
+                label: Dauer
+                type: string
+                description: "z. B. 20 min"
+              - name: refund
+                label: Erstattung
+                type: select
+                description: "Nur bei privat Versicherten. Leer lassen, wenn nicht zutreffend."
+                options:
+                  values: [Voll erstattungsfähig, Teilweise erstattungsfähig]
+          - name: note
+            label: Hinweis unter der Tabelle
+            type: text

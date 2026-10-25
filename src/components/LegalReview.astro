@@ -1,0 +1,34 @@
+---
+// Markiert Textstellen, die vor dem Livegang geprüft werden müssen:
+// kind="legal" für Rechtstexte, kind="content" für neue fachliche Inhalte.
+import { showLegalReview, showContentReview } from '../data/site';
+
+interface Props {
+  kind?: 'legal' | 'content';
+}
+
+const { kind = 'legal' } = Astro.props;
+const visible = kind === 'legal' ? showLegalReview : showContentReview;
+const label = kind === 'legal' ? 'Zur rechtlichen Prüfung:' : 'Entwurf zur fachlichen Prüfung:';
+---
+
+{
+  visible && (
+    <aside class="review" role="note">
+      <strong>{label}</strong> <slot />
+    </aside>
+  )
+}
+
+<style>
+  .review {
+    margin-block: 1rem;
+    padding: 1rem 1.25rem;
+    border-left: 4px solid var(--c-brand);
+    background: var(--c-pink-soft);
+    border-radius: var(--radius);
+    font-size: var(--fs-small);
+    line-height: var(--lh-lead);
+    text-align: left;
+  }
+</style>

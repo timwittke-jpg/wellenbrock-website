@@ -1,0 +1,91 @@
+---
+import SubPage from '../layouts/SubPage.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { getPage, pages, shortName } from '../data/pages';
+import { practice } from '../data/site';
+
+const page = getPage('/termin-vereinbaren/')!;
+
+// Vorauswahl für ?leistung=<Seitenpfad> (Buttons „… anfragen“ auf den Leistungsseiten)
+const remedyByPath: Record<string, string> = {
+  '/physiotherapie/krankengymnastik/': 'Krankengymnastik (KG)',
+  '/physiotherapie/krankengymnastik-fuer-kinder/': 'Krankengymnastik für Kinder (KG)',
+  '/physiotherapie/manuelle-therapie/': 'Manuelle Therapie (MT)',
+  '/physiotherapie/klassische-massage/': 'Klassische Massagetherapie (KMT)',
+  '/physiotherapie/manuelle-lymphdrainage/': 'Manuelle Lymphdrainage (MLD)',
+  '/physiotherapie/atem-therapie/': 'Atemtherapie (KG-AT)',
+  '/physiotherapie/fango-behandlung/': 'Fango-Behandlung (WT)',
+  '/physiotherapie/heissluft-therapie/': 'Heißluft-Therapie (WT)',
+  '/physiotherapie/kaelte-therapie/': 'Kälte-Therapie (KT)',
+  '/physiotherapie/bobath-therapie/': 'Bobath-Therapie für Erwachsene (KG-ZNS)',
+  '/physiotherapie/propriozeptive-neuromuskulaere-fazilitation/': 'Propriozeptive neuromuskuläre Fazilitation (PNF)',
+};
+const prefill: Record<string, { remedy?: string; message?: string }> = {};
+for (const p of pages.filter((x) => ['treatment', 'overview'].includes(x.kind))) {
+  const remedy = remedyByPath[p.path] ?? (p.path.startsWith('/osteopathie/') ? 'Osteopathie' : undefined);
+  prefill[p.path] = remedy ? { remedy } : { message: `Ich interessiere mich für: ${shortName(p.h1).replace(/\s+in\s+Moabit$/, '')}.` };
+}
+prefill['/hausbesuche/'] = { message: 'Ich möchte einen Hausbesuch anfragen.' };
+prefill['/physiotherapie/neurologische-physiotherapie/'] = { message: 'Ich interessiere mich für: Neurologische Physiotherapie.' };
+
+const remedies = [
+  'Krankengymnastik (KG)',
+  'Krankengymnastik für Kinder (KG)',
+  'Manuelle Therapie (MT)',
+  'Osteopathie',
+  'Klassische Massagetherapie (KMT)',
+  'Manuelle Lymphdrainage (MLD)',
+  'Atemtherapie (KG-AT)',
+  'Fango-Behandlung (WT)',
+  'Heißluft-Therapie (WT)',
+  'Kälte-Therapie (KT)',
+  'Bobath-Therapie für Erwachsene (KG-ZNS)',
+  'Propriozeptive neuromuskuläre Fazilitation (PNF)',
+];
+---
+
+<SubPage
+  title={page.title}
+  description={page.description}
+  h1="Termin vereinbaren"
+  crumbs={[{ label: 'Startseite', href: '/' }, { label: 'Termin vereinbaren', href: '/termin-vereinbaren/' }]}
+  heroActions={false}
+  cta={false}
+>
+  <section class="narrow block">
+    <div class="card form-card">
+      <h2 class="section-heading">Bitte fülle die Felder aus</h2>
+      <p class="hint">
+        Am schnellsten geht es telefonisch: <a href={practice.phoneHref}>{practice.phoneDisplay}</a>, {practice.hoursDisplay}.
+      </p>
+      <ContactForm subject="Terminanfrage" submitLabel="Terminanfrage senden" remedies={remedies} successUrl="/termin-angefragt/" />
+    </div>
+  </section>
+
+<script is:inline define:vars={{ prefill }}>
+  const entry = prefill[new URLSearchParams(location.search).get('leistung') ?? ''];
+  if (entry) {
+    const form = document.querySelector('form.form');
+    if (entry.remedy) {
+      const box = [...form.querySelectorAll('[name="heilmittel[]"]')].find((b) => b.value === entry.remedy);
+      if (box) {
+        box.checked = true;
+        box.dispatchEvent(new Event('change'));
+      }
+    }
+    if (entry.message) form.querySelector('[name="nachricht"]').value = entry.message;
+  }
+</script>
+</SubPage>
+
+<style>
+  .block {
+    padding-bottom: clamp(80px, 10vw, 140px);
+  }
+
+  .form-card {
+    display: grid;
+    gap: 1.25rem;
+    padding: clamp(24px, 4vw, 48px);
+  }
+</style>

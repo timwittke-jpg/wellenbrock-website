@@ -1,0 +1,207 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { practice } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  schema?: object[];
+  noindex?: boolean;
+}
+
+const { title, description, ogImage, schema = [] } = Astro.props;
+// Vorschau-Version (npm run build:preview): keine Seite darf in Suchmaschinen landen
+const noindex = Astro.props.noindex || import.meta.env.PUBLIC_PREVIEW === 'true';
+const canonical = new URL(Astro.url.pathname, Astro.site);
+// Ohne eigenes Bild nutzt jede Seite das Vorschaubild mit Teamfoto und Logo
+const image = new URL(ogImage ?? '/og-default.jpg', Astro.site).href;
+
+// Lokales Unternehmen – Grundlage für Local SEO auf jeder Seite
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'Physiotherapy',
+  '@id': `${practice.url}/#praxis`,
+  name: practice.name,
+  url: `${practice.url}/`,
+  logo: `${practice.url}/icon-512.png`,
+  image,
+  telephone: practice.phoneIntl,
+  email: practice.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: practice.street,
+    postalCode: practice.postalCode,
+    addressLocality: practice.city,
+    addressRegion: 'Berlin',
+    addressCountry: 'DE',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: practice.hours.days,
+      opens: practice.hours.opens,
+      closes: practice.hours.closes,
+    },
+  ],
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: practice.geo.lat,
+    longitude: practice.geo.lng,
+  },
+  medicalSpecialty: 'Physiotherapy',
+  currenciesAccepted: 'EUR',
+  isAccessibleForFree: false,
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: 'Barrierefreier, ebenerdiger Eingang', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Hausbesuche', value: true },
+  ],
+  areaServed: practice.areaServed.map((name) => ({ '@type': 'Place', name: `${name}, Berlin` })),
+  hasMap: practice.mapsUrl,
+  sameAs: [practice.instagram, practice.facebook],
+};
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonical} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#f9f5f0" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content={practice.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content="Das Team der Physiotherapie Wellenbrock & Wernecken in Berlin-Moabit" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="geo.region" content="DE-BE" />
+    <meta name="geo.placename" content={`${practice.city} ${practice.district}`} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(business)} />
+    {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+    <Header />
+    <main id="inhalt">
+      <slot />
+    </main>
+    <Footer />
+
+    <!--
+      Eingangsanimation: Inhalte blenden beim Scrollen sanft von unten ein (einmalig).
+      Läuft direkt nach dem Inhalt, damit nichts kurz sichtbar ist und wieder verschwindet.
+      Ohne JavaScript oder bei „Bewegung reduzieren“ ist alles sofort sichtbar.
+    -->
+    <script is:inline>
+      (() => {
+        if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const main = document.getElementById('inhalt');
+        if (!main) return;
+
+        // Listen, deren Einträge einzeln (leicht versetzt) einblenden
+        const groups = '.facts, .service-grid, .service-list, .sibling-list, .faq-list, .ways, .cards';
+        const targets = [];
+        const isElement = (el) => !['SCRIPT', 'STYLE', 'TEMPLATE'].includes(el.tagName);
+        const collect = (el) => {
+          if (el.matches(groups) || [...el.children].some((c) => c.classList.contains('card'))) {
+            targets.push(...[...el.children].filter(isElement));
+            return;
+          }
+          const kids = [...el.children].filter(isElement);
+          // nur Hüllen (Abschnitte, Container) auflösen; Karten, Texte, Tabellen, Karte usw. blenden als Ganzes ein
+          const wrapper =
+            ['SECTION', 'ARTICLE', 'DIV'].includes(el.tagName) &&
+            !el.matches('.card, .frame, .tablist, .panel, .prose:not(article)') &&
+            kids.some((k) => !['A', 'BUTTON', 'SPAN', 'P', 'IMG', 'svg', 'BR'].includes(k.tagName));
+          if (wrapper) {
+            kids.forEach(collect);
+          } else {
+            targets.push(el);
+          }
+        };
+        [...main.children].filter(isElement).forEach(collect);
+
+        document.documentElement.classList.add('js-reveal');
+        const cleanup = (el) => {
+          el.classList.remove('reveal', 'is-visible');
+          el.style.removeProperty('--reveal-delay');
+        };
+        const show = (el, delay) => {
+          observer.unobserve(el);
+          el.style.setProperty('--reveal-delay', `${delay}ms`);
+          el.classList.add('is-visible');
+          // danach Klassen entfernen, damit Hover-Übergänge der Elemente wieder greifen
+          setTimeout(() => cleanup(el), 600 + delay + 100);
+        };
+        const observer = new IntersectionObserver(
+          (entries) => {
+            let i = 0;
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting || !entry.target.classList.contains('reveal')) return;
+              // gleichzeitig sichtbare Elemente kurz nacheinander (je 80ms, höchstens 400ms)
+              show(entry.target, Math.min(i++ * 80, 400));
+            });
+          },
+          { rootMargin: '0px 0px -8% 0px' },
+        );
+
+        // beim schnellen Springen (Anker, Ende-Taste) übersprungene Elemente oberhalb sofort zeigen
+        let pending = targets.slice();
+        let ticking = false;
+        const revealSkipped = () => {
+          ticking = false;
+          pending = pending.filter((el) => {
+            if (!el.classList.contains('reveal') || el.classList.contains('is-visible')) return false;
+            if (el.getBoundingClientRect().bottom < 0) {
+              show(el, 0);
+              return false;
+            }
+            return true;
+          });
+          if (!pending.length) removeEventListener('scroll', onScroll);
+        };
+        const onScroll = () => {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(revealSkipped);
+          }
+        };
+        addEventListener('scroll', onScroll, { passive: true });
+        targets.forEach((el) => {
+          el.classList.add('reveal');
+          observer.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    left: 16px;
+    top: -100px;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    background: var(--c-surface);
+    font-weight: 600;
+  }
+  .skip-link:focus {
+    top: 16px;
+  }
+</style>

@@ -1,0 +1,184 @@
+---
+// Bestätigungsseite nach dem Absenden des Terminformulars (nicht in Suchmaschinen).
+import Base from '../layouts/Base.astro';
+import { practice } from '../data/site';
+import IconBag from '../assets/icons/mitbringen.svg?raw';
+import IconCancel from '../assets/icons/absagen.svg?raw';
+
+const bring = ['Ärztliches Rezept', 'Versicherungskarte', 'Großes Handtuch', 'Bequeme Kleidung'];
+---
+
+<Base
+  title="Termin angefragt | Wellenbrock & Wernecken"
+  description="Danke für deine Terminanfrage bei der Physiotherapie Wellenbrock & Wernecken in Berlin Moabit."
+  noindex
+>
+  <section class="confirm container">
+    <p class="status">
+      <span class="status-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9" /></svg>
+      </span>
+      Erfolgreich abgesendet
+    </p>
+    <h1>Termin angefragt</h1>
+    <p class="lead">
+      Danke für deine Anfrage! Wir melden uns so schnell wie möglich bei dir, um deinen Termin abzustimmen.
+    </p>
+  </section>
+
+  <section class="container info" aria-label="Gut zu wissen">
+    <ul class="cards">
+      <li class="card info-card">
+        <span class="icon icon--pink" aria-hidden="true" set:html={IconBag} />
+        <h2>Bitte mitbringen</h2>
+        <div class="prose">
+          <ul>{bring.map((item) => <li>{item}</li>)}</ul>
+        </div>
+      </li>
+      <li class="card info-card">
+        <span class="icon icon--peach" aria-hidden="true" set:html={IconCancel} />
+        <h2>Bis 24 Stunden vorher absagen</h2>
+        <p>
+          Du kannst einen Termin nicht wahrnehmen? Bitte sag uns mindestens 24 Stunden vorher Bescheid, damit wir den
+          Termin anderweitig vergeben können. Kurzfristig abgesagte Termine müssen wir ggf. privat berechnen.
+        </p>
+        <p>
+          Am schnellsten geht es telefonisch: <a class="nowrap" href={practice.phoneHref}>{practice.phoneDisplay}</a>
+        </p>
+      </li>
+    </ul>
+    <div class="actions">
+      <a class="btn btn--pink" href="/">Zur Startseite</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .confirm {
+    display: grid;
+    justify-items: center;
+    gap: 1.5rem;
+    padding-block: clamp(56px, 8vw, 96px) clamp(40px, 5vw, 64px);
+    text-align: center;
+  }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+  }
+
+  .status-icon {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--c-pink);
+  }
+
+  .status-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  h1 {
+    max-width: 16ch;
+  }
+
+  .lead {
+    max-width: 34em;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-lead);
+  }
+
+  .info {
+    width: min(100% - 2 * var(--gutter), 984px);
+    padding-bottom: clamp(80px, 10vw, 140px);
+  }
+
+  /* Gestaltung wie die Leistungskarten der Startseite */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .info-card {
+    display: grid;
+    gap: 1.25rem;
+    padding: 32px;
+  }
+
+  .icon {
+    display: grid;
+    place-items: center;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    margin-bottom: 0.75rem;
+  }
+
+  .icon :global(svg) {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon--pink {
+    background: var(--c-pink-soft);
+  }
+
+  .icon--peach {
+    background: var(--c-peach-soft);
+  }
+
+  h2 {
+    font-size: var(--fs-md);
+    line-height: var(--lh-title);
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  .prose :global(ul) {
+    margin: 0;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(40px, 5vw, 56px);
+  }
+
+  @media (max-width: 720px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+
+    .info-card {
+      padding: 24px;
+    }
+
+    /* Icon-Kreise auf dem Handy etwas kleiner */
+    .icon {
+      width: 72px;
+      height: 72px;
+    }
+
+    .icon :global(svg) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+</style>

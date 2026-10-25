@@ -1,0 +1,74 @@
+[
+  {
+    "q": "Wie läuft eine Physiotherapie-Sitzung ab?",
+    "a": "<p>Eine Sitzung startet mit einem Gespräch über deine Beschwerden, gefolgt von einer kurzen Untersuchung. Danach beginnt die eigentliche Behandlung. Mehr über die Abläufe der verschiedenen Behandlungen erfährst du auf den jeweiligen Unterseiten der Leistungen. <a href=\"/physiotherapie/\">Hier gehts zur Leistungs-Übersicht.</a></p>"
+  },
+  {
+    "q": "Wie schnell merke ich eine Verbesserung?",
+    "a": "<p>Das hängt von deinen Beschwerden ab. Manche Patient:innen spüren schon nach 1–2 Sitzungen eine deutliche Erleichterung, bei anderen dauert es mehrere Wochen konsequenter Behandlung. Wichtig ist, dass wir gemeinsam dranbleiben.</p>"
+  },
+  {
+    "q": "Warum gehört Eigeninitiative zur Physiotherapie dazu?",
+    "a": "<p>Deine aktive Mitarbeit ist entscheidend für eine wirkungsvolle Behandlung. Wir zeigen dir außerdem, wie du Bewegungen auch zuhause üben kannst. So beschleunigst du den Erfolg und sicherst nachhaltige Verbesserungen. Mehr über unsere Arbeitsweise <a href=\"/haltung/\">findest du hier.</a></p>"
+  },
+  {
+    "q": "Muss ich etwas mitbringen?",
+    "a": "<p>Ja – bitte ein eigenes Handtuch und bequeme, lockere Kleidung. So können wir dich optimal behandeln und Bewegungen gezielt üben.</p>"
+  },
+  {
+    "q": "Wie lange dauert eine Physiotherapie-Sitzung?",
+    "a": "<p>Eine Behandlung dauert in der Regel 20–30 Minuten, abhängig von der Therapieform (KG, MT, MLD, Bobath). Bei Hausbesuchen planen wir etwas mehr Zeit ein. Genaue Informationen findest du in unserer <a href=\"/preise/\">Preisliste.</a></p>"
+  },
+  {
+    "q": "Wie oft sollte ich zur Physiotherapie kommen?",
+    "a": "<p>Das hängt von deinem Rezept und deinem persönlichen Befund ab. Häufig sind 1–2 Sitzungen pro Woche üblich.</p>"
+  },
+  {
+    "q": "Wird Physiotherapie von der Krankenkasse übernommen?",
+    "a": "<p>Ja. Mit ärztlichem Rezept übernehmen die gesetzlichen Kassen die Kosten abzüglich der üblichen Zuzahlung. Privatpatient:innen und Selbstzahler:innen können alle Leistungen ebenfalls nutzen. Mehr erfährst du in den <a href=\"/preise/\">Informationen zu Preisen &amp; Zuzahlung.</a></p>"
+  },
+  {
+    "q": "Muss ich für mein Rezept zuzahlen?",
+    "a": "Gesetzlich Versicherte zahlen eine einmalige Gebühr von 10 € pro Rezept plus 10 % des Behandlungspreises. Private Kassen erstatten je nach Tarif. Mehr erfährst du in den <a href=\"/preise/\">Informationen zu Preisen &amp; Zuzahlung.</a>"
+  },
+  {
+    "q": "Brauche ich eine ärztliche Verordnung für Physiotherapie?",
+    "a": "<p>In der Regel ja: Dein Arzt stellt ein Rezept (z. B. KG, MT, MLD) aus. Manche Leistungen wie Osteopathie oder Taping kannst du auch als Selbstzahler:in nutzen. Mehr erfährst du in den <a href=\"/preise/\">Informationen zu Preisen &amp; Zuzahlung.</a></p>"
+  },
+  {
+    "q": "Übernimmt meine Krankenkasse Osteopathie?",
+    "a": "Viele private Krankenkassen übernehmen Osteopathie vollständig. Gesetzliche Kassen wie AOK, TK oder Barmer beteiligen sich oft anteilig – meist 3–6 Sitzungen pro Jahr. Bitte frag direkt bei deiner Krankenkasse nach den genauen Bedingungen. Mehr Information findest du auf<a href=\"/preise/\"> unserer Preisliste</a>."
+  },
+  {
+    "q": "Wie lange dauert eine osteopathische Behandlung?",
+    "a": "Eine Sitzung dauert in der Regel 60 Minuten. Wir nehmen uns Zeit für ein ausführliches Gespräch, eine gründliche Untersuchung und die Behandlung selbst. Bei Säuglingen und Kindern kann die Dauer etwas kürzer sein, je nach Bedarf und Belastbarkeit. Mehr Informationen über die osteopathischen Behandlungen <a href=\"/osteopathie/\">findest du hier.</a>"
+  },
+  {
+    "q": "Wie läuft eine osteopathische Behandlung ab?",
+    "a": "Am Anfang steht ein ausführliches Gespräch über deine Beschwerden, gefolgt von einer gründlichen Untersuchung. Anschließend starten wir in die Behandlung: mit sanften und gezielten Handgriffen, lösen wir Verspannungen und aktivieren die Selbstheilungskräfte deines Körpers. Mehr Informationen über die osteopathischen Behandlungen <a href=\"/osteopathie/\">findest du hier.</a>"
+  },
+  {
+    "q": "Hilft Osteopathie auch bei Kindern und Säuglingen?",
+    "a": "<p>Ja – gerade bei Säuglingen (z. B. nach schwieriger Geburt), Kindern mit Entwicklungsverzögerungen oder Haltungsproblemen kann Osteopathie eine wertvolle Unterstützung sein. Wir nehmen uns besonders viel Zeit und arbeiten sanft und einfühlsam. Hier findest mehr Informationen zu <a href=\"/osteopathie/osteopathie-fuer-kinder/\">Osteopathie für Kinder &amp; Säuglinge.</a></p>"
+  },
+  {
+    "q": "Wo in Berlin findet die Behandlung statt?",
+    "a": "Unsere barrierefreie Altbaupraxis liegt in Berlin-Moabit, zwischen U-Turmstraße und S-Tiergarten. Hier findest du mehr Eindrücke unserer Praxis."
+  },
+  {
+    "q": "Kann ich auch Hausbesuche bekommen?",
+    "a": "<p>Ja – wir kommen auch zu dir nach Hause, z. B. in Moabit, Tiergarten, Hansaviertel oder Charlottenburg. Die Anfahrt ist auf einen Radius von ca. 1,5 km um unsere Praxis begrenzt. Hier findest du mehr <a href=\"/hausbesuche/\">Informationen zu unseren Hausbesuchen.</a></p>"
+  },
+  {
+    "q": "Wo finde ich euch und ist die Praxis barrierefrei?",
+    "a": "<p><span style=\"white-space: pre-wrap;\">Unsere Praxis liegt zentral in Berlin-Moabit, nahe U-Turmstraße und S-Tiergarten. Der Zugang ist barrierefrei mit ebenerdigem Eingang. Vor der Tür gibt es einen Behindertenparkplatz.</span></p>"
+  },
+  {
+    "q": "Gibt es einen Behinderten-Parkplatz?",
+    "a": "<p>Ja. Direkt vor dem Eingang unserer Praxis ist ein Parkplatz für Behinderte.</p>"
+  },
+  {
+    "q": "Behandelt ihr auch Samstags?",
+    "a": "Ja – wir behandeln dich auch an Samstagen. Sowohl in unserer Praxis, als auch bei Bedarf zu <a href=\"/hausbesuche/\">Hausbesuchen.</a> &nbsp;"
+  }
+]

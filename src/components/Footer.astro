@@ -1,0 +1,199 @@
+---
+import Logo from '../assets/icons/logo.svg?raw';
+import Instagram from '../assets/icons/instagram.svg?raw';
+import Facebook from '../assets/icons/facebook.svg?raw';
+import { nav, practice } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container grid">
+    <a class="logo" href="/" aria-label={`${practice.shortName} – Startseite`} set:html={Logo} />
+
+    <address class="contact">
+      <a href={practice.phoneHref}>Tel: {practice.phoneDisplay}</a>
+      <span>{practice.hoursDisplay}</span>
+      <a href={`mailto:${practice.email}`}>{practice.email}</a>
+      <span>{practice.street},<br />{practice.postalCode} {practice.city}</span>
+    </address>
+
+    <nav class="links" aria-label="Fußzeile">
+      {
+        nav.map((group) => (
+          <details>
+            <summary>
+              {group.label}
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+                <path d="M2.5 5l4.5 4.5L11.5 5" fill="none" stroke="currentColor" stroke-width="1.6" />
+              </svg>
+            </summary>
+            <ul>
+              {group.items.map((item) => (
+                <li>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        ))
+      }
+    </nav>
+
+    <ul class="legal">
+      <li><a href="/impressum/">Impressum</a></li>
+      <li><a href="/datenschutz/">Datenschutz</a></li>
+    </ul>
+
+    <ul class="social">
+      <li><a href={practice.instagram} aria-label="Instagram" rel="noopener" set:html={Instagram} /></li>
+      <li><a href={practice.facebook} aria-label="Facebook" rel="noopener" set:html={Facebook} /></li>
+    </ul>
+  </div>
+  <div class="container bottom">
+    <p>© {year} {practice.name}, Berlin Moabit</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--c-surface);
+    padding-block: 64px 32px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 220px 1.3fr 0.8fr 0.6fr auto;
+    gap: 2rem 2.5rem;
+    align-items: start;
+  }
+
+  .logo {
+    width: 208px;
+  }
+
+  .logo :global(svg) {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact {
+    display: grid;
+    gap: 1rem;
+    font-style: normal;
+    font-size: var(--fs-body);
+  }
+
+  .contact a {
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .contact a:hover,
+  .legal a:hover,
+  .links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .links {
+    display: grid;
+    gap: 1rem;
+  }
+
+  summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] summary svg {
+    transform: rotate(180deg);
+  }
+
+  details ul {
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  details a {
+    text-decoration: none;
+  }
+
+  .legal {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+  }
+
+  .legal a {
+    text-decoration: none;
+  }
+
+  .social {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .social a {
+    display: block;
+    width: 56px;
+    border-radius: 50%;
+  }
+
+  /* Kreis im Gelb der Textlinks (statt des Rosa aus der SVG-Datei) */
+  .social a :global(svg > rect) {
+    fill: var(--c-peach-soft);
+  }
+
+  .social a:hover {
+    filter: brightness(0.96);
+  }
+
+  .bottom {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--c-line);
+    font-size: var(--fs-small);
+  }
+
+  @media (max-width: 1024px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .logo {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* Icon-Kreise auf dem Handy etwas kleiner */
+    .social a {
+      width: 48px;
+    }
+
+    .social a :global(svg) {
+      height: auto;
+    }
+  }
+</style>
