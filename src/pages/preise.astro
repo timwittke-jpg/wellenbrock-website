@@ -4,13 +4,6 @@ import { getPage } from '../data/pages';
 import tabs from '../data/preise.json';
 
 const page = getPage('/preise/')!;
-
-// „Beispiele:6× …(+10 € Rezeptgebühr)…“ in Einleitung und Liste aufteilen
-const splitExamples = (text: string) => {
-  const [intro, rest] = text.split('Beispiele:');
-  const examples = rest ? rest.match(/\d+×[^)]*\)/g) ?? [] : [];
-  return { intro: intro.trim(), examples };
-};
 ---
 
 <SubPage
@@ -49,11 +42,12 @@ const splitExamples = (text: string) => {
               {g.text && <p class="prose">{g.text}</p>}
 
               {g.info.map((info) => {
-                const { intro, examples } = splitExamples(info.text);
+                // Beispiele pflegt die Praxis im CMS als eigene Liste; leere Einträge auslassen
+                const examples = (info.examples ?? []).map((e) => e.trim()).filter(Boolean);
                 return (
                   <div class="card info">
                     <h3>{info.title}</h3>
-                    <p>{intro}</p>
+                    {info.text && <p>{info.text}</p>}
                     {examples.length > 0 && (
                       <>
                         <p class="examples-title">Beispiele:</p>

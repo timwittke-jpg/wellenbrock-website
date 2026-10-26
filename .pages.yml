@@ -93,6 +93,11 @@ content:
               - name: text
                 label: Text
                 type: text
+              - name: examples
+                label: Beispiele
+                type: string
+                description: "Ein Beispiel pro Eintrag, z. B. 6× Manuelle Therapie = 25 € Zuzahlung (+10 € Rezeptgebühr). Erscheint unter „Beispiele:“. Leer lassen, wenn keine Beispiele nötig sind."
+                list: true
           - name: items
             label: Leistungen und Preise
             type: object

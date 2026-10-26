@@ -8,7 +8,12 @@
         "info": [
           {
             "title": "Zuzahlung & Rezeptgebühren",
-            "text": "Es gilt die gesetzliche Zuzahlung: Einmalig 10 € Rezeptgebühr plus 10 % der Behandlungskosten.Beispiele:6× Manuelle-Therapie = 25 € Zuzahlung (+10 € Rezeptgebühr)10× Krankengymnastik = 35 € Zuzahlung (+10 € Rezeptgebühr)20× Bobath-Therapie = 98 € Zuzahlung (+10 € Rezeptgebühr)"
+            "text": "Es gilt die gesetzliche Zuzahlung: Einmalig 10 € Rezeptgebühr plus 10 % der Behandlungskosten.",
+            "examples": [
+              "6× Manuelle-Therapie = 25 € Zuzahlung (+10 € Rezeptgebühr)",
+              "10× Krankengymnastik = 35 € Zuzahlung (+10 € Rezeptgebühr)",
+              "20× Bobath-Therapie = 98 € Zuzahlung (+10 € Rezeptgebühr)"
+            ]
           }
         ],
         "items": [],
@@ -53,7 +58,8 @@
         "info": [
           {
             "title": "Information",
-            "text": "Unsere Preise orientieren sich an der aktuellen Gebührenübersicht für Physiotherapie (GebüTh). In der Regel erstatten private Kassen diese Kosten bei vorliegender ärztlicher Empfehlung voll oder teilweise. Erkundige dich im Zweifel direkt bei deiner Versicherung."
+            "text": "Unsere Preise orientieren sich an der aktuellen Gebührenübersicht für Physiotherapie (GebüTh). In der Regel erstatten private Kassen diese Kosten bei vorliegender ärztlicher Empfehlung voll oder teilweise. Erkundige dich im Zweifel direkt bei deiner Versicherung.",
+            "examples": []
           }
         ],
         "items": [
