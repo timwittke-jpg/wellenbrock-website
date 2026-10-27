@@ -497,19 +497,29 @@ const faqSchema = {
       height: auto;
     }
 
-    /* Hausbesuche: wie die Leistungskarten Icon → Überschrift und Text → Pfeil je 8px enger */
+    /* Hausbesuche: Icon → Überschrift 20px, Überschrift → Text 12px, Text → Pfeil 4px */
     .house-card {
       grid-template-columns: 1fr;
-      row-gap: 24px;
+      row-gap: 20px;
       padding: 24px;
+    }
+
+    .house-body {
+      gap: 12px;
     }
 
     .house-body p {
-      margin-bottom: 0;
+      margin-bottom: -8px;
     }
 
+    /* Leistungskarten: Icon → Überschrift 24px, Überschrift → Text 12px, Text → Pfeil 20px */
     .service {
+      gap: 12px;
       padding: 24px;
+    }
+
+    .service p {
+      margin-bottom: 8px;
     }
   }
 </style>
