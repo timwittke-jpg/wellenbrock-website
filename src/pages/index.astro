@@ -344,7 +344,7 @@ const faqSchema = {
 
   .service {
     display: grid;
-    gap: 1.5rem;
+    gap: 16px;
     padding: 32px;
   }
 
@@ -353,8 +353,9 @@ const faqSchema = {
     width: 96px;
   }
 
+  /* Abstände: Icon → Überschrift 28px, Überschrift → Text 16px, Text → Pfeil 32px */
   .service h3 {
-    margin-top: 0.75rem;
+    margin-top: 12px;
     font-size: var(--fs-md);
     line-height: var(--lh-title);
   }
@@ -362,7 +363,7 @@ const faqSchema = {
   .service p {
     font-size: var(--fs-body);
     line-height: var(--lh-body);
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
   }
 
   /* Über uns */
@@ -400,13 +401,14 @@ const faqSchema = {
   .house-card {
     display: grid;
     grid-template-columns: 96px minmax(0, 1fr);
-    gap: 2rem 2.5rem;
+    gap: 2rem;
     padding: 32px;
   }
 
+  /* Wie die Leistungskarten: Überschrift → Text 16px, Text → Pfeil 24px */
   .house-body {
     display: grid;
-    gap: 1.5rem;
+    gap: 16px;
   }
 
   .house-body h2 {
@@ -417,7 +419,7 @@ const faqSchema = {
   .house-body p {
     font-size: var(--fs-body);
     line-height: var(--lh-body);
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
   }
 
   /* FAQ */
@@ -503,15 +505,6 @@ const faqSchema = {
 
     .service {
       padding: 24px;
-    }
-
-    /* Leistungskarten: Icon → Überschrift und Text → Pfeil je 8px enger (Überschrift → Text bleibt) */
-    .service h3 {
-      margin-top: 4px;
-    }
-
-    .service p {
-      margin-bottom: 8px;
     }
   }
 </style>
