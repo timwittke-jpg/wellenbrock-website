@@ -268,7 +268,8 @@ const faqSchema = {
     margin: 0;
     padding: 0;
     list-style: none;
-    font-size: var(--fs-lead);
+    /* gleiche Größe wie der Text der Leistungskarten */
+    font-size: var(--fs-body);
   }
 
   .facts li {
@@ -295,10 +296,10 @@ const faqSchema = {
     border-radius: 50%;
   }
 
-  /* Icon 20px im 32px-Kreis, Linie exakt 1,5px (unabhängig von der Skalierung) */
+  /* Icon 18px im 32px-Kreis, Linie exakt 1,5px (unabhängig von der Skalierung) */
   .fact-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     fill: none;
     stroke: currentColor;
     stroke-width: 1.5;
