@@ -239,10 +239,14 @@ const faqSchema = {
   }
 
   /* Praxis-Intro mit Kontaktdaten */
-  /* Textspalte breiter (ca. 690px), damit der Introtext am Desktop in 4 Zeilen passt */
+  /*
+    Textspalte wie in Figma: 19,4 × Schriftgröße (am Desktop ca. 700px). Damit bleiben die
+    Umbrüche „…und / …seit 25 / …Einfühlungsvermögen / und Therapien…“ auch dann,
+    wenn ein Browser die Schrift etwas breiter oder schmaler setzt.
+  */
   .intro {
     display: grid;
-    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, calc(var(--fs-lg) * 19.4)) minmax(0, 1fr);
     gap: 3rem 5rem;
     padding-block: clamp(56px, 8vw, 84px) clamp(64px, 10vw, 140px);
   }
@@ -252,15 +256,15 @@ const faqSchema = {
     font-weight: 400;
     font-size: var(--fs-lg);
     line-height: 1.4;
-    /* einzige Stelle mit Silbentrennung: große Schrift in schmaler Spalte */
-    hyphens: auto;
-    -webkit-hyphens: auto;
+    /* nur feste Trennvorschläge (&shy; bei „Einfühlungs-vermögen“), damit alle Browser gleich umbrechen */
+    hyphens: manual;
+    -webkit-hyphens: manual;
   }
 
   .facts {
     display: grid;
     align-content: start;
-    gap: 1.5rem;
+    gap: 24px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -287,12 +291,12 @@ const faqSchema = {
     flex: none;
     display: grid;
     place-items: center;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
   }
 
-  /* Icon 18px im 32px-Kreis, Linie exakt 1,5px (unabhängig von der Skalierung) */
+  /* Icon 18px im 40px-Kreis, Linie exakt 1,5px (unabhängig von der Skalierung) */
   .fact-icon svg {
     width: 18px;
     height: 18px;
@@ -473,6 +477,11 @@ const faqSchema = {
     .hero-inner h1 {
       margin-bottom: -8px;
     }
+    /* Kontaktinfos auf dem Handy enger beieinander */
+    .facts {
+      gap: 16px;
+    }
+
     /* Icon-Kreise auf dem Handy etwas kleiner */
     .icon {
       width: 72px;
