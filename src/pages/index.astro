@@ -108,8 +108,9 @@ const faqSchema = {
 
   <section class="intro container" aria-label="Die Praxis">
     <p class="intro-text">
+      {/* &shy;: Trennvorschlag, damit „Einfühlungs-vermögen“ auch ohne Trennwörterbuch des Browsers umbrechen kann */}
       Unsere Praxis für Physiotherapie und Osteopathie in Berlin Moabit steht seit {practiceYears} Jahren für Kompetenz,
-      Einfühlungsvermögen und Therapien, die nachhaltig wirken.
+      Einfühlungs&shy;vermögen und Therapien, die nachhaltig wirken.
     </p>
     <ul class="facts">
       <li>
@@ -238,9 +239,10 @@ const faqSchema = {
   }
 
   /* Praxis-Intro mit Kontaktdaten */
+  /* Textspalte breiter (ca. 690px), damit der Introtext am Desktop in 4 Zeilen passt */
   .intro {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
     gap: 3rem 5rem;
     padding-block: clamp(56px, 8vw, 84px) clamp(64px, 10vw, 140px);
   }
