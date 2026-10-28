@@ -210,8 +210,9 @@ const faqSchema = {
     line-height: var(--lh-tight);
   }
 
+  /* 32em: „…Tiergarten“ passt noch in Zeile 2, „und“ nicht mehr – Umbruch vor „und Charlottenburg.“ in jedem Browser */
   .lead {
-    max-width: 34em;
+    max-width: 32em;
     font-size: var(--fs-lead);
     line-height: var(--lh-lead);
     margin-bottom: 0.5rem;
@@ -469,6 +470,11 @@ const faqSchema = {
     /* H1 → Introtext 8px enger (28 → 20px) */
     .hero-inner h1 {
       margin-bottom: -8px;
+    }
+
+    /* Introtext schmaler, damit „und Charlottenburg.“ zusammen in die letzte Zeile rutscht */
+    .lead {
+      max-width: 17em;
     }
 
     /* Icon-Kreise auf dem Handy etwas kleiner */
