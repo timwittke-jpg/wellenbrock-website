@@ -164,7 +164,7 @@
       {
         "heading": "Hinweis zur verantwortlichen Stelle",
         "level": 2,
-        "html": "<p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist: <br><br>Monika Wellenbrock <br>Bochumer Str. 9 <br>10555 Berlin <br><br>Telefon: 030 – 392 44 46 <br>E-Mail: info@physiotherapie-wellenbrock-wernecken.de <br><br>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>",
+        "html": "<p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist: <br><br>Monika Wellenbrock <br>Bochumer Str. 9 <br>10555 Berlin <br><br>Telefon: 030 – 392 44 46 <br>E-Mail: info@physiotherapie-wellenbrock.de <br><br>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>",
         "cards": [],
         "buttons": [],
         "images": []
@@ -468,7 +468,7 @@
       {
         "heading": "Kontakt:",
         "level": 2,
-        "html": "<p>Telefon: 030 – 392 44 46<br>Telefax: 030 – 39 90 40 25<br>E-Mail: info@physiotherapie-wellenbrock-wernecken.de</p>",
+        "html": "<p>Telefon: 030 – 392 44 46<br>Telefax: 030 – 39 90 40 25<br>E-Mail: info@physiotherapie-wellenbrock.de</p>",
         "cards": [],
         "buttons": [],
         "images": []
@@ -598,7 +598,7 @@
           },
           {
             "title": "E-Mail",
-            "html": "<p>info@physiotherapie-wellenbrock-wernecken.de</p><p>Mail schreiben</p>",
+            "html": "<p>info@physiotherapie-wellenbrock.de</p><p>Mail schreiben</p>",
             "buttons": []
           },
           {

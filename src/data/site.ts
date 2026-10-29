@@ -41,6 +41,8 @@ export const practice = {
   // Koordinaten der Praxis (OpenStreetMap/Nominatim für Bochumer Straße 9, 10555 Berlin)
   geo: { lat: 52.5222182, lng: 13.3375731 },
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Physiotherapie+Wellenbrock+Wernecken+Bochumer+Strasse+9+10555+Berlin',
+  // Google-Unternehmensprofil der Praxis (Bewertungen; in den strukturierten Daten als sameAs)
+  googleProfile: 'https://maps.app.goo.gl/QyZjvvt7q15HSaLX9',
   mapsEmbed: 'https://www.google.com/maps?q=Bochumer+Strasse+9,+10555+Berlin&output=embed',
   instagram: 'https://www.instagram.com/physio_wellenbrock_wernecken/',
   facebook: 'https://www.facebook.com/profile.php?id=61561619562005&locale=de_DE',
