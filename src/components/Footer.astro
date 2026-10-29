@@ -40,11 +40,6 @@ const year = new Date().getFullYear();
       }
     </nav>
 
-    <ul class="legal">
-      <li><a href="/impressum/">Impressum</a></li>
-      <li><a href="/datenschutz/">Datenschutz</a></li>
-    </ul>
-
     <ul class="social">
       <li><a href={practice.instagram} aria-label="Instagram" rel="noopener" set:html={Instagram} /></li>
       <li><a href={practice.facebook} aria-label="Facebook" rel="noopener" set:html={Facebook} /></li>
@@ -52,6 +47,10 @@ const year = new Date().getFullYear();
   </div>
   <div class="container bottom">
     <p>© {year} {practice.name}, Berlin Moabit</p>
+    <ul class="legal">
+      <li><a href="/impressum/">Impressum</a></li>
+      <li><a href="/datenschutz/">Datenschutz</a></li>
+    </ul>
   </div>
 </footer>
 
@@ -63,7 +62,7 @@ const year = new Date().getFullYear();
 
   .grid {
     display: grid;
-    grid-template-columns: 220px 1.3fr 0.8fr 0.6fr auto;
+    grid-template-columns: 220px 1.3fr 1fr auto;
     gap: 2rem 2.5rem;
     align-items: start;
   }
@@ -90,7 +89,6 @@ const year = new Date().getFullYear();
   }
 
   .contact a:hover,
-  .legal a:hover,
   .links a:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -130,18 +128,6 @@ const year = new Date().getFullYear();
     text-decoration: none;
   }
 
-  .legal {
-    display: grid;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-weight: 600;
-  }
-
-  .legal a {
-    text-decoration: none;
-  }
 
   .social {
     display: flex;
@@ -171,7 +157,30 @@ const year = new Date().getFullYear();
     margin-top: clamp(80px, 10vw, 140px);
     padding-top: 24px;
     border-top: 1px solid var(--c-line);
-    font-size: var(--fs-small);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  /* Impressum und Datenschutz rechts in der Copyright-Zeile, unterstrichen */
+  .legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .legal a {
+    text-underline-offset: 4px;
+  }
+
+  .legal a:hover {
+    text-decoration-thickness: 2px;
   }
 
   @media (max-width: 1024px) {
