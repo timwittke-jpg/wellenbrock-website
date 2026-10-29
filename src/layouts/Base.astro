@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+// dieselbe Datei, die das Fontsource-CSS für lateinische Zeichen nutzt (gleiche gehashte URL)
+import notoSansLatin from '@fontsource-variable/noto-sans/files/noto-sans-latin-wght-normal.woff2?url';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { practice } from '../data/site';
@@ -72,8 +74,9 @@ const business = {
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonical} />}
-    <!-- Überschriftenschrift sofort laden, nicht erst nach dem CSS (verhindert das kurze Aufblitzen der Ersatzschrift) -->
+    <!-- Beide Schriften sofort laden, nicht erst nach dem CSS (verhindert das kurze Aufblitzen der Ersatzschrift) -->
     <link rel="preload" href="/fonts/cooper-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={notoSansLatin} as="font" type="font/woff2" crossorigin />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
