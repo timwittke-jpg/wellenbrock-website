@@ -62,7 +62,9 @@ const year = new Date().getFullYear();
 
   .grid {
     display: grid;
-    grid-template-columns: 220px 1.3fr 1fr auto;
+    /* vier Blöcke in Inhaltsbreite, gleich große Abstände dazwischen */
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between;
     gap: 2rem 2.5rem;
     align-items: start;
   }
