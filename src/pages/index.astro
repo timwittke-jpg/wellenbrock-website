@@ -195,7 +195,8 @@ const faqSchema = {
 <style>
   /* Hero */
   .hero {
-    padding-block: clamp(48px, 7vw, 72px) clamp(56px, 8vw, 72px);
+    /* oben 8px weniger als zuvor: Desktop 72 → 64px, Handy 48 → 40px */
+    padding-block: clamp(40px, 7vw - 8px, 64px) clamp(56px, 8vw, 72px);
     text-align: center;
   }
 
