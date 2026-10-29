@@ -89,7 +89,7 @@ const faqSchema = {
     <div class="container hero-inner">
       <h1>Physiotherapie<br /> mit Haltung</h1>
       <p class="lead">
-        Physiotherapie &amp; Osteopathie in Berlin Moabit. Für Privat- und Kassenpatienten. Hausbesuche in Moabit,
+        Physiotherapie &amp; Osteopathie in Berlin Moabit. Für Privat- und Kassenpatienten.<br class="lead-br" /> Hausbesuche in Moabit,
         Hansaviertel, Tiergarten und Charlottenburg.
       </p>
       <a class="btn btn--pink" href={appointmentHref}>Termin vereinbaren</a>
@@ -217,6 +217,20 @@ const faqSchema = {
     font-size: var(--fs-lead);
     line-height: var(--lh-lead);
     margin-bottom: 0.5rem;
+  }
+
+  .lead-br {
+    display: none;
+  }
+
+  /* Desktop: zwei Zeilen, Umbruch nach „Kassenpatienten.“ */
+  @media (min-width: 961px) {
+    .lead {
+      max-width: 46em;
+    }
+    .lead-br {
+      display: inline;
+    }
   }
 
   /* Teamfoto mit Abstand zum Fensterrand */
