@@ -10,7 +10,7 @@ import { appointmentHref } from '../data/site';
       <span class="cta-mark" set:html={LogoMark} />
       <h2 id="termin">Jetzt Termin vereinbaren</h2>
       <p>
-        Vereinbare jetzt deinen Termin in unserer Praxis in Berlin-Moabit.{' '}<br />Wir freuen uns auf dich!
+        Vereinbare jetzt deinen Termin in unserer Praxis in <span class="nowrap">Berlin-Moabit.</span>{' '}<br />Wir freuen uns auf dich!
       </p>
       <CardArrow href={appointmentHref} label="Termin vereinbaren" />
     </div>
@@ -35,8 +35,13 @@ import { appointmentHref } from '../data/site';
     display: grid;
     justify-items: center;
     gap: 1.5rem;
-    width: min(100%, 36em);
+    /* 40em (ca. 680px): erste Textzeile (ca. 612px) passt mit Luft in jedem Browser */
+    width: min(100%, 40em);
     margin-inline: auto;
+  }
+
+  .nowrap {
+    white-space: nowrap;
   }
 
   .cta-mark {
