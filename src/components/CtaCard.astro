@@ -25,6 +25,8 @@ import { appointmentHref } from '../data/site';
 
   /* Ganz klickbare weiße Karte wie die übrigen Karten, Logozeichen in Magenta; Hover: Schatten */
   .cta-card {
+    /* Bezugsbreite für die Überschrift (cqi = Innenbreite der Karte) */
+    container-type: inline-size;
     padding: clamp(40px, 5vw, 56px) 24px;
     text-align: center;
   }
@@ -49,7 +51,8 @@ import { appointmentHref } from '../data/site';
   /* Überschrift darf breiter laufen als der Text darunter */
   h2 {
     width: max-content;
-    max-width: min(100vw - 2 * var(--gutter) - 48px, 900px);
+    /* höchstens so breit wie die Karte innen (100vw zählte die Scrollleiste mit und schob den Pfeil an den Rand) */
+    max-width: min(100cqi, 900px);
     /* wie die Abschnittsüberschriften (H2): Cooper Medium, 56px */
     font-size: var(--fs-xxl);
   }
