@@ -3,10 +3,23 @@
 /* Cooper (SIL OFL) für Überschriften, variable Strichstärke 400–900 */
 @font-face {
   font-family: 'Cooper';
-  src: url('/fonts/cooper-variable.ttf') format('truetype');
+  src: url('/fonts/cooper-variable.woff2') format('woff2');
   font-weight: 400 900;
   font-style: normal;
   font-display: swap;
+}
+
+/*
+  Ersatzschrift, bis Cooper geladen ist: Georgia vom Gerät (wird nichts heruntergeladen),
+  auf Breite und Zeilenmaße von Cooper angeglichen, damit beim Wechsel nichts springt.
+*/
+@font-face {
+  font-family: 'Cooper Fallback';
+  src: local('Georgia');
+  size-adjust: 94.5%;
+  ascent-override: 132.3%;
+  descent-override: 45%;
+  line-gap-override: 0%;
 }
 
 /* Farben aus den Figma-Assets gemessen */
@@ -21,7 +34,7 @@
   --c-peach-soft: #fee5cd;
   --c-line: #d9d3cc;
 
-  --f-serif: 'Cooper', Georgia, serif;
+  --f-serif: 'Cooper', 'Cooper Fallback', Georgia, serif;
   --f-sans: 'Noto Sans Variable', system-ui, sans-serif;
 
   --shadow-card: 0 12px 40px rgb(60 40 20 / 0.10);

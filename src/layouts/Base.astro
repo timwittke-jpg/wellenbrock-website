@@ -72,6 +72,8 @@ const business = {
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonical} />}
+    <!-- Überschriftenschrift sofort laden, nicht erst nach dem CSS (verhindert das kurze Aufblitzen der Ersatzschrift) -->
+    <link rel="preload" href="/fonts/cooper-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
