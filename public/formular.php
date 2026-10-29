@@ -221,7 +221,8 @@ $kopf = [
 $mail = implode("\r\n", $kopf) . "\r\n\r\n" . chunk_split(base64_encode($text), 76, "\r\n");
 
 // Versand per SMTP (SSL, Port 465) über das Postfach aus der Konfiguration
-function smtpSenden(array $config, string $von, string $an, string $mail): bool
+// Gibt '' zurück, wenn alles geklappt hat, sonst eine kurze Fehlerbeschreibung
+function smtpSenden(array $config, string $von, string $an, string $mail): string
 {
     $verbindung = @stream_socket_client(
         'ssl://' . $config['smtp_host'] . ':' . (int) ($config['smtp_port'] ?? 465),
@@ -231,9 +232,10 @@ function smtpSenden(array $config, string $von, string $an, string $mail): bool
     );
     if (!$verbindung) {
         error_log("Formular: SMTP-Verbindung fehlgeschlagen ($fehlerNr $fehlerText)");
-        return false;
+        return "Verbindung $fehlerNr " . mb_substr((string) $fehlerText, 0, 80);
     }
     stream_set_timeout($verbindung, 15);
+    $schrittFehler = '';
 
     $lesen = function () use ($verbindung): string {
         $antwort = '';
@@ -243,34 +245,37 @@ function smtpSenden(array $config, string $von, string $an, string $mail): bool
         }
         return $antwort;
     };
-    $befehl = function (?string $zeile, string $erwartet) use ($verbindung, $lesen): bool {
+    // Schritt und Antwort des Mailservers merken (enthält nie das Passwort)
+    $befehl = function (string $schritt, ?string $zeile, string $erwartet) use ($verbindung, $lesen, &$schrittFehler): bool {
         if ($zeile !== null) fwrite($verbindung, $zeile . "\r\n");
-        $antwort = $lesen();
+        $antwort = trim($lesen());
         if (strncmp($antwort, $erwartet, 3) !== 0) {
-            // Passwort nie ins Log schreiben
-            error_log('Formular: SMTP-Fehler: ' . trim($antwort));
+            $schrittFehler = "$schritt: " . mb_substr(preg_replace('/\s+/', ' ', $antwort), 0, 120);
+            error_log('Formular: SMTP-Fehler ' . $schrittFehler);
             return false;
         }
         return true;
     };
 
     $host = $_SERVER['SERVER_NAME'] ?? 'localhost';
-    $ok = $befehl(null, '220')
-        && $befehl("EHLO $host", '250')
-        && $befehl('AUTH LOGIN', '334')
-        && $befehl(base64_encode((string) $config['smtp_benutzer']), '334')
-        && $befehl(base64_encode((string) $config['smtp_passwort']), '235')
-        && $befehl("MAIL FROM:<$von>", '250')
-        && $befehl("RCPT TO:<$an>", '250')
-        && $befehl('DATA', '354')
-        && $befehl(rtrim($mail) . "\r\n.", '250');
+    $befehl('Begrüßung', null, '220')
+        && $befehl('EHLO', "EHLO $host", '250')
+        && $befehl('Anmeldung', 'AUTH LOGIN', '334')
+        && $befehl('Benutzer', base64_encode((string) $config['smtp_benutzer']), '334')
+        && $befehl('Passwort', base64_encode((string) $config['smtp_passwort']), '235')
+        && $befehl('Absender', "MAIL FROM:<$von>", '250')
+        && $befehl('Empfänger', "RCPT TO:<$an>", '250')
+        && $befehl('Daten', 'DATA', '354')
+        && $befehl('Nachricht', rtrim($mail) . "\r\n.", '250');
     fwrite($verbindung, "QUIT\r\n");
     fclose($verbindung);
-    return $ok;
+    return $schrittFehler;
 }
 
-if (!smtpSenden($config, $absender, $empfaenger, $mail)) {
-    antwort(502, ['ok' => false, 'fehler' => 'Versand']);
+// Testphase: Fehlerdetails des Mailservers mit ausgeben (vor dem Livegang wieder nur „Versand“)
+$versandFehler = smtpSenden($config, $absender, $empfaenger, $mail);
+if ($versandFehler !== '') {
+    antwort(502, ['ok' => false, 'fehler' => "Versand – $versandFehler"]);
 }
 
 antwort(200, ['ok' => true]);
