@@ -166,8 +166,9 @@ const year = new Date().getFullYear();
     filter: brightness(0.96);
   }
 
+  /* Abstand über der Trennlinie wie zwischen den Abschnitten der Seite */
   .bottom {
-    margin-top: 56px;
+    margin-top: clamp(80px, 10vw, 140px);
     padding-top: 24px;
     border-top: 1px solid var(--c-line);
     font-size: var(--fs-small);
