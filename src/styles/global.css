@@ -26,7 +26,7 @@
 
   --shadow-card: 0 12px 40px rgb(60 40 20 / 0.10);
   /* Einheitliche Rundung für Karten, Bilder, Felder und Flächen */
-  --radius: 6px;
+  --radius: 12px;
   /* Seitenbreite „boxed“ wie in Elementor */
   --container: 1150px;
   --gutter: clamp(16px, 4vw, 32px);
@@ -206,13 +206,13 @@ main p a:not(.btn, .text-link, .plain-link):hover,
   text-underline-offset: 3px;
 }
 
+/* Flächen ohne Schatten; Schatten gibt es nur beim Hover klickbarer Karten */
 .card {
   background: var(--c-surface);
-  box-shadow: var(--shadow-card);
   border-radius: var(--radius);
 }
 
-/* Klickbare Karten: ganze Fläche ist Link, beim Hover stärkerer Schatten und unterstrichener Titel */
+/* Klickbare Karten: ganze Fläche ist Link, beim Hover Schatten und unterstrichener Titel */
 .card--link {
   position: relative;
   display: flex;
