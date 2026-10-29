@@ -3,6 +3,8 @@ import SubPage from '../layouts/SubPage.astro';
 import LegalText from '../components/LegalText.astro';
 import LegalReview from '../components/LegalReview.astro';
 import { practice } from '../data/site';
+// verantwortliche Stelle: dieselben Angaben wie im Impressum (CMS: impressum.json)
+import imprint from '../data/impressum.json';
 ---
 
 <SubPage
@@ -100,15 +102,11 @@ import { practice } from '../data/site';
     </p>
 
     <h3>Hinweis zur verantwortlichen Stelle</h3>
-    <LegalReview>
-      Bitte prüfen, ob Monika Wellenbrock weiterhin die verantwortliche Stelle ist. Auf der Teamseite steht, dass Sina
-      die Leitung der Praxis übernimmt.
-    </LegalReview>
     <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
     <p>
-      Monika Wellenbrock<br />
-      Bochumer Str. 9<br />
-      10555 Berlin
+      {imprint.representatives.join(', ')}<br />
+      {imprint.street}<br />
+      {imprint.postalCode} {imprint.city}
     </p>
     <p>
       Telefon: {practice.phoneDisplay}<br />
@@ -341,7 +339,7 @@ import { practice } from '../data/site';
 
     <h3>Schriftarten</h3>
     <p>
-      Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten die Schriften Noto Serif und Noto Sans. Die
+      Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten die Schriften Cooper und Noto Sans. Die
       Schriften sind lokal auf unserem Server installiert. Eine Verbindung zu Servern von Google oder anderen Anbietern
       findet dabei nicht statt.
     </p>

@@ -1,8 +1,10 @@
 ---
 import SubPage from '../layouts/SubPage.astro';
 import LegalText from '../components/LegalText.astro';
-import LegalReview from '../components/LegalReview.astro';
 import { practice } from '../data/site';
+// Anbieter, Vertretung, Steuer- und Berufsangaben pflegt die Praxis im CMS (impressum.json);
+// Telefon und E-Mail kommen aus „Kontakt & Behandlungszeiten“
+import imprint from '../data/impressum.json';
 ---
 
 <SubPage
@@ -16,35 +18,32 @@ import { practice } from '../data/site';
   <LegalText>
     <h2>Angaben gemäß § 5 DDG</h2>
     <p>
-      Praxis für Physiotherapie – Wellenbrock &amp; Wernecken<br />
-      Bochumer Str. 9<br />
-      10555 Berlin
+      {imprint.provider}<br />
+      {imprint.street}<br />
+      {imprint.postalCode} {imprint.city}
     </p>
 
     <h2>Vertreten durch</h2>
-    <LegalReview>
-      Bitte prüfen, ob die Vertretung noch stimmt. Auf der Teamseite steht, dass Sina die Leitung der Praxis übernimmt.
-    </LegalReview>
-    <p>Monika Wellenbrock</p>
+    <p>{imprint.representatives.map((name, i) => <>{i > 0 && <br />}{name}</>)}</p>
 
     <h2>Kontakt</h2>
     <p>
       Telefon: {practice.phoneDisplay}<br />
-      Telefax: 030 – 39 90 40 25<br />
+      {imprint.fax && <>Telefax: {imprint.fax}<br /></>}
       E-Mail: <a href={`mailto:${practice.email}`}>{practice.email}</a>
     </p>
 
     <h2>Steuernummer</h2>
     <p>
-      Steuernummer: 585 / 500 / 13<br />
-      Zuständiges Finanzamt: FA Berlin Mitte-Tiergarten
+      Steuernummer: {imprint.taxNumber}<br />
+      Zuständiges Finanzamt: {imprint.taxOffice}
     </p>
 
     <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
     <p>
-      Berufsbezeichnung: Physiotherapeut/-in<br />
-      Zuständige Kammer: Senatsverwaltung für Gesundheit Berlin<br />
-      Verliehen durch: Land Berlin, Deutschland
+      Berufsbezeichnung: {imprint.profession}<br />
+      Zuständige Kammer: {imprint.authority}<br />
+      Verliehen durch: {imprint.conferredBy}
     </p>
     <p>
       Es gelten folgende berufsrechtliche Regelungen: Gesetz über die Berufe in der Physiotherapie (Masseur- und

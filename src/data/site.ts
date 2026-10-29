@@ -110,7 +110,7 @@ export const formDemoMode = true;
 
 // Zeigt in Impressum und Datenschutz die Hinweise „Zur rechtlichen Prüfung“.
 // Nach der Freigabe der Texte auf false setzen.
-export const showLegalReview = true;
+export const showLegalReview = false;
 
 // Zeigt bei neuen fachlichen Texten (Neuro-Seite, FAQs pro Behandlung) den Hinweis
 // „Entwurf zur fachlichen Prüfung“. Nach der Freigabe auf false setzen.

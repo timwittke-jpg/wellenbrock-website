@@ -52,6 +52,54 @@ content:
         type: string
         description: "Erscheint auf der Kontaktseite unter den Zeiten, z. B. „Sa: Nach Absprache“. Leer lassen, wenn nicht nötig."
 
+  - name: impressum
+    label: Impressum
+    type: file
+    path: src/data/impressum.json
+    format: json
+    fields:
+      - name: provider
+        label: Anbieter (Name der Praxis)
+        type: string
+        required: true
+      - name: street
+        label: Straße und Hausnummer
+        type: string
+        required: true
+      - name: postalCode
+        label: PLZ
+        type: string
+        required: true
+      - name: city
+        label: Ort
+        type: string
+        required: true
+      - name: representatives
+        label: Vertreten durch
+        type: string
+        list: true
+        required: true
+        description: "Eine Person pro Eintrag. Erscheint im Impressum und in der Datenschutzerklärung als verantwortliche Stelle."
+      - name: fax
+        label: Telefax
+        type: string
+        description: "Leer lassen, wenn es kein Fax mehr gibt. Telefon und E-Mail werden unter „Kontakt & Behandlungszeiten“ gepflegt."
+      - name: taxNumber
+        label: Steuernummer
+        type: string
+      - name: taxOffice
+        label: Zuständiges Finanzamt
+        type: string
+      - name: profession
+        label: Berufsbezeichnung
+        type: string
+      - name: authority
+        label: Zuständige Kammer / Aufsichtsbehörde
+        type: string
+      - name: conferredBy
+        label: Berufsbezeichnung verliehen durch
+        type: string
+
   - name: preise
     label: Preise
     type: file

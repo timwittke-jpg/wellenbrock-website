@@ -1,0 +1,13 @@
+{
+  "provider": "Praxis für Physiotherapie – Wellenbrock & Wernecken",
+  "street": "Bochumer Str. 9",
+  "postalCode": "10555",
+  "city": "Berlin",
+  "representatives": ["Monika Wellenbrock", "Sina Wernecken"],
+  "fax": "030 – 39 90 40 25",
+  "taxNumber": "585 / 500 / 13",
+  "taxOffice": "FA Berlin Mitte-Tiergarten",
+  "profession": "Physiotherapeut/-in",
+  "authority": "Senatsverwaltung für Gesundheit Berlin",
+  "conferredBy": "Land Berlin, Deutschland"
+}
