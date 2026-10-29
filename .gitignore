@@ -8,6 +8,8 @@ dist-preview/
 .env
 .env.local
 .claude/
+# Zugangsdaten für den Formularversand (liegt nur auf dem Server)
+formular-config.php
 
 # Rohdateien und alte Stände (bleiben nur lokal)
 media/

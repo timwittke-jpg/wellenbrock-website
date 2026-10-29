@@ -92,14 +92,14 @@ export const fillYears = (text: string) =>
 
 export const appointmentHref = '/termin-vereinbaren/';
 
-// Ziel-URL für Kontakt- und Terminformular. Wird gesetzt, sobald das Hosting feststeht
-// (z. B. PHP-Mailskript auf dem Webspace oder ein Formulardienst).
-export const formEndpoint = '';
+// Ziel-URL für Kontakt- und Terminformular: PHP-Skript auf dem Webspace (public/formular.php).
+// Im lokalen Entwicklungsserver gibt es kein PHP, dort bleibt das Formular im Demo-Modus.
+export const formEndpoint = import.meta.env.DEV ? '' : '/formular.php';
 
-// Adresse, unter der der eigene Server die ALTCHA-Aufgabe ausgibt (z. B. '/altcha-challenge.php').
+// Adresse, unter der der eigene Server die ALTCHA-Aufgabe ausgibt.
 // Leer = Testmodus: Das Kästchen „Ich bin kein Roboter“ funktioniert, geprüft wird aber noch nichts.
-// Das Formular-Skript muss die Lösung (Feld „altcha“) und den Honeypot (Feld „website“) serverseitig prüfen.
-export const altchaChallengeUrl = '';
+// formular.php prüft die Lösung (Feld „altcha“) und den Honeypot (Feld „website“) serverseitig.
+export const altchaChallengeUrl = import.meta.env.DEV ? '' : '/formular.php?aufgabe=1';
 
 // Nur für Präsentationen: Ohne formEndpoint tun die Formulare so, als wäre der Versand erfolgreich
 // (Terminformular → Bestätigungsseite). VOR DEM LIVEGANG unbedingt auf false setzen,
