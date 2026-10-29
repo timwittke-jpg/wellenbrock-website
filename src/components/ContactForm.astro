@@ -147,10 +147,15 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
       status.textContent = 'Wird gesendet …';
       try {
         const res = await fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-        if (!res.ok) throw new Error(String(res.status));
+        if (!res.ok) {
+          // Fehlerkennung vom Server (z. B. „Spamschutz“, „Versand“) für die Fehlersuche mit anzeigen
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data.fehler ? `${data.fehler}, ${res.status}` : String(res.status));
+        }
         showSuccess();
-      } catch {
-        status.textContent = `Senden hat nicht geklappt. Bitte versuch es noch einmal oder ruf uns an: ${form.dataset.phone}.`;
+      } catch (err) {
+        const code = err instanceof Error ? err.message : '';
+        status.textContent = `Senden hat nicht geklappt. Bitte versuch es noch einmal oder ruf uns an: ${form.dataset.phone}.${code ? ` (Fehler: ${code})` : ''}`;
       }
     });
   });
