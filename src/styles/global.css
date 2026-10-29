@@ -112,6 +112,8 @@ h1 {
   :root {
     --fs-h1: clamp(2.25rem, 1.2rem + 5.2vw, 2.6rem);
     --lh-tight: 1.2;
+    /* Kartentitel (H3) etwas größer: 24px statt 22px */
+    --fs-md: 1.5rem;
   }
 }
 
