@@ -94,18 +94,18 @@ import mapImage from '../assets/karte-praxis-moabit.webp';
     gap: 1rem;
   }
 
-  /* wie die Überschriften: Noto Serif Medium */
+  /* wie das Hauptmenü: Noto Sans SemiBold 16px; Abstand zum Text 8px (statt 16px) */
   .address {
-    font-family: var(--f-serif);
-    font-weight: 500;
-    font-size: var(--fs-lead);
-    line-height: var(--lh-title);
+    font: 600 1rem/1.5 var(--f-sans);
+    margin-bottom: -8px;
   }
 
   .note {
     font-size: var(--fs-small);
   }
+  /* Abstand Text → Button 24px (statt 16px) */
   .actions {
+    margin-top: 8px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

@@ -1,5 +1,5 @@
 ---
-import LogoMark from '../assets/icons/wellenbrock-icon.svg?raw';
+import LogoMark from '../assets/icons/icon-cta.svg?raw';
 import CardArrow from './CardArrow.astro';
 import { appointmentHref } from '../data/site';
 ---
@@ -23,29 +23,10 @@ import { appointmentHref } from '../data/site';
     padding-block: clamp(80px, 10vw, 140px);
   }
 
-  /* Ganz klickbare Karte in Markenfarbe, Inhalt in Weiß */
+  /* Ganz klickbare weiße Karte wie die übrigen Karten, Logozeichen in Magenta; Hover: Schatten */
   .cta-card {
-    padding: clamp(40px, 5vw, 48px) 24px;
-    background: var(--c-brand);
-    color: #fff;
+    padding: clamp(40px, 5vw, 56px) 24px;
     text-align: center;
-    transition:
-      background-color 250ms ease,
-      box-shadow 0.2s ease;
-  }
-
-  /* Hover: minimal dunkleres Magenta */
-  .cta-card:hover,
-  .cta-card:focus-within {
-    background: color-mix(in srgb, var(--c-brand) 92%, #000);
-  }
-
-  .cta-card :global(.card-arrow) {
-    color: #fff;
-  }
-
-  .cta-card :global(.card-arrow:focus-visible::after) {
-    outline-color: #fff;
   }
 
   .cta-inner {
@@ -57,7 +38,7 @@ import { appointmentHref } from '../data/site';
   }
 
   .cta-mark {
-    width: clamp(80px, 8vw, 111px);
+    width: clamp(72px, 7vw, 90px);
   }
 
   .cta-mark :global(svg) {
@@ -75,8 +56,8 @@ import { appointmentHref } from '../data/site';
   }
 
   p {
-    font-size: var(--fs-lead);
-    line-height: var(--lh-lead);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
   }
 
   /* Pfeil rechtsbündig unter dem Text */
