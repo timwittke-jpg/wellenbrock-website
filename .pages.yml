@@ -102,6 +102,9 @@ content:
             label: Beschreibung
             type: rich-text
             description: "Aufgaben, Profil und was ihr bietet."
+            # als HTML speichern (die Seite gibt den Text als HTML aus; Markdown würde mit Sternchen erscheinen)
+            options:
+              format: html
           - name: salaryMin
             label: Gehalt von (optional)
             type: number
