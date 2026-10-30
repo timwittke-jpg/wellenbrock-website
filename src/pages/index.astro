@@ -273,7 +273,8 @@ const faqSchema = {
   .intro {
     display: grid;
     grid-template-columns: minmax(0, calc(var(--fs-lg) * 19.4)) minmax(0, 1fr);
-    gap: 3rem 5rem;
+    /* 48px zwischen Text und Kontaktdaten, damit die Adresse bei 1100px Seitenbreite in eine Zeile passt */
+    gap: 3rem 48px;
     padding-block: clamp(56px, 8vw, 84px) clamp(64px, 10vw, 140px);
   }
 

@@ -41,7 +41,7 @@
   /* Einheitliche Rundung für Karten, Bilder, Felder und Flächen */
   --radius: 12px;
   /* Seitenbreite „boxed“ wie in Elementor */
-  --container: 1150px;
+  --container: 1100px;
   --gutter: clamp(16px, 4vw, 32px);
   --header-h: 88px;
 
