@@ -134,6 +134,13 @@ const { title, lead, crumbs, actions = true, service, hiring } = Astro.props;
     margin-top: 0.5rem;
   }
 
+  /* Handy: Termin- und Telefon-Button immer untereinander */
+  @media (max-width: 560px) {
+    .actions {
+      flex-direction: column;
+    }
+  }
+
   .service {
     display: grid;
     justify-items: center;
