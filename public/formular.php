@@ -277,10 +277,9 @@ function smtpSenden(array $config, string $von, string $an, string $mail): strin
     return $schrittFehler;
 }
 
-// Testphase: Fehlerdetails des Mailservers mit ausgeben (vor dem Livegang wieder nur „Versand“)
-$versandFehler = smtpSenden($config, $absender, $empfaenger, $mail);
-if ($versandFehler !== '') {
-    antwort(502, ['ok' => false, 'fehler' => "Versand – $versandFehler"]);
+// Details des Mailservers nur ins Server-Log (error_log in smtpSenden), nicht an Besucher*innen
+if (smtpSenden($config, $absender, $empfaenger, $mail) !== '') {
+    antwort(502, ['ok' => false, 'fehler' => 'Versand']);
 }
 
 antwort(200, ['ok' => true]);
