@@ -58,52 +58,68 @@ content:
     path: src/data/jobs.json
     format: json
     fields:
-      - name: hiring
-        label: Hinweis „Aktuell – Wir stellen ein“ anzeigen
-        type: boolean
-        description: "An: Hinweis auf der Startseite (unter „Über uns“) und der Team-Seite, jeweils mit Link zum Bewerbungsformular, auf der Jobs-Seite und als „Wir suchen“ neben „Jobs“ im Menü."
-      - name: positions
-        label: Stellen zur Auswahl im Bewerbungsformular
-        type: string
-        list: true
-        description: "Eine Stelle pro Eintrag, z. B. Physiotherapeut*in. Erscheint als Auswahl „Ich bewerbe mich als“."
-      # Für Google Jobs (strukturierte Daten „JobPosting“ auf der Jobs-Seite, nur solange der Hinweis an ist)
-      - name: datePosted
-        label: Stelle ausgeschrieben seit
-        type: date
-        description: "Beim Anschalten von „Wir stellen ein“ auf das heutige Datum setzen. Google zeigt es in Google Jobs an. Leer = die Stelle wird nicht an Google Jobs gemeldet."
-      - name: employmentType
-        label: Anstellungsart
-        type: select
-        options:
-          multiple: true
-          values:
-            - value: FULL_TIME
-              label: Vollzeit
-            - value: PART_TIME
-              label: Teilzeit
-            - value: MINI_JOB
-              label: Minijob
-            - value: INTERN
-              label: Praktikum
-      - name: salaryMin
-        label: Gehalt von (optional)
-        type: number
-        description: "Nur für Google Jobs, erscheint nicht auf der Seite. Leer lassen, wenn kein Gehalt genannt werden soll."
-      - name: salaryMax
-        label: Gehalt bis (optional)
-        type: number
-      - name: salaryUnit
-        label: Gehalt pro
-        type: select
-        options:
-          values:
-            - value: MONTH
-              label: Monat
-            - value: HOUR
-              label: Stunde
-            - value: YEAR
-              label: Jahr
+      - name: jobs
+        label: Stellen
+        type: object
+        description: "Jede aktive Stelle erscheint auf der Jobs-Seite, bekommt eine eigene Unterseite (auch für Google Jobs) und steht im Bewerbungsformular zur Auswahl. Startseite, Team-Seite und Menü zeigen die Zahl der offenen Stellen. Ohne aktive Stelle bleibt nur die Initiativbewerbung."
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: active
+            label: Aktiv (Stelle ist ausgeschrieben)
+            type: boolean
+          - name: name
+            label: Kurzname
+            type: string
+            required: true
+            description: "z. B. Physiotherapeut*in. Erscheint im Bewerbungsformular und bestimmt die Adresse der Unterseite – nach dem Livegang möglichst nicht mehr ändern."
+          - name: title
+            label: Titel
+            type: string
+            required: true
+            description: "Überschrift der Stelle, z. B. Physiotherapeut/in (Teilzeit/Vollzeit)."
+          - name: datePosted
+            label: Ausgeschrieben seit
+            type: date
+            description: "Beim Aktivieren einer neuen Ausschreibung auf das heutige Datum setzen. Google zeigt es in Google Jobs an. Leer = die Stelle wird nicht an Google Jobs gemeldet."
+          - name: employmentType
+            label: Anstellungsart
+            type: select
+            options:
+              multiple: true
+              values:
+                - value: FULL_TIME
+                  label: Vollzeit
+                - value: PART_TIME
+                  label: Teilzeit
+                - value: MINI_JOB
+                  label: Minijob
+                - value: INTERN
+                  label: Praktikum
+          - name: description
+            label: Beschreibung
+            type: rich-text
+            description: "Aufgaben, Profil und was ihr bietet."
+          - name: salaryMin
+            label: Gehalt von (optional)
+            type: number
+            description: "Nur für Google Jobs, erscheint nicht auf der Seite. Leer lassen, wenn kein Gehalt genannt werden soll."
+          - name: salaryMax
+            label: Gehalt bis (optional)
+            type: number
+          - name: salaryUnit
+            label: Gehalt pro
+            type: select
+            options:
+              values:
+                - value: MONTH
+                  label: Monat
+                - value: HOUR
+                  label: Stunde
+                - value: YEAR
+                  label: Jahr
 
   - name: impressum
     label: Impressum

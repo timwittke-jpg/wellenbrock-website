@@ -1,26 +1,16 @@
 ---
-// Hinweis „Aktuell – Wir stellen ein“. An- und ausschaltbar im CMS (jobs.json).
-// Startseite mit Link zum Bewerbungsformular, Jobs-Seite ohne.
-import jobs from '../data/jobs.json';
-
-interface Props {
-  apply?: boolean;
-}
-
-const { apply = false } = Astro.props;
+// Hinweis „Aktuell – 1 offene Stelle: Jetzt ansehen“ mit Link zur Jobs-Seite (Startseite, Team).
+// Die Zahl zählt die aktiven Stellen im CMS; ohne aktive Stelle erscheint nichts.
+import { activeJobs, openPositionsText } from '../data/stellen';
 ---
 
 {
-  jobs.hiring && (
+  activeJobs.length > 0 && (
     <p class="hiring">
       <span class="badge">Aktuell</span>
-      {apply ? (
-        <span>
-          Wir stellen ein: <a href="/jobs/bewerben/">Jetzt bewerben!</a>
-        </span>
-      ) : (
-        <span>Wir stellen ein!</span>
-      )}
+      <span>
+        {openPositionsText()}: <a href="/jobs/">Jetzt ansehen</a>
+      </span>
     </p>
   )
 }

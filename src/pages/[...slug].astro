@@ -15,7 +15,7 @@ import IconOsteo from '../assets/icons/osteopathie.svg?raw';
 import IconHome from '../assets/icons/hausbesuche.svg?raw';
 import IconAccess from '../assets/icons/barrierefrei.svg?raw';
 import { appointmentHref } from '../data/site';
-import jobs from '../data/jobs.json';
+import JobList from '../components/JobList.astro';
 
 export function getStaticPaths() {
   return pages
@@ -76,55 +76,8 @@ const faqSchema = faqs.length
     ]
   : [];
 
-// Jobs-Seite: Stellenanzeige für Google Jobs, nur solange im CMS „Wir stellen ein“ an ist und ein Datum gesetzt ist.
-// Titel und Beschreibung kommen aus dem Abschnitt mit dem Stellentitel (<h3>), Datum/Anstellung/Gehalt aus jobs.json.
-const jobSection = page.path === '/jobs/' ? page.sections.find((s) => s.html.startsWith('<h3>')) : undefined;
-const salaryMin = jobs.salaryMin as number | null;
-const salaryMax = jobs.salaryMax as number | null;
-const jobSchema =
-  jobSection && jobs.hiring && jobs.datePosted
-    ? [
-        {
-          '@context': 'https://schema.org',
-          '@type': 'JobPosting',
-          title: jobSection.html.match(/^<h3>(.*?)<\/h3>/)![1],
-          description: jobSection.html.replace(/^<h3>.*?<\/h3>/, ''),
-          datePosted: jobs.datePosted,
-          employmentType: jobs.employmentType,
-          hiringOrganization: { '@type': 'Organization', name: practice.name, sameAs: practice.url, logo: `${practice.url}/favicon-32.png` },
-          jobLocation: {
-            '@type': 'Place',
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: practice.street,
-              postalCode: practice.postalCode,
-              addressLocality: practice.city,
-              addressRegion: 'Berlin',
-              addressCountry: 'DE',
-            },
-          },
-          ...(salaryMin || salaryMax
-            ? {
-                baseSalary: {
-                  '@type': 'MonetaryAmount',
-                  currency: 'EUR',
-                  value: {
-                    '@type': 'QuantitativeValue',
-                    ...(salaryMin && { minValue: salaryMin }),
-                    ...(salaryMax && { maxValue: salaryMax }),
-                    unitText: jobs.salaryUnit,
-                  },
-                },
-              }
-            : {}),
-        },
-      ]
-    : [];
-
 const schema =
-  page.path === '/jobs/'
-    ? jobSchema
-    : page.kind === 'treatment'
+  page.kind === 'treatment'
     ? [
         ...faqSchema,
         {
@@ -163,7 +116,10 @@ const schema =
         const captioned = !s.heading && s.images.length > 0;
         return (
           <section class="block" id={s.id}>
-            {portrait ? (
+            {s.id === 'stellen' ? (
+              // Jobs-Seite: aktive Stellen aus dem CMS, sonst Einladung zur Initiativbewerbung
+              <JobList heading={s.heading} />
+            ) : portrait ? (
               <div class="container portrait">
                 <figure>
                   <Image src={portrait.img} alt={`${portrait.name}, Physiotherapie Wellenbrock & Wernecken in Berlin-Moabit`} widths={[480, 720, 1080]} sizes="(max-width: 880px) 100vw, 540px" />

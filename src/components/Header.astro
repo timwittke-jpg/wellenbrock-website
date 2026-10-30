@@ -1,8 +1,9 @@
 ---
 import Logo from '../assets/icons/logo.svg?raw';
 import { nav, practice, appointmentHref } from '../data/site';
-// „Wir suchen“ neben „Jobs“, solange im CMS „Wir stellen ein“ angeschaltet ist
-import jobs from '../data/jobs.json';
+// „1 Stelle“ / „2 Stellen“ neben „Jobs“, solange im CMS Stellen aktiv sind
+import { activeJobs } from '../data/stellen';
+const jobsBadge = activeJobs.length > 0 ? `${activeJobs.length} ${activeJobs.length === 1 ? 'Stelle' : 'Stellen'}` : '';
 ---
 
 <header class="site-header">
@@ -30,7 +31,7 @@ import jobs from '../data/jobs.json';
                   <li>
                     <a href={item.href}>
                       {item.label}
-                      {jobs.hiring && item.href === '/jobs/' && <span class="hiring-badge">Wir suchen</span>}
+                      {jobsBadge && item.href === '/jobs/' && <span class="hiring-badge">{jobsBadge}</span>}
                     </a>
                   </li>
                 ))}
@@ -172,7 +173,7 @@ import jobs from '../data/jobs.json';
     background: var(--c-bg);
   }
 
-  /* wie „Aktuell“ beim Hinweis „Wir stellen ein“: hell Peach hinterlegt */
+  /* wie „Aktuell“ beim Hinweis zu offenen Stellen: hell Peach hinterlegt */
   .hiring-badge {
     margin-left: 8px;
     padding: 0.05em 0.3em;

@@ -2,7 +2,10 @@
 import SubPage from '../../layouts/SubPage.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import { practice } from '../../data/site';
-import jobs from '../../data/jobs.json';
+import { activeJobs } from '../../data/stellen';
+
+// Auswahl: aktive Stellen aus dem CMS, Initiativbewerbung immer möglich
+const positions = [...activeJobs.map((j) => j.name), 'Initiativbewerbung'];
 ---
 
 <SubPage
@@ -28,13 +31,24 @@ import jobs from '../../data/jobs.json';
       <ContactForm
         subject="Bewerbung"
         submitLabel="Bewerbung senden"
-        positions={jobs.positions}
+        positions={positions}
         messageLabel="Erzähl uns kurz von dir (optional)"
         successText="Danke für deine Bewerbung! Wir melden uns so schnell wie möglich bei dir."
       />
     </div>
   </section>
 </SubPage>
+
+<script>
+  // Stelle vorauswählen: aus dem Link (?stelle=…) oder, wenn es nur die Initiativbewerbung gibt, diese
+  const select = document.querySelector<HTMLSelectElement>('select[name="stelle"]');
+  if (select) {
+    const wanted = new URLSearchParams(location.search).get('stelle');
+    const options = [...select.options].filter((o) => o.value);
+    const match = options.find((o) => o.value === wanted) ?? (options.length === 1 ? options[0] : undefined);
+    if (match) select.value = match.value;
+  }
+</script>
 
 <style>
   .block {

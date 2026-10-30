@@ -1,0 +1,93 @@
+---
+// Eine Unterseite pro aktiver Stelle (CMS: „Jobs & Bewerbung“), mit JobPosting für Google Jobs.
+// Wird eine Stelle deaktiviert, verschwinden Seite und Schema beim nächsten Build.
+import SubPage from '../../layouts/SubPage.astro';
+import { practice } from '../../data/site';
+import { activeJobs, jobSlug, employmentText, type Job } from '../../data/stellen';
+
+export function getStaticPaths() {
+  return activeJobs
+    .filter((job) => jobSlug(job) !== 'bewerben')
+    .map((job) => ({ params: { stelle: jobSlug(job) }, props: { job } }));
+}
+
+interface Props {
+  job: Job;
+}
+
+const { job } = Astro.props;
+const path = `/jobs/${jobSlug(job)}/`;
+const applyHref = `/jobs/bewerben/?stelle=${encodeURIComponent(job.name)}`;
+
+// Google verlangt ein Veröffentlichungsdatum; ohne Datum wird die Stelle nicht an Google Jobs gemeldet
+const jobSchema = job.datePosted
+  ? [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: job.title,
+        description: job.description,
+        datePosted: job.datePosted,
+        ...(job.employmentType.length > 0 && { employmentType: job.employmentType }),
+        hiringOrganization: {
+          '@type': 'Organization',
+          name: practice.name,
+          sameAs: practice.url,
+          logo: `${practice.url}/favicon-32.png`,
+        },
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: practice.street,
+            postalCode: practice.postalCode,
+            addressLocality: practice.city,
+            addressRegion: 'Berlin',
+            addressCountry: 'DE',
+          },
+        },
+        ...((job.salaryMin || job.salaryMax) && {
+          baseSalary: {
+            '@type': 'MonetaryAmount',
+            currency: 'EUR',
+            value: {
+              '@type': 'QuantitativeValue',
+              ...(job.salaryMin && { minValue: job.salaryMin }),
+              ...(job.salaryMax && { maxValue: job.salaryMax }),
+              unitText: job.salaryUnit,
+            },
+          },
+        }),
+      },
+    ]
+  : [];
+---
+
+<SubPage
+  title={`${job.name} gesucht – Physiotherapie Wellenbrock & Wernecken Berlin Moabit`}
+  description={`Stellenangebot in Berlin Moabit: ${job.title}. Werde Teil unseres Teams – bewirb dich unkompliziert online.`}
+  h1={job.title}
+  lead={job.employmentType.length > 0 ? `${employmentText(job)} · Berlin-Moabit` : undefined}
+  crumbs={[
+    { label: 'Startseite', href: '/' },
+    { label: 'Jobs', href: '/jobs/' },
+    { label: job.name, href: path },
+  ]}
+  schema={jobSchema}
+  heroActions={false}
+  cta={false}
+>
+  <section class="narrow job">
+    <div class="prose" set:html={job.description} />
+    <a class="btn btn--pink" href={applyHref}>Jetzt bewerben</a>
+  </section>
+</SubPage>
+
+<style>
+  .job {
+    display: grid;
+    justify-items: start;
+    gap: 2rem;
+    padding-bottom: clamp(80px, 10vw, 140px);
+  }
+</style>
