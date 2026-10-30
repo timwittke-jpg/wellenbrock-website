@@ -11,6 +11,10 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Neubau am 1. Januar, damit Jahreszahlen („seit 25 Jahren“, ©) auch ohne Änderung weiterzählen.
+  # 01:00 UTC = 02:00 Uhr in Berlin – erst nach Mitternacht UTC liefert der Build das neue Jahr.
+  schedule:
+    - cron: '0 1 1 1 *'
 
 # Bei schnell aufeinanderfolgenden Änderungen nur den neuesten Stand hochladen
 concurrency:
