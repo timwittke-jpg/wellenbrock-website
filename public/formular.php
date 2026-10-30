@@ -158,13 +158,14 @@ if ($altcha === '' || !altchaGueltig($altcha, $geheimnis) || schonBenutzt($altch
 
 // Angaben prüfen
 $betreff = feld('betreff', 50);
-if (!in_array($betreff, ['Kontaktanfrage', 'Terminanfrage'], true)) {
+if (!in_array($betreff, ['Kontaktanfrage', 'Terminanfrage', 'Bewerbung'], true)) {
     $betreff = 'Anfrage';
 }
 $name = einzeilig(feld('name'));
 $email = einzeilig(feld('email'));
 $telefon = einzeilig(feld('telefon', 50));
 $nachricht = feld('nachricht', 5000);
+$stelle = einzeilig(feld('stelle', 100));
 $heilmittel = array_slice(array_filter(array_map(
     fn($h) => is_string($h) ? einzeilig(mb_substr($h, 0, 100)) : '',
     is_array($_POST['heilmittel'] ?? null) ? $_POST['heilmittel'] : []
@@ -177,6 +178,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $fehlt[] = 'email';
 if ($telefon === '') $fehlt[] = 'telefon';
 if (feld('datenschutz') !== 'ja') $fehlt[] = 'datenschutz';
 if ($heilmittel && !$einwilligungGesundheit) $fehlt[] = 'einwilligung_gesundheitsdaten';
+if ($betreff === 'Bewerbung' && $stelle === '') $fehlt[] = 'stelle';
 if ($fehlt) {
     antwort(422, ['ok' => false, 'fehler' => 'Pflichtfelder', 'felder' => $fehlt]);
 }
@@ -189,6 +191,9 @@ $zeilen = [
     "E-Mail: $email",
     "Telefon: $telefon",
 ];
+if ($stelle !== '') {
+    $zeilen[] = "Bewirbt sich als: $stelle";
+}
 if ($heilmittel) {
     $zeilen[] = 'Heilmittel laut Rezept: ' . implode(', ', $heilmittel);
     $zeilen[] = 'Einwilligung Gesundheitsdaten: ja';

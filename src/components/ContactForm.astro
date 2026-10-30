@@ -8,9 +8,22 @@ interface Props {
   phoneRequired?: boolean;
   // Seite, auf die nach erfolgreichem Absenden weitergeleitet wird
   successUrl?: string;
+  // Bewerbungsformular: Auswahl „Ich bewerbe mich als“
+  positions?: string[];
+  messageLabel?: string;
+  successText?: string;
 }
 
-const { subject, submitLabel, remedies = [], phoneRequired = true, successUrl } = Astro.props;
+const {
+  subject,
+  submitLabel,
+  remedies = [],
+  phoneRequired = true,
+  successUrl,
+  positions = [],
+  messageLabel = 'Nachricht',
+  successText = 'Danke! Deine Nachricht ist bei uns angekommen. Wir melden uns so schnell wie möglich.',
+} = Astro.props;
 const uid = subject.toLowerCase().replace(/[^a-z]+/g, '-');
 
 // Spamschutz ALTCHA (ohne Drittanbieter): Die Aufgabe kommt später vom eigenen Server (PHP auf dem Webspace).
@@ -18,7 +31,7 @@ const uid = subject.toLowerCase().replace(/[^a-z]+/g, '-');
 const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChallengeUrl } : { test: true });
 ---
 
-<form class="form" method="post" action={formEndpoint || undefined} data-endpoint={formEndpoint} data-success={successUrl} data-demo={!formEndpoint && formDemoMode ? 'true' : undefined} data-phone={practice.phoneDisplay}>
+<form class="form" method="post" action={formEndpoint || undefined} data-endpoint={formEndpoint} data-success={successUrl} data-success-text={successText} data-demo={!formEndpoint && formDemoMode ? 'true' : undefined} data-phone={practice.phoneDisplay}>
   <input type="hidden" name="betreff" value={subject} />
   <!-- Spamschutz: Feld bleibt für Menschen unsichtbar und leer -->
   <div class="hp" aria-hidden="true">
@@ -40,6 +53,18 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
       <input id={`${uid}-tel`} name="telefon" type="tel" autocomplete="tel" required={phoneRequired} />
     </div>
   </div>
+
+  {
+    positions.length > 0 && (
+      <div class="field">
+        <label for={`${uid}-stelle`}>Ich bewerbe mich als <span class="req">(Pflichtfeld)</span></label>
+        <select id={`${uid}-stelle`} name="stelle" required>
+          <option value="">Bitte auswählen</option>
+          {positions.map((p) => <option value={p}>{p}</option>)}
+        </select>
+      </div>
+    )
+  }
 
   {
     remedies.length > 0 && (
@@ -66,7 +91,7 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
   }
 
   <div class="field">
-    <label for={`${uid}-msg`}>Nachricht</label>
+    <label for={`${uid}-msg`}>{messageLabel}</label>
     <textarea id={`${uid}-msg`} name="nachricht" rows="5"></textarea>
   </div>
 
@@ -121,8 +146,7 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
         window.location.href = form.dataset.success;
         return;
       }
-      form.querySelector<HTMLElement>('.status')!.textContent =
-        'Danke! Deine Nachricht ist bei uns angekommen. Wir melden uns so schnell wie möglich.';
+      form.querySelector<HTMLElement>('.status')!.textContent = form.dataset.successText ?? '';
     };
 
     form.addEventListener('submit', async (e) => {
@@ -203,6 +227,7 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
   }
 
   input:not([type='checkbox']),
+  select,
   textarea {
     width: 100%;
     min-height: 48px;
@@ -215,6 +240,7 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
   }
 
   input:focus-visible,
+  select:focus-visible,
   textarea:focus-visible {
     outline: 2px solid var(--c-brand);
     outline-offset: 0;

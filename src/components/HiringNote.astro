@@ -1,0 +1,57 @@
+---
+// Hinweis „Aktuell – Wir stellen ein“. An- und ausschaltbar im CMS (jobs.json).
+// Startseite mit Link zum Bewerbungsformular, Jobs-Seite ohne.
+import jobs from '../data/jobs.json';
+
+interface Props {
+  apply?: boolean;
+}
+
+const { apply = false } = Astro.props;
+---
+
+{
+  jobs.hiring && (
+    <p class="hiring">
+      <span class="badge">Aktuell</span>
+      {apply ? (
+        <span>
+          Wir stellen ein: <a href="/jobs/bewerben/">Jetzt bewerben!</a>
+        </span>
+      ) : (
+        <span>Wir stellen ein!</span>
+      )}
+    </p>
+  )
+}
+
+<style>
+  .hiring {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .badge {
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    background: var(--c-pink);
+    font-weight: 600;
+  }
+
+  /* Link ohne die Hinterlegung der Fließtext-Links, fett und unterstrichen */
+  .hiring a {
+    padding: 0;
+    background: none;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .hiring a:hover {
+    text-decoration-thickness: 2px;
+  }
+</style>

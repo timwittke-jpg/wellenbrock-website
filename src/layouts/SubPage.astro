@@ -14,9 +14,10 @@ interface Props {
   heroActions?: boolean;
   heroService?: HeroService;
   cta?: boolean;
+  hiring?: 'apply' | 'note';
 }
 
-const { title, description, h1, lead, crumbs, schema = [], heroActions = true, heroService, cta = true } = Astro.props;
+const { title, description, h1, lead, crumbs, schema = [], heroActions = true, heroService, cta = true, hiring } = Astro.props;
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -31,7 +32,7 @@ const breadcrumbSchema = {
 ---
 
 <Base title={title} description={description} schema={[breadcrumbSchema, ...schema]}>
-  <PageHero title={h1} lead={lead} crumbs={crumbs} actions={heroActions} service={heroService} />
+  <PageHero title={h1} lead={lead} crumbs={crumbs} actions={heroActions} service={heroService} hiring={hiring} />
   <slot />
   {cta && <CtaCard />}
 </Base>

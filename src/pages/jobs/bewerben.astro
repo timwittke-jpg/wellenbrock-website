@@ -1,0 +1,49 @@
+---
+import SubPage from '../../layouts/SubPage.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { practice } from '../../data/site';
+import jobs from '../../data/jobs.json';
+---
+
+<SubPage
+  title="Bewerben | Physiotherapie Wellenbrock & Wernecken Berlin Moabit"
+  description="Bewirb dich bei der Physiotherapie Wellenbrock & Wernecken in Berlin Moabit – kurz und unkompliziert über unser Formular."
+  h1="Jetzt bewerben"
+  lead="Schön, dass du dich für uns interessierst! Ein paar Angaben reichen – ein Anschreiben brauchst du nicht."
+  crumbs={[
+    { label: 'Startseite', href: '/' },
+    { label: 'Jobs', href: '/jobs/' },
+    { label: 'Bewerben', href: '/jobs/bewerben/' },
+  ]}
+  heroActions={false}
+  cta={false}
+>
+  <section class="narrow block" aria-labelledby="bewerbung">
+    <div class="card form-card">
+      <h2 id="bewerbung" class="section-heading">Deine Bewerbung</h2>
+      <p>
+        Wir melden uns schnell bei dir. Lebenslauf und Unterlagen kannst du gern per E-Mail an
+        <a href={`mailto:${practice.email}`}>{practice.email}</a> nachreichen.
+      </p>
+      <ContactForm
+        subject="Bewerbung"
+        submitLabel="Bewerbung senden"
+        positions={jobs.positions}
+        messageLabel="Erzähl uns kurz von dir (optional)"
+        successText="Danke für deine Bewerbung! Wir melden uns so schnell wie möglich bei dir."
+      />
+    </div>
+  </section>
+</SubPage>
+
+<style>
+  .block {
+    padding-bottom: clamp(80px, 10vw, 140px);
+  }
+
+  .form-card {
+    display: grid;
+    gap: 1.25rem;
+    padding: clamp(24px, 4vw, 48px);
+  }
+</style>

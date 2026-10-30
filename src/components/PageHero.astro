@@ -1,6 +1,7 @@
 ---
 import { practice, appointmentHref } from '../data/site';
 import { noBreak } from '../data/pages';
+import HiringNote from './HiringNote.astro';
 
 export interface Crumb {
   label: string;
@@ -19,9 +20,12 @@ interface Props {
   actions?: boolean;
   // Leistungsseiten: ein Button „<Leistung> anfragen“ statt Termin- und Telefon-Button
   service?: HeroService;
+  // Hinweis „Aktuell – Wir stellen ein“ unter der Überschrift (wenn im CMS angeschaltet):
+  // 'apply' mit Link zum Bewerbungsformular (Team), 'note' ohne (Jobs)
+  hiring?: 'apply' | 'note';
 }
 
-const { title, lead, crumbs, actions = true, service } = Astro.props;
+const { title, lead, crumbs, actions = true, service, hiring } = Astro.props;
 ---
 
 <section class="page-hero">
@@ -38,6 +42,7 @@ const { title, lead, crumbs, actions = true, service } = Astro.props;
       </ol>
     </nav>
     <h1>{noBreak(title)}</h1>
+    {hiring && <HiringNote apply={hiring === 'apply'} />}
     {lead && <div class="lead" set:html={lead} />}
     {
       actions &&
