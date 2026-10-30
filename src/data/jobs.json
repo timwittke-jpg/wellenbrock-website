@@ -6,5 +6,10 @@
     "Rezeption",
     "Ausbildung / Praktikum",
     "Initiativbewerbung"
-  ]
+  ],
+  "datePosted": "2026-10-30",
+  "employmentType": ["FULL_TIME", "PART_TIME"],
+  "salaryMin": null,
+  "salaryMax": null,
+  "salaryUnit": "MONTH"
 }

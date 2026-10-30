@@ -67,6 +67,43 @@ content:
         type: string
         list: true
         description: "Eine Stelle pro Eintrag, z. B. Physiotherapeut*in. Erscheint als Auswahl „Ich bewerbe mich als“."
+      # Für Google Jobs (strukturierte Daten „JobPosting“ auf der Jobs-Seite, nur solange der Hinweis an ist)
+      - name: datePosted
+        label: Stelle ausgeschrieben seit
+        type: date
+        description: "Beim Anschalten von „Wir stellen ein“ auf das heutige Datum setzen. Google zeigt es in Google Jobs an. Leer = die Stelle wird nicht an Google Jobs gemeldet."
+      - name: employmentType
+        label: Anstellungsart
+        type: select
+        options:
+          multiple: true
+          values:
+            - value: FULL_TIME
+              label: Vollzeit
+            - value: PART_TIME
+              label: Teilzeit
+            - value: MINI_JOB
+              label: Minijob
+            - value: INTERN
+              label: Praktikum
+      - name: salaryMin
+        label: Gehalt von (optional)
+        type: number
+        description: "Nur für Google Jobs, erscheint nicht auf der Seite. Leer lassen, wenn kein Gehalt genannt werden soll."
+      - name: salaryMax
+        label: Gehalt bis (optional)
+        type: number
+      - name: salaryUnit
+        label: Gehalt pro
+        type: select
+        options:
+          values:
+            - value: MONTH
+              label: Monat
+            - value: HOUR
+              label: Stunde
+            - value: YEAR
+              label: Jahr
 
   - name: impressum
     label: Impressum
