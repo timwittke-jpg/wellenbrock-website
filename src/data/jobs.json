@@ -1,7 +1,7 @@
 {
   "jobs": [
     {
-      "active": false,
+      "active": true,
       "name": "Physiotherapeut*in",
       "title": "Physiotherapeut/in (Teilzeit/Vollzeit)",
       "datePosted": "2026-10-30",
@@ -13,7 +13,7 @@
       "salaryUnit": "MONTH"
     },
     {
-      "active": false,
+      "active": true,
       "name": "Osteopath*in",
       "title": "Osteopath/in (Teilzeit/Vollzeit)",
       "datePosted": "2026-10-30",
