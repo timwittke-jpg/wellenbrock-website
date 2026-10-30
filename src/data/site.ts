@@ -77,7 +77,7 @@ export const nav = [
 ];
 
 // Erfahrungsjahre („seit 25 Jahren“) werden bei jedem Build aus den Startjahren berechnet.
-// VORLÄUFIG so gewählt, dass 2026 wie bisher 25 bzw. 20 Jahre herauskommen – echte Jahre eintragen.
+// Praxis seit 2001 (2026: 25 Jahre, bestätigt). Osteopathie VORLÄUFIG 2006 (2026: 20 Jahre) – echtes Jahr eintragen.
 export const practiceFoundedYear = 2001;
 export const osteopathySinceYear = 2006;
 

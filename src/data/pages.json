@@ -526,8 +526,8 @@
   {
     "path": "/jobs/",
     "kind": "content",
-    "title": "Jobs | Physiotherapeut Physiotherapeutin Berlin Moabit",
-    "description": "Werde Teil unseres Teams in Berlin Moabit: Jobs als Physiotherapeut & Physiotherapeutin. Bewirb dich jetzt bei uns.",
+    "title": "Jobs in Berlin Moabit | Wellenbrock & Wernecken",
+    "description": "Jobs in Berlin Moabit bei Wellenbrock & Wernecken: Physiotherapie, Osteopathie, Rezeption und Ausbildung. Bewirb dich ohne Anschreiben – gerne auch initiativ.",
     "h1": "Jobs",
     "lead": "",
     "sections": [
@@ -1129,7 +1129,7 @@
     "path": "/physiotherapie/cmd-behandlung/",
     "kind": "treatment",
     "title": "CMD-Behandlung Berlin Moabit | Wellenbrock & Wernecken",
-    "description": "CMD Behandlung in Berlin Moabit: Physiotherapie bei Kieferbeschwerden & craniomandibulärer Dysfunktion. Erfahre mehr über uns",
+    "description": "CMD-Behandlung in Berlin Moabit: Physiotherapie bei Kieferbeschwerden & craniomandibulärer Dysfunktion. Jetzt Termin vereinbaren.",
     "h1": "CMD-Behandlung in Berlin Moabit",
     "lead": "",
     "sections": [
@@ -1373,7 +1373,7 @@
     "path": "/physiotherapie/kaelte-therapie/",
     "kind": "treatment",
     "title": "Kälte-Therapie Berlin Moabit | Wellenbrock & Wernecken",
-    "description": "Kältetherapie in Berlin-Moabit: Eisbehandlung gegen Schmerzen und Schwellungen. Jetzt Termin bei Wellenbrock & Wernecken nahe Turmstraße.",
+    "description": "Kältetherapie in Berlin Moabit: Eisbehandlung gegen Schmerzen und Schwellungen. Jetzt Termin bei Wellenbrock & Wernecken nahe Turmstraße.",
     "h1": "Kälte-Therapie in Berlin Moabit",
     "lead": "",
     "sections": [
@@ -1495,7 +1495,7 @@
     "path": "/physiotherapie/krankengymnastik-fuer-kinder/",
     "kind": "treatment",
     "title": "Krankengymnastik für Kinder Berlin Moabit | Wellenbrock & Wernecken",
-    "description": "Krankengymnastik Kinder Berlin: Unterstützung bei Haltung, Entwicklung und Beschwerden. Praxis W&W in Moabit – jetzt Termin vereinbaren.",
+    "description": "Krankengymnastik für Kinder in Berlin Moabit: Unterstützung bei Haltung, Entwicklung und Beschwerden. Wellenbrock & Wernecken – jetzt Termin vereinbaren.",
     "h1": "Krankengymnastik für Kinder in Berlin Moabit",
     "lead": "",
     "sections": [
@@ -1617,7 +1617,7 @@
     "path": "/physiotherapie/manuelle-lymphdrainage/",
     "kind": "treatment",
     "title": "Manuelle Lymphdrainage Berlin Moabit | Wellenbrock & Wernecken",
-    "description": "Lymphdrainage Berlin-Moabit: Unterstützung bei Lymphstau, Ödemen und nach Operationen. Deine Physiotherapie W&W – jetzt Termin vereinbaren.",
+    "description": "Lymphdrainage in Berlin Moabit: Unterstützung bei Lymphstau, Ödemen und nach Operationen. Wellenbrock & Wernecken – jetzt Termin vereinbaren.",
     "h1": "Manuelle Lymphdrainage in Berlin Moabit",
     "lead": "",
     "sections": [
@@ -1670,7 +1670,7 @@
     "path": "/physiotherapie/manuelle-therapie/",
     "kind": "treatment",
     "title": "Manuelle Therapie Berlin Moabit | Wellenbrock & Wernecken",
-    "description": "Manuelle Therapie in Berlin-Moabit: Linderung von Schmerzen und Blockaden durch gezielte Handgriffe. Praxis W&W nahe Turmstraße.",
+    "description": "Manuelle Therapie in Berlin Moabit: Linderung von Schmerzen und Blockaden durch gezielte Handgriffe. Wellenbrock & Wernecken nahe Turmstraße.",
     "h1": "Manuelle Therapie in Berlin Moabit",
     "lead": "",
     "sections": [
@@ -1731,7 +1731,7 @@
     "path": "/physiotherapie/medical-flossing-therapie/",
     "kind": "treatment",
     "title": "Medical Flossing Berlin Moabit | Wellenbrock & Wernecken",
-    "description": "Medical Flossing in Berlin-Moabit: Innovative Kompressionstechnik zur Schmerzlinderung und Bewegungsverbesserung. Praxis W&W nahe Turmstraße.",
+    "description": "Medical Flossing in Berlin Moabit: Kompressionstechnik zur Schmerzlinderung und für mehr Beweglichkeit. Wellenbrock & Wernecken nahe Turmstraße.",
     "h1": "Medical Flossing in Berlin Moabit",
     "lead": "",
     "sections": [
@@ -1792,7 +1792,7 @@
     "path": "/physiotherapie/medical-kinesio-taping/",
     "kind": "treatment",
     "title": "Medical Kinesio-Taping Berlin Moabit | Wellenbrock & Wernecken",
-    "description": "Medical Kinesio Tape Berlin Moabit Turmstraße: Therapie zur Entlastung und Stabilisierung. Praxis W&W in Moabit – jetzt Termin sichern.",
+    "description": "Medical Kinesio-Taping in Berlin Moabit: Tape zur Entlastung und Stabilisierung von Muskeln und Gelenken. Nahe Turmstraße – jetzt Termin sichern.",
     "h1": "Medical Kinesio-Taping in Berlin Moabit",
     "lead": "",
     "sections": [
@@ -1853,7 +1853,7 @@
     "path": "/physiotherapie/propriozeptive-neuromuskulaere-fazilitation/",
     "kind": "treatment",
     "title": "PNF-Therapie Berlin Moabit | Wellenbrock & Wernecken",
-    "description": "Propriozeptive neuromuskuläre Fazilitation Berlin: Individuelle PNF Physiotherapie für Menschen mit neurologischen Erkrankungen. Praxis W&W Moabit",
+    "description": "PNF (Propriozeptive neuromuskuläre Fazilitation) in Berlin Moabit: individuelle Physiotherapie bei neurologischen Erkrankungen. Wellenbrock & Wernecken.",
     "h1": "PNF-Therapie in Berlin Moabit",
     "lead": "",
     "sections": [
@@ -1913,7 +1913,7 @@
   {
     "path": "/preise/",
     "kind": "special",
-    "title": "Physiotherapie & Osteopathie Preise Berlin Moabit | W&W",
+    "title": "Preise Physiotherapie & Osteopathie Berlin Moabit | Wellenbrock & Wernecken",
     "description": "Preise & Kosten für Physiotherapie und Osteopathie: Transparente Übersicht für gesetzlich Versicherte, Privatpatient:innen und Selbstzahler.",
     "h1": "Preise",
     "lead": "<p>Transparente Infos zu unseren Preisen – für Kassenpatient:innen, Privatversicherte und Selbstzahler:innen.</p>",
@@ -1962,7 +1962,7 @@
     "path": "/termin-vereinbaren/",
     "kind": "special",
     "title": "Termin vereinbaren | Physiotherapie & Osteopathie Berlin Moabit",
-    "description": "Termin vereinbaren bei Wellenbrock & Wernecken in Berlin Moabit – wir freuen uns auf dich!",
+    "description": "Termin für Physiotherapie oder Osteopathie in Berlin Moabit: telefonisch unter (030) 392 44 46 oder per Formular. Kasse & Privat, Hausbesuche möglich.",
     "h1": "Termin vereinbaren",
     "lead": "",
     "sections": [
