@@ -1,4 +1,10 @@
 {
-  "hiring": true,
-  "positions": ["Physiotherapeut*in", "Osteopath*in", "Rezeption", "Ausbildung / Praktikum", "Initiativbewerbung"]
+  "hiring": false,
+  "positions": [
+    "Physiotherapeut*in",
+    "Osteopath*in",
+    "Rezeption",
+    "Ausbildung / Praktikum",
+    "Initiativbewerbung"
+  ]
 }
