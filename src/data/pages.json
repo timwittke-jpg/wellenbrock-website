@@ -532,10 +532,16 @@
     "lead": "",
     "sections": [
       {
-        "heading": "Wir arbeiten ganzheitlich – jede:r bringt eigene Stärken ein.",
+        "heading": "",
         "level": 2,
-        "html": "<p>Jede Therapeutin und jeder Therapeut hat einen eigenen Stil und besondere Kompetenzen. Wir glauben, dass echte Qualität entsteht, wenn jede:r das einbringt, was sie oder ihn ausmacht. Deshalb setzen wir auf Vielfalt statt Einheitskonzept. Wir sehen deine Stärken, setzen sie gezielt ein und fördern sie durch Fortbildungen und Austausch. Wir unterstützen uns gegenseitig und geben jeden Tag unser Bestes.</p>",
-        "cards": [],
+        "html": "",
+        "cards": [
+          {
+            "title": "Wir arbeiten ganzheitlich – jede:r bringt eigene Stärken ein.",
+            "html": "<p>Jede Therapeutin und jeder Therapeut hat einen eigenen Stil und besondere Kompetenzen. Wir glauben, dass echte Qualität entsteht, wenn jede:r das einbringt, was sie oder ihn ausmacht. Deshalb setzen wir auf Vielfalt statt Einheitskonzept. Wir sehen deine Stärken, setzen sie gezielt ein und fördern sie durch Fortbildungen und Austausch. Wir unterstützen uns gegenseitig und geben jeden Tag unser Bestes.</p>",
+            "buttons": []
+          }
+        ],
         "buttons": [],
         "images": []
       },

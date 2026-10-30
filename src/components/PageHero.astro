@@ -20,9 +20,8 @@ interface Props {
   actions?: boolean;
   // Leistungsseiten: ein Button „<Leistung> anfragen“ statt Termin- und Telefon-Button
   service?: HeroService;
-  // Unter der Überschrift: 'apply' Hinweis „Aktuell – 1 offene Stelle“ (Team, nur bei aktiven Stellen),
-  // 'button' Button „Jetzt bewerben“ (Jobs, immer – Initiativbewerbung ist immer möglich)
-  hiring?: 'apply' | 'button';
+  // Team-Seite: Hinweis „Aktuell – 1 offene Stelle“ unter der Überschrift (nur bei aktiven Stellen)
+  hiring?: 'apply';
 }
 
 const { title, lead, crumbs, actions = true, service, hiring } = Astro.props;
@@ -43,15 +42,6 @@ const { title, lead, crumbs, actions = true, service, hiring } = Astro.props;
     </nav>
     <h1>{noBreak(title)}</h1>
     {hiring === 'apply' && <HiringNote />}
-    {
-      hiring === 'button' && (
-        <div class="actions">
-          <a class="btn btn--pink" href="/jobs/bewerben/">
-            Jetzt bewerben
-          </a>
-        </div>
-      )
-    }
     {lead && <div class="lead" set:html={lead} />}
     {
       actions &&

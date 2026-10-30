@@ -104,7 +104,7 @@ const schema =
   heroActions={!isLegal && !aboutPages.includes(page.path)}
   heroService={heroService}
   cta={!isLegal}
-  hiring={page.path === '/jobs/' ? 'button' : page.path === '/team/' ? 'apply' : undefined}
+  hiring={page.path === '/team/' ? 'apply' : undefined}
 >
   <div class:list={['sections', `kind-${page.kind}`]}>
     {
