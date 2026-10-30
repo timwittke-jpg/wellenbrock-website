@@ -93,7 +93,10 @@ const faqSchema = {
         Physiotherapie &amp; Osteopathie in Berlin Moabit. Für Privat- und Kassenpatienten.<br class="lead-br" /> Hausbesuche in Moabit,
         Hansaviertel, Tiergarten und Charlottenburg.
       </p>
-      <a class="btn btn--pink" href={appointmentHref}>Termin vereinbaren</a>
+      <div class="hero-actions">
+        <a class="btn btn--pink" href={appointmentHref}>Termin vereinbaren</a>
+        <a class="btn btn--secondary" href={practice.phoneHref}>Tel: {practice.phoneDisplay}</a>
+      </div>
     </div>
   </section>
 
@@ -195,17 +198,25 @@ const faqSchema = {
 </Base>
 
 <style>
-  /* Hero */
+  /* Hero: gleiche Abstände und Buttons wie der Kopf der Unterseiten (PageHero) */
   .hero {
-    /* oben 8px weniger als zuvor: Desktop 72 → 64px, Handy 48 → 40px */
-    padding-block: clamp(40px, 7vw - 8px, 64px) clamp(56px, 8vw, 72px);
+    padding-block: clamp(40px, 6vw, 64px) clamp(56px, 8vw, 88px);
     text-align: center;
   }
 
   .hero-inner {
     display: grid;
     justify-items: center;
-    gap: 1.75rem;
+    gap: 1.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem 1.75rem;
+    margin-top: 0.5rem;
   }
 
   h1 {
@@ -218,7 +229,6 @@ const faqSchema = {
     max-width: 32em;
     font-size: var(--fs-lead);
     line-height: var(--lh-lead);
-    margin-bottom: 0.5rem;
   }
 
   .lead-br {
@@ -489,10 +499,6 @@ const faqSchema = {
   }
 
   @media (max-width: 560px) {
-    /* H1 → Introtext 8px enger (28 → 20px) */
-    .hero-inner h1 {
-      margin-bottom: -8px;
-    }
     /* Icon-Kreise auf dem Handy etwas kleiner */
     .icon {
       width: 72px;

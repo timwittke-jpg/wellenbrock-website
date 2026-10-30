@@ -184,6 +184,11 @@ const jobsBadge = activeJobs.length > 0 ? `${activeJobs.length} ${activeJobs.len
     white-space: nowrap;
   }
 
+  /* Telefon nur im mobilen Menü; am Desktop steht die Nummer als Button im Seitenkopf */
+  .nav-phone {
+    display: none;
+  }
+
   /* gleiche Schrift wie die Menüpunkte */
   .nav-phone a {
     font: 600 1rem/1.2 var(--f-sans);
@@ -204,9 +209,6 @@ const jobsBadge = activeJobs.length > 0 ? `${activeJobs.length} ${activeJobs.len
   @media (max-width: 1080px) {
     .nav-list {
       gap: 1.5rem;
-    }
-    .nav-phone {
-      display: none;
     }
   }
 
