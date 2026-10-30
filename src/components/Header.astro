@@ -206,6 +206,13 @@ const jobsBadge = activeJobs.length > 0 ? `${activeJobs.length} ${activeJobs.len
     display: none;
   }
 
+  /* Desktop: Menü so breit wie das Bild auf der Startseite (48px Abstand zum Rand) */
+  @media (min-width: 881px) {
+    .bar {
+      width: var(--wide);
+    }
+  }
+
   @media (max-width: 1080px) {
     .nav-list {
       gap: 1.5rem;

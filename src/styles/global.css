@@ -42,6 +42,8 @@
   --radius: 12px;
   /* Seitenbreite „boxed“ wie in Elementor */
   --container: 1100px;
+  /* Desktop: Menü und Startseitenbild, 48px Abstand zum Fensterrand */
+  --wide: min(100% - 96px, 1440px);
   --gutter: clamp(16px, 4vw, 32px);
   --header-h: 88px;
 

@@ -105,7 +105,7 @@ const faqSchema = {
     src={team}
     alt="Das Team der Physiotherapie Wellenbrock & Wernecken in der Praxis in Berlin-Moabit"
     widths={[640, 1024, 1440, 2000]}
-    sizes="100vw"
+    sizes="(min-width: 881px) min(100vw - 96px, 1440px), 100vw"
     loading="eager"
     fetchpriority="high"
   />
@@ -257,11 +257,11 @@ const faqSchema = {
     object-fit: cover;
   }
 
-  /* erst wenn das Foto nicht mehr bis an den Rand reicht, bekommt es die Eckenrundung
-     (Puffer für Scrollleisten, die zur Fensterbreite zählen) */
-  @media (min-width: 1460px) {
+  /* Desktop: 48px Abstand zum Fensterrand, 24px Rundung – gleiche Breite wie das Menü */
+  @media (min-width: 881px) {
     .team {
-      border-radius: var(--radius);
+      width: var(--wide);
+      border-radius: 24px;
     }
   }
 
