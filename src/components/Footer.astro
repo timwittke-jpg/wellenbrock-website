@@ -45,6 +45,10 @@ const year = new Date().getFullYear();
       <li><a href={practice.facebook} aria-label="Facebook" rel="noopener" set:html={Facebook} /></li>
     </ul>
   </div>
+  <p class="container cookie-note">
+    Cookies gibt’s bei uns nur im Wartezimmer. 🍪<br />
+    Diese Website setzt keine und verfolgt dich nicht.
+  </p>
   <div class="container bottom">
     <p>© {year} {practice.name}, Berlin Moabit</p>
     <ul class="legal">
@@ -154,9 +158,15 @@ const year = new Date().getFullYear();
     filter: brightness(0.96);
   }
 
-  /* Abstand über der Trennlinie wie zwischen den Abschnitten der Seite */
-  .bottom {
+  /* Hinweis ohne Cookies/Tracking: Abstand nach oben wie zwischen den Abschnitten der Seite */
+  .cookie-note {
     margin-top: clamp(80px, 10vw, 140px);
+    font-size: var(--fs-small);
+    line-height: 1.6;
+  }
+
+  .bottom {
+    margin-top: 32px;
     padding-top: 24px;
     border-top: 1px solid var(--c-line);
     display: flex;
