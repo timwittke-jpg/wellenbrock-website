@@ -2,6 +2,7 @@
 import { practice, appointmentHref } from '../data/site';
 import { noBreak } from '../data/pages';
 import HiringNote from './HiringNote.astro';
+import jobs from '../data/jobs.json';
 
 export interface Crumb {
   label: string;
@@ -20,9 +21,9 @@ interface Props {
   actions?: boolean;
   // Leistungsseiten: ein Button „<Leistung> anfragen“ statt Termin- und Telefon-Button
   service?: HeroService;
-  // Hinweis „Aktuell – Wir stellen ein“ unter der Überschrift (wenn im CMS angeschaltet):
-  // 'apply' mit Link zum Bewerbungsformular (Team), 'note' ohne (Jobs)
-  hiring?: 'apply' | 'note';
+  // Wenn im CMS „Wir stellen ein“ angeschaltet ist, unter der Überschrift:
+  // 'apply' Hinweis „Aktuell – Wir stellen ein: Jetzt bewerben!“ (Team), 'button' Button „Jetzt bewerben“ (Jobs)
+  hiring?: 'apply' | 'button';
 }
 
 const { title, lead, crumbs, actions = true, service, hiring } = Astro.props;
@@ -42,7 +43,16 @@ const { title, lead, crumbs, actions = true, service, hiring } = Astro.props;
       </ol>
     </nav>
     <h1>{noBreak(title)}</h1>
-    {hiring && <HiringNote apply={hiring === 'apply'} />}
+    {hiring === 'apply' && <HiringNote apply />}
+    {
+      hiring === 'button' && jobs.hiring && (
+        <div class="actions">
+          <a class="btn btn--pink" href="/jobs/bewerben/">
+            Jetzt bewerben
+          </a>
+        </div>
+      )
+    }
     {lead && <div class="lead" set:html={lead} />}
     {
       actions &&
