@@ -1,7 +1,7 @@
 {
   "jobs": [
     {
-      "active": true,
+      "active": false,
       "name": "Physiotherapeut*in",
       "title": "Physiotherapeut/in (Teilzeit/Vollzeit)",
       "datePosted": "2026-10-30",
@@ -13,7 +13,7 @@
       "salaryUnit": "MONTH"
     },
     {
-      "active": true,
+      "active": false,
       "name": "Osteopath*in",
       "title": "Osteopath/in (Teilzeit/Vollzeit)",
       "datePosted": "2026-10-30",
@@ -25,7 +25,7 @@
       "salaryUnit": "MONTH"
     },
     {
-      "active": true,
+      "active": false,
       "name": "Rezeption",
       "title": "Mitarbeiter/in Rezeption & Praxisorganisation (Teilzeit)",
       "datePosted": "2026-10-30",
@@ -36,7 +36,7 @@
       "salaryUnit": "MONTH"
     },
     {
-      "active": true,
+      "active": false,
       "name": "Ausbildung / Praktikum",
       "title": "Praktikum in der Physiotherapie",
       "datePosted": "2026-10-30",
