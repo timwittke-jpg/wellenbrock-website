@@ -281,6 +281,16 @@ main .map ~ .cta {
   margin-top: 1rem;
 }
 
+/* Zwischenüberschrift im Fließtext (z. B. Stellentitel auf der Jobs-Seite) */
+.prose h3 {
+  font-size: var(--fs-md);
+  line-height: var(--lh-title);
+}
+
+.prose h3 + * {
+  margin-top: 1.5rem;
+}
+
 .prose ul {
   margin-block: 1rem 0;
   padding: 0;

@@ -61,7 +61,7 @@ content:
       - name: hiring
         label: Hinweis „Aktuell – Wir stellen ein“ anzeigen
         type: boolean
-        description: "An: Hinweis auf der Startseite (unter „Über uns“) und der Team-Seite, jeweils mit Link zum Bewerbungsformular, sowie auf der Jobs-Seite."
+        description: "An: Hinweis auf der Startseite (unter „Über uns“) und der Team-Seite, jeweils mit Link zum Bewerbungsformular, auf der Jobs-Seite und als „Wir suchen“ neben „Jobs“ im Menü."
       - name: positions
         label: Stellen zur Auswahl im Bewerbungsformular
         type: string

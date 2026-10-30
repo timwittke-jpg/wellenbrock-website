@@ -1,6 +1,8 @@
 ---
 import Logo from '../assets/icons/logo.svg?raw';
 import { nav, practice, appointmentHref } from '../data/site';
+// „Wir suchen“ neben „Jobs“, solange im CMS „Wir stellen ein“ angeschaltet ist
+import jobs from '../data/jobs.json';
 ---
 
 <header class="site-header">
@@ -26,7 +28,10 @@ import { nav, practice, appointmentHref } from '../data/site';
               <ul class="submenu" id={`menu-${i}`}>
                 {group.items.map((item) => (
                   <li>
-                    <a href={item.href}>{item.label}</a>
+                    <a href={item.href}>
+                      {item.label}
+                      {jobs.hiring && item.href === '/jobs/' && <span class="hiring-badge">Wir suchen</span>}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -165,6 +170,17 @@ import { nav, practice, appointmentHref } from '../data/site';
 
   .submenu a:hover {
     background: var(--c-bg);
+  }
+
+  /* wie „Aktuell“ beim Hinweis „Wir stellen ein“: hell Peach hinterlegt */
+  .hiring-badge {
+    margin-left: 8px;
+    padding: 0.05em 0.3em;
+    border-radius: 4px;
+    background: var(--c-peach-soft);
+    font-size: var(--fs-small);
+    font-weight: 600;
+    white-space: nowrap;
   }
 
   /* gleiche Schrift wie die Menüpunkte */
