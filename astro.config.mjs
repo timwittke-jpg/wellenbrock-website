@@ -6,6 +6,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://physiotherapie-wellenbrock-wernecken.de',
   trailingSlash: 'always',
+  // CSS direkt in die HTML-Datei schreiben: kein Nachladen, das den ersten Seitenaufbau blockiert
+  build: { inlineStylesheets: 'always' },
   // Bestätigungsseite nach dem Formular gehört nicht in die Sitemap
   integrations: [sitemap({ filter: (page) => !page.includes('/termin-angefragt/') })],
 });

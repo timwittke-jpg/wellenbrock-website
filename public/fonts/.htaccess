@@ -1,0 +1,5 @@
+# Schriftdateien ändern sich praktisch nie: der Browser darf sie ein Jahr behalten.
+# Wird eine Schrift ersetzt, bitte unter neuem Dateinamen ablegen.
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=31536000"
+</IfModule>

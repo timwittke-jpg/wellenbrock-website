@@ -1,0 +1,5 @@
+# Bilder und Schriften aus dem Build: Dateinamen enthalten eine Prüfsumme (z. B. team.iQkdFdoJ.webp),
+# jede Änderung bekommt also einen neuen Namen. Der Browser darf die Dateien darum ein Jahr behalten.
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>
