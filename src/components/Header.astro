@@ -1,9 +1,9 @@
 ---
 import Logo from '../assets/icons/logo.svg?raw';
 import { nav, practice, appointmentHref } from '../data/site';
-// „1 Stelle“ / „2 Stellen“ neben „Jobs“, solange im CMS Stellen aktiv sind
+// „Aktuell“ neben „Jobs“, solange im CMS mindestens eine Stelle aktiv ist
 import { activeJobs } from '../data/stellen';
-const jobsBadge = activeJobs.length > 0 ? `${activeJobs.length} ${activeJobs.length === 1 ? 'Stelle' : 'Stellen'}` : '';
+const jobsBadge = activeJobs.length > 0 ? 'Aktuell' : '';
 ---
 
 <header class="site-header">

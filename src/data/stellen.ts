@@ -63,9 +63,6 @@ export const activeJobs = ((raw.jobs ?? []) as Job[])
   .filter((j) => j.active && j.name && j.title)
   .map((j) => ({ ...j, description: toHtml(j.description ?? '') }));
 
-// „1 offene Stelle“ / „2 offene Stellen“
-export const openPositionsText = (count = activeJobs.length) => `${count} offene ${count === 1 ? 'Stelle' : 'Stellen'}`;
-
 const employmentLabels: Record<string, string> = {
   FULL_TIME: 'Vollzeit',
   PART_TIME: 'Teilzeit',

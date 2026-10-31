@@ -1,7 +1,7 @@
 ---
-// Hinweis „Aktuell – 1 offene Stelle: Jetzt bewerben“ mit Link zur Jobs-Seite (Startseite, Team).
-// Die Zahl zählt die aktiven Stellen im CMS; ohne aktive Stelle erscheint nichts.
-import { activeJobs, openPositionsText } from '../data/stellen';
+// Hinweis „Aktuell“ und darunter „Wir stellen ein: Jetzt bewerben!“ mit Link zur Jobs-Seite (Startseite, Team).
+// Erscheint nur, solange im CMS mindestens eine Stelle aktiv ist.
+import { activeJobs } from '../data/stellen';
 ---
 
 {
@@ -9,27 +9,29 @@ import { activeJobs, openPositionsText } from '../data/stellen';
     <p class="hiring">
       <span class="badge">Aktuell</span>
       <span>
-        {openPositionsText()}: <a href="/jobs/">Jetzt bewerben</a>
+        Wir stellen ein: <a href="/jobs/">Jetzt bewerben!</a>
       </span>
     </p>
   )
 }
 
 <style>
+  /* Badge über dem Text; links bündig, im zentrierten Seitenkopf (Team) mittig */
   .hiring {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 8px;
+    flex-direction: column;
+    align-items: var(--hiring-align, flex-start);
+    gap: 0.5rem;
     font-size: 1rem;
     line-height: 1.5;
   }
 
-  /* wie die Links im Fließtext: hell Peach hinterlegt */
+  /* wie „Aktuell“ im Menü: hell Peach hinterlegt, 14px */
   .badge {
     padding: 0.05em 0.3em;
     border-radius: 4px;
     background: var(--c-peach-soft);
+    font-size: var(--fs-small);
     font-weight: 600;
   }
 
