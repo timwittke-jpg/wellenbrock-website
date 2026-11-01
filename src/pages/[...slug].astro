@@ -704,16 +704,18 @@ const schema =
     display: none;
   }
 
-  /* wie die Menüpunkte im mobilen Menü: fett, mit Pfeil nach unten */
+  /* exakt wie die Menüpunkte im Footer: Fließtextgröße, fett, mit Pfeil nach unten */
   .show-all {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     margin-top: 0.5rem;
     padding: 0.5rem 0;
     border: 0;
     background: none;
-    font: 600 1rem/1.2 var(--f-sans);
+    font: inherit;
+    font-size: var(--fs-body);
+    font-weight: 600;
     color: inherit;
     cursor: pointer;
   }
@@ -721,14 +723,6 @@ const schema =
   .show-all:hover {
     color: var(--c-brand);
   }
-
-  /* wie im mobilen Menü etwas größer */
-  @media (max-width: 880px) {
-    .show-all {
-      font-size: var(--fs-lead);
-    }
-  }
-
   .show-all[hidden] {
     display: none;
   }
