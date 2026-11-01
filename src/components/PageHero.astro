@@ -100,9 +100,11 @@ const { title, lead, crumbs, actions = true, service, hiring } = Astro.props;
     color: #c4beb8;
   }
 
+  /* klickbare Brotkrümel unterstrichen, die aktuelle Seite nicht */
   .crumbs a {
     color: inherit;
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   .crumbs a:hover {
