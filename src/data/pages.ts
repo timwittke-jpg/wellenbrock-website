@@ -52,10 +52,37 @@ export const parentOf = (path: string) => {
   return m ? getPage(`/${m[1]}/`) : undefined;
 };
 
+// Reihenfolge der Liste „Weitere Behandlungen“: nach Nachfrage, die gefragtesten zuerst.
+// Nicht aufgeführte Seiten kommen ans Ende.
+const relevance = [
+  '/physiotherapie/krankengymnastik/',
+  '/physiotherapie/manuelle-therapie/',
+  '/physiotherapie/klassische-massage/',
+  '/physiotherapie/manuelle-lymphdrainage/',
+  '/physiotherapie/krankengymnastik-fuer-kinder/',
+  '/physiotherapie/medical-kinesio-taping/',
+  '/physiotherapie/cmd-behandlung/',
+  '/physiotherapie/fango-behandlung/',
+  '/physiotherapie/bobath-therapie/',
+  '/physiotherapie/faszientherapie/',
+  '/physiotherapie/heissluft-therapie/',
+  '/physiotherapie/propriozeptive-neuromuskulaere-fazilitation/',
+  '/physiotherapie/atem-therapie/',
+  '/physiotherapie/kaelte-therapie/',
+  '/physiotherapie/medical-flossing-therapie/',
+  '/osteopathie/craniosacrale-osteopathie/',
+  '/osteopathie/osteopathie-fuer-kinder/',
+  '/osteopathie/parietale-osteopathie/',
+  '/osteopathie/viszerale-osteopathie/',
+];
+const rank = (path: string) => (relevance.includes(path) ? relevance.indexOf(path) : relevance.length);
+
 export const siblingsOf = (path: string) => {
   const parent = parentOf(path);
   if (!parent) return [];
-  return pages.filter((p) => p.kind === 'treatment' && p.path !== path && p.path.startsWith(parent.path));
+  return pages
+    .filter((p) => p.kind === 'treatment' && p.path !== path && p.path.startsWith(parent.path))
+    .sort((a, b) => rank(a.path) - rank(b.path));
 };
 
 // Häufige Fragen pro Behandlungsseite – nur aus Angaben, die auf der Seite selbst stehen,
