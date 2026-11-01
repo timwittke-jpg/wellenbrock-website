@@ -269,19 +269,43 @@ const schema =
               Weitere {page.path.startsWith('/osteopathie/') ? 'osteopathische' : 'physiotherapeutische'} Behandlungen in unserer
               Praxis in Moabit
             </h2>
-            <ul class="sibling-list">
+            {/* Ab 8 Einträgen nur die ersten 7 zeigen; die übrigen Links stehen trotzdem im HTML (für Google) */}
+            <ul class:list={['sibling-list', { 'is-collapsed': siblings.length > 7 }]} id="weitere-liste">
               {siblings.map((p) => (
                 <li>
-                  <a href={p.path}>{shortName(p.h1)}</a>
+                  <a href={p.path}>
+                    <span>{noBreak(shortName(p.h1))}</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" />
+                    </svg>
+                  </a>
                 </li>
               ))}
             </ul>
+            {siblings.length > 7 && (
+              <button class="show-all" type="button" aria-controls="weitere-liste" aria-expanded="false">
+                Alle anzeigen
+                <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+                  <path d="M2.5 5l4.5 4.5L11.5 5" fill="none" stroke="currentColor" stroke-width="1.6" />
+                </svg>
+              </button>
+            )}
           </div>
         </section>
       )
     }
   </div>
 </SubPage>
+
+<script>
+  // „Alle anzeigen“: restliche Behandlungen einblenden, Button danach ausblenden
+  document.querySelector('.show-all')?.addEventListener('click', (e) => {
+    const button = e.currentTarget as HTMLButtonElement;
+    document.getElementById('weitere-liste')?.classList.remove('is-collapsed');
+    button.setAttribute('aria-expanded', 'true');
+    button.hidden = true;
+  });
+</script>
 
 <style>
   .block {
@@ -625,16 +649,12 @@ const schema =
     margin-top: 1.25rem;
   }
 
-  /* Interne Verlinkung */
+  /* Interne Verlinkung: kleine Version der Leistungsliste, Schrift wie die Kartentitel (h3) */
   .sibling-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0;
     width: 100%;
     margin: 0.5rem 0 0;
     padding: 0;
     list-style: none;
-    border-top: 1px solid var(--c-line);
   }
 
   .sibling-list li {
@@ -642,14 +662,75 @@ const schema =
   }
 
   .sibling-list a {
-    display: block;
-    padding: 0.9rem 0;
-    font-weight: 600;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1rem 1.25rem 0;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-title);
     text-decoration: none;
   }
 
-  .sibling-list a:hover {
+  /* Hover wie in der Leistungsliste: zartes Rosa, links etwas über die Textkante hinaus */
+  .sibling-list a::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 -1rem;
+    z-index: -1;
+    background: var(--c-pink-soft);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  .sibling-list a:hover::before,
+  .sibling-list a:focus-visible::before {
+    opacity: 1;
+  }
+
+  .sibling-list svg {
+    flex: none;
     color: var(--c-brand);
+    transition: transform 0.15s ease;
+  }
+
+  .sibling-list a:hover svg {
+    transform: translateX(4px);
+  }
+
+  .sibling-list.is-collapsed li:nth-child(n + 8) {
+    display: none;
+  }
+
+  /* wie die Menüpunkte im mobilen Menü: fett, mit Pfeil nach unten */
+  .show-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+    border: 0;
+    background: none;
+    font: 600 1rem/1.2 var(--f-sans);
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .show-all:hover {
+    color: var(--c-brand);
+  }
+
+  /* wie im mobilen Menü etwas größer */
+  @media (max-width: 880px) {
+    .show-all {
+      font-size: var(--fs-lead);
+    }
+  }
+
+  .show-all[hidden] {
+    display: none;
   }
 
   @media (max-width: 960px) {
@@ -659,7 +740,6 @@ const schema =
   }
 
   @media (max-width: 600px) {
-    .sibling-list,
     .prose--columns :global(ul) {
       columns: 1;
     }
