@@ -647,7 +647,7 @@
             "href": "/osteopathie/craniosacrale-osteopathie/"
           },
           {
-            "title": "Viscerale Osteopathie",
+            "title": "Viszerale Osteopathie",
             "html": "",
             "buttons": [],
             "href": "/osteopathie/viszerale-osteopathie/"
@@ -663,9 +663,9 @@
         "images": []
       },
       {
-        "heading": "{jahrePraxis} Jahre Erfahrung in der Osteopathie",
+        "heading": "{jahreOsteo} Jahre Erfahrung in der Osteopathie",
         "level": 2,
-        "html": "<p>Seit über {jahrePraxis} Jahren begleite ich Menschen mit Osteopathie in Berlin Moabit. Meine Ausbildung umfasst parietale, viszerale und craniosacrale Osteopathie. Für dich bedeutet das: Beschwerden werden nicht isoliert betrachtet, sondern im Zusammenspiel deines Körpers.</p><p>Du profitierst von meiner langjährigen Erfahrung und zahlreichen Zusatzausbildungen, unter anderem in biodynamischer Osteopathie und in der Kinderosteopathie. Viele unserer Patient:innen kommen aus Moabit, Charlottenburg und Tiergarten. Durch regelmäßige Fortbildungen im In- und Ausland sichern wir dir eine moderne und wirksame Behandlung.</p>",
+        "html": "<p>Seit über {jahreOsteo} Jahren begleite ich Menschen mit Osteopathie in Berlin Moabit. Meine Ausbildung umfasst parietale, viszerale und craniosacrale Osteopathie. Für dich bedeutet das: Beschwerden werden nicht isoliert betrachtet, sondern im Zusammenspiel deines Körpers.</p><p>Du profitierst von meiner langjährigen Erfahrung und zahlreichen Zusatzausbildungen, unter anderem in biodynamischer Osteopathie und in der Kinderosteopathie. Viele unserer Patient:innen kommen aus Moabit, Charlottenburg und Tiergarten. Durch regelmäßige Fortbildungen im In- und Ausland sichern wir dir eine moderne und wirksame Behandlung.</p>",
         "cards": [],
         "buttons": [],
         "images": [],
@@ -1334,7 +1334,7 @@
       {
         "heading": "Wie funktioniert Heißluft-Therapie?",
         "level": 2,
-        "html": "<p>Du liegst entspannt, während ein Infrarot-Licht gezielt auf die betroffenen Stellen gerichtet wird. Die tiefenwirksame Wärme verbessert die Durchblutung im Gewebe. Dadurch können Verspannungen gelöst und Schmerzen gelindert werden.</p>",
+        "html": "<p>Du liegst entspannt, während eine Infrarot-Wärmelampe gezielt auf die betroffenen Stellen gerichtet ist. Die tiefenwirksame Wärme verbessert die Durchblutung im Gewebe. Dadurch können Verspannungen gelöst und Schmerzen gelindert werden.</p>",
         "cards": [
           {
             "title": "Hausbesuche in Berlin-Moabit und Charlottenburg",
@@ -1484,7 +1484,7 @@
       {
         "heading": "Wobei hilft Klassische Massage?",
         "level": 2,
-        "html": "<ul><li>Rückenschmerzen (z. B. Lendenwirbelsäule, ISG, HWS-Syndrom)</li><li>Nackenschmerzen oder steifer Nacken</li><li>Blockaden in Wirbelsäule oder Gelenken</li><li>Bewegungseinschränkungen der Schulter, Hüfte oder Knie</li><li>Kiefergelenksprobleme (CMD)</li><li>Kopfschmerzen durch muskuläre Verspannungen</li><li>Schwindel bei muskulären Ursachen</li><li>Schmerzen nach Bandscheibenvorfall (begleitend)</li><li>Fehlhaltungen und muskuläre Dysbalancen</li><li>Beschwerden durch Fehl- oder Überbelastung im Alltag oder Beruf</li><li>Gelenkschmerzen nach Verletzungen oder Operationen</li></ul>",
+        "html": "<ul><li>Muskelverspannungen und Verhärtungen</li><li>Nacken- und Schulterverspannungen</li><li>Rückenschmerzen durch muskuläre Verspannungen</li><li>Spannungskopfschmerzen</li><li>Stressbedingte Beschwerden</li><li>Beschwerden durch langes Sitzen oder einseitige Belastung</li><li>Regeneration nach dem Sport</li><li>Vorbereitung auf Krankengymnastik oder Manuelle Therapie</li></ul>",
         "cards": [],
         "buttons": [],
         "images": []
@@ -1545,7 +1545,7 @@
       {
         "heading": "Wobei hilft Krankengymnastik für Kinder?",
         "level": 2,
-        "html": "<ul><li>Muskelverspannungen und Fehlhaltungen</li><li>Rückenschmerzen und Haltungsschwächen</li><li>Bewegungseinschränkungen nach Operationen oder Verletzungen</li><li>Gelenkschmerzen (z. B. Knie, Schulter, Hüfte)</li><li>Bandscheibenprobleme</li><li>Muskelschwäche oder Koordinationsstörungen</li><li>Gleichgewichtsprobleme</li><li>Schmerzen durch Arthrose oder Rheuma</li><li>Beschwerden nach Knochenbrüchen (z. B. eingeschränkte Mobilität)</li><li>Reha-Begleitung bei orthopädischen Erkrankungen</li><li>Fehlbelastungen durch sitzende Tätigkeiten oder einseitige Bewegungsmuster</li></ul>",
+        "html": "<ul><li>Haltungsschwächen und Fehlhaltungen</li><li>Verzögerte motorische Entwicklung</li><li>Koordinations- und Gleichgewichtsprobleme</li><li>Muskelschwäche</li><li>Fußfehlstellungen (z. B. Knick-Senkfuß)</li><li>Skoliose und Rückenbeschwerden</li><li>Vorzugshaltungen bei Babys (z. B. Schiefhals)</li><li>Wachstumsbedingte Beschwerden (z. B. Knieschmerzen)</li><li>Nachbehandlung von Verletzungen, Knochenbrüchen oder Operationen</li></ul>",
         "cards": [],
         "buttons": [],
         "images": []
