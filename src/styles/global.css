@@ -191,15 +191,16 @@ b {
 }
 
 /* Alleinstehende Links („Mehr erfahren“): fett, ohne Hinterlegung */
+/* fette Textlinks immer unterstrichen, damit sie als Link erkennbar sind */
 .text-link {
   width: fit-content;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .text-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  color: var(--c-brand);
 }
 
 /* Links mitten im Fließtext: hell Peach hinterlegt (wie der Menü-Hover) */
