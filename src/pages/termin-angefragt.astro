@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import { practice } from '../data/site';
 import IconBag from '../assets/icons/mitbringen.svg?raw';
 import IconCancel from '../assets/icons/absagen.svg?raw';
+import IconGoogle from '../assets/icons/google-bewerten.svg?raw';
 
 const bring = ['Ärztliches Rezept', 'Versicherungskarte', 'Großes Handtuch', 'Bequeme Kleidung'];
 ---
@@ -39,12 +40,22 @@ const bring = ['Ärztliches Rezept', 'Versicherungskarte', 'Großes Handtuch', '
         <span class="icon icon--peach" aria-hidden="true" set:html={IconCancel} />
         <h2>Bis 24 Stunden vorher absagen</h2>
         <p>
-          Du kannst einen Termin nicht wahrnehmen? Bitte sag uns mindestens 24 Stunden vorher Bescheid, damit wir den
-          Termin anderweitig vergeben können. Kurzfristig abgesagte Termine müssen wir ggf. privat berechnen.
+          Du kannst einen Termin nicht wahrnehmen? Dann sag uns bitte rechtzeitig Bescheid. Kurzfristige Absagen müssen
+          wir ggf. privat berechnen.
         </p>
         <p>
           Am schnellsten geht es telefonisch: <a class="nowrap" href={practice.phoneHref}>{practice.phoneDisplay}</a>
         </p>
+      </li>
+      {/* Bitte um eine Google-Bewertung, bewusst „für später“ formuliert */}
+      <li class="card info-card review-card">
+        <span class="icon icon--pink" aria-hidden="true" set:html={IconGoogle} />
+        <h2>Erzähl es gerne weiter</h2>
+        <p>
+          Konnten wir dir helfen? Dann freuen wir uns, wenn du später deine Erfahrung bei Google teilst. So finden auch
+          andere in Moabit den Weg zu uns.
+        </p>
+        <a class="btn btn--pink" href={practice.googleProfile} target="_blank" rel="noopener">Auf Google bewerten</a>
       </li>
     </ul>
     <div class="actions">
@@ -99,14 +110,14 @@ const bring = ['Ärztliches Rezept', 'Versicherungskarte', 'Großes Handtuch', '
   }
 
   .info {
-    width: min(100% - 2 * var(--gutter), 984px);
+    width: min(100% - 2 * var(--gutter), var(--container));
     padding-bottom: clamp(80px, 10vw, 140px);
   }
 
   /* Gestaltung wie die Leistungskarten der Startseite */
   .cards {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: start;
     gap: 24px;
     margin: 0;
@@ -147,6 +158,24 @@ const bring = ['Ärztliches Rezept', 'Versicherungskarte', 'Großes Handtuch', '
     line-height: var(--lh-title);
   }
 
+  .review-card .btn {
+    justify-self: start;
+    margin-top: 0.75rem;
+  }
+
+  /* Tablet: zwei Spalten, Bewertungskarte mittig darunter */
+  @media (max-width: 960px) {
+    .cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .review-card {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: calc((100% - 24px) / 2);
+    }
+  }
+
   .nowrap {
     white-space: nowrap;
   }
@@ -168,6 +197,10 @@ const bring = ['Ärztliches Rezept', 'Versicherungskarte', 'Großes Handtuch', '
 
     .info-card {
       padding: 24px;
+    }
+
+    .review-card {
+      width: 100%;
     }
 
     /* Icon-Kreise auf dem Handy etwas kleiner */
