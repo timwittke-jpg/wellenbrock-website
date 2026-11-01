@@ -1,7 +1,7 @@
 [
   {
     "q": "Wie läuft eine Physiotherapie-Sitzung ab?",
-    "a": "<p>Eine Sitzung startet mit einem Gespräch über deine Beschwerden, gefolgt von einer kurzen Untersuchung. Danach beginnt die eigentliche Behandlung. Mehr über die Abläufe der verschiedenen Behandlungen erfährst du auf den jeweiligen Unterseiten der Leistungen. <a href=\"/physiotherapie/\">Hier gehts zur Leistungs-Übersicht.</a></p>"
+    "a": "<p>Eine Sitzung startet mit einem Gespräch über deine Beschwerden, gefolgt von einer kurzen Untersuchung. Danach beginnt die eigentliche Behandlung. Mehr über die Abläufe der verschiedenen Behandlungen erfährst du auf den jeweiligen Unterseiten der Leistungen. <a href=\"/physiotherapie/\">Hier geht’s zur Leistungs-Übersicht.</a></p>"
   },
   {
     "q": "Wie schnell merke ich eine Verbesserung?",
@@ -22,6 +22,10 @@
   {
     "q": "Wie oft sollte ich zur Physiotherapie kommen?",
     "a": "<p>Das hängt von deinem Rezept und deinem persönlichen Befund ab. Häufig sind 1–2 Sitzungen pro Woche üblich.</p>"
+  },
+  {
+    "q": "Behandelt ihr auch Sportverletzungen?",
+    "a": "<p>Ja. Ob Zerrung, Verstauchung, Überlastung oder Beschwerden nach einer Operation: Wir begleiten dich vom ersten Schmerz bis zurück ins Training. Je nach Beschwerden kombinieren wir zum Beispiel <a href=\"/physiotherapie/manuelle-therapie/\">Manuelle Therapie</a>, <a href=\"/physiotherapie/krankengymnastik/\">Krankengymnastik</a>, <a href=\"/physiotherapie/kaelte-therapie/\">Kälte-Therapie</a>, <a href=\"/physiotherapie/medical-kinesio-taping/\">Medical Kinesio-Taping</a>, <a href=\"/physiotherapie/medical-flossing-therapie/\">Medical Flossing</a> und <a href=\"/physiotherapie/faszientherapie/\">Faszientherapie</a>.</p>"
   },
   {
     "q": "Wird Physiotherapie von der Krankenkasse übernommen?",
@@ -49,7 +53,7 @@
   },
   {
     "q": "Hilft Osteopathie auch bei Kindern und Säuglingen?",
-    "a": "<p>Ja – gerade bei Säuglingen (z. B. nach schwieriger Geburt), Kindern mit Entwicklungsverzögerungen oder Haltungsproblemen kann Osteopathie eine wertvolle Unterstützung sein. Wir nehmen uns besonders viel Zeit und arbeiten sanft und einfühlsam. Hier findest mehr Informationen zu <a href=\"/osteopathie/osteopathie-fuer-kinder/\">Osteopathie für Kinder &amp; Säuglinge.</a></p>"
+    "a": "<p>Ja – gerade bei Säuglingen (z. B. nach schwieriger Geburt), Kindern mit Entwicklungsverzögerungen oder Haltungsproblemen kann Osteopathie eine wertvolle Unterstützung sein. Wir nehmen uns besonders viel Zeit und arbeiten sanft und einfühlsam. Hier findest du mehr Informationen zu <a href=\"/osteopathie/osteopathie-fuer-kinder/\">Osteopathie für Kinder &amp; Säuglinge.</a></p>"
   },
   {
     "q": "Wo in Berlin findet die Behandlung statt?",
@@ -68,7 +72,7 @@
     "a": "<p>Ja. Direkt vor dem Eingang unserer Praxis ist ein Parkplatz für Behinderte.</p>"
   },
   {
-    "q": "Behandelt ihr auch Samstags?",
+    "q": "Behandelt ihr auch samstags?",
     "a": "Ja – wir behandeln dich auch an Samstagen. Sowohl in unserer Praxis, als auch bei Bedarf zu <a href=\"/hausbesuche/\">Hausbesuchen.</a> &nbsp;"
   }
 ]
