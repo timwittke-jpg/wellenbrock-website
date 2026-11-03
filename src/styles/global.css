@@ -363,3 +363,14 @@ main .map ~ .cta {
     animation: none !important;
   }
 }
+
+/* Häufige Fragen: schwarzer Pfeil im hellen Peach-Kreis (Footer-Menü ausgenommen) */
+main details > summary > svg {
+  box-sizing: content-box;
+  width: 18px;
+  height: 18px;
+  padding: 11px;
+  border-radius: 50%;
+  background: var(--c-peach-soft);
+  color: var(--c-ink);
+}
