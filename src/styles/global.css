@@ -374,3 +374,12 @@ main details > summary > svg {
   background: var(--c-pink-soft);
   color: var(--c-ink);
 }
+
+/* Handy: Kreis und Pfeil etwas kleiner (32px statt 40px) */
+@media (max-width: 600px) {
+  main details > summary > svg {
+    width: 14px;
+    height: 14px;
+    padding: 9px;
+  }
+}
