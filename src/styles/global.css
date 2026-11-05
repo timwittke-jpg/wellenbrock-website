@@ -383,3 +383,9 @@ main details > summary > svg {
     padding: 9px;
   }
 }
+
+/* Markierter Text: zartes Markenmagenta, Schrift schwarz */
+::selection {
+  background: var(--c-pink-soft);
+  color: var(--c-ink);
+}
