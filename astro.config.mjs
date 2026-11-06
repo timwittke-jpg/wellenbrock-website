@@ -8,6 +8,6 @@ export default defineConfig({
   trailingSlash: 'always',
   // CSS direkt in die HTML-Datei schreiben: kein Nachladen, das den ersten Seitenaufbau blockiert
   build: { inlineStylesheets: 'always' },
-  // Bestätigungsseite nach dem Formular gehört nicht in die Sitemap
-  integrations: [sitemap({ filter: (page) => !page.includes('/termin-angefragt/') })],
+  // Bestätigungsseite nach dem Formular und interne Statistik gehören nicht in die Sitemap
+  integrations: [sitemap({ filter: (page) => !page.includes('/termin-angefragt/') && !page.includes('/statistik/') })],
 });

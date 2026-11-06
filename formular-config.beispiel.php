@@ -23,4 +23,8 @@ return [
 
     // Zufälliger Schlüssel für den Spamschutz (mind. 32 Zeichen, nirgends sonst verwenden)
     'altcha_geheimnis' => 'HIER-ZUFAELLIGEN-SCHLUESSEL-EINTRAGEN',
+
+    // Passwort für die interne Statistik unter /statistik/ (mind. 12 Zeichen). Leer = Statistik gesperrt.
+    // Die Zahlen (nur „Tag: Anzahl“ der Terminanfragen) schreibt formular.php in formular-zaehler.json neben diese Datei.
+    'statistik_passwort' => '',
 ];

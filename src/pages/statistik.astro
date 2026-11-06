@@ -1,0 +1,372 @@
+---
+// Interne Übersicht: Anzahl der Terminanfragen über die Website (nicht in Suchmaschinen).
+// Die Zahlen kommen nach Passworteingabe aus statistik/daten.php. Gespeichert wird nur „Tag: Anzahl“, keine Personendaten.
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Statistik | Wellenbrock & Wernecken" description="Interne Übersicht der Terminanfragen." noindex>
+  <section class="stats container">
+    <h1>Terminanfragen über die Website</h1>
+
+    <form class="card login" data-login>
+      <label for="passwort">Passwort</label>
+      <div class="login-row">
+        <input id="passwort" name="passwort" type="password" autocomplete="current-password" required />
+        <button class="btn btn--pink" type="submit">Anzeigen</button>
+      </div>
+      <p class="error" data-error hidden></p>
+    </form>
+
+    <div class="result" data-result hidden>
+      <p class="hint" data-hint>Anzahl der erfolgreich abgeschickten Terminanfragen.</p>
+
+      <ul class="tiles">
+        <li class="card tile">
+          <span class="tile-label">Heute</span>
+          <span class="tile-value" data-tile="day">0</span>
+        </li>
+        <li class="card tile">
+          <span class="tile-label">Diese Woche</span>
+          <span class="tile-value" data-tile="week">0</span>
+          <span class="tile-sub" data-tile-sub="week"></span>
+        </li>
+        <li class="card tile">
+          <span class="tile-label">Dieser Monat</span>
+          <span class="tile-value" data-tile="month">0</span>
+          <span class="tile-sub" data-tile-sub="month"></span>
+        </li>
+      </ul>
+
+      <div class="card chart-card">
+        <div class="chart-head">
+          <h2 data-chart-title>Letzte 30 Tage</h2>
+          <div class="tablist" role="tablist" aria-label="Zeitraum">
+            <button class="tab" type="button" role="tab" aria-selected="true" data-range="day">Tage</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-range="week">Wochen</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-range="month">Monate</button>
+          </div>
+        </div>
+        <div class="chart" data-chart aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  type Days = Record<string, number>;
+  type Range = 'day' | 'week' | 'month';
+
+  const pad = (n: number) => String(n).padStart(2, '0');
+  const dayKey = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  const addDays = (d: Date, n: number) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+  // Wochen beginnen am Montag
+  const weekStart = (d: Date) => addDays(d, -((d.getDay() + 6) % 7));
+  const today = new Date();
+
+  const sumDays = (days: Days, from: Date, count: number) => {
+    let sum = 0;
+    for (let i = 0; i < count; i++) sum += days[dayKey(addDays(from, i))] ?? 0;
+    return sum;
+  };
+
+  const monthSum = (days: Days, year: number, month: number) =>
+    Object.entries(days)
+      .filter(([k]) => k.startsWith(`${year}-${pad(month + 1)}-`))
+      .reduce((s, [, v]) => s + v, 0);
+
+  // Balken für den gewählten Zeitraum: [Beschriftung, Tooltip, Anzahl]
+  function bars(days: Days, range: Range): [string, string, number][] {
+    if (range === 'day') {
+      return Array.from({ length: 30 }, (_, i) => {
+        const d = addDays(today, i - 29);
+        return [String(d.getDate()), d.toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'long' }), days[dayKey(d)] ?? 0];
+      });
+    }
+    if (range === 'week') {
+      const current = weekStart(today);
+      return Array.from({ length: 12 }, (_, i) => {
+        const start = addDays(current, (i - 11) * 7);
+        const label = `${start.getDate()}.${start.getMonth() + 1}.`;
+        return [label, `Woche ab ${start.toLocaleDateString('de-DE')}`, sumDays(days, start, 7)];
+      });
+    }
+    return Array.from({ length: 12 }, (_, i) => {
+      const d = new Date(today.getFullYear(), today.getMonth() + i - 11, 1);
+      return [
+        d.toLocaleDateString('de-DE', { month: 'short' }),
+        d.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' }),
+        monthSum(days, d.getFullYear(), d.getMonth()),
+      ];
+    });
+  }
+
+  const titles: Record<Range, string> = { day: 'Letzte 30 Tage', week: 'Letzte 12 Wochen', month: 'Letzte 12 Monate' };
+
+  function renderChart(days: Days, range: Range) {
+    const list = bars(days, range);
+    const max = Math.max(1, ...list.map(([, , v]) => v));
+    document.querySelector('[data-chart-title]')!.textContent = titles[range];
+    const chart = document.querySelector<HTMLElement>('[data-chart]')!;
+    chart.dataset.range = range;
+    chart.innerHTML = list
+      .map(
+        ([label, tip, v]) => `<div class="bar-col" title="${tip}: ${v}">
+          <span class="bar-value">${v}</span>
+          <span class="bar" style="height:${Math.round((v / max) * 100)}%"></span>
+          <span class="bar-label">${label}</span>
+        </div>`,
+      )
+      .join('');
+  }
+
+  function show(days: Days, demo: boolean) {
+    const ws = weekStart(today);
+    const set = (sel: string, text: string) => (document.querySelector(sel)!.textContent = text);
+    set('[data-tile="day"]', String(days[dayKey(today)] ?? 0));
+    set('[data-tile="week"]', String(sumDays(days, ws, 7)));
+    set('[data-tile-sub="week"]', `Vorwoche ${sumDays(days, addDays(ws, -7), 7)}`);
+    set('[data-tile="month"]', String(monthSum(days, today.getFullYear(), today.getMonth())));
+    const prev = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+    set('[data-tile-sub="month"]', `Vormonat ${monthSum(days, prev.getFullYear(), prev.getMonth())}`);
+    if (demo) set('[data-hint]', 'Vorschau mit Beispielzahlen (lokaler Server).');
+
+    const tabs = [...document.querySelectorAll<HTMLButtonElement>('.tab')];
+    tabs.forEach((tab) =>
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+        renderChart(days, tab.dataset.range as Range);
+      }),
+    );
+    renderChart(days, 'day');
+
+    document.querySelector<HTMLElement>('[data-login]')!.hidden = true;
+    document.querySelector<HTMLElement>('[data-result]')!.hidden = false;
+  }
+
+  // Beispielzahlen nur für die Vorschau im lokalen Server (dort läuft kein PHP)
+  const sample = (): Days =>
+    Object.fromEntries(Array.from({ length: 400 }, (_, i) => [dayKey(addDays(today, -i)), (i * 7) % 5]));
+
+  const form = document.querySelector<HTMLFormElement>('[data-login]')!;
+  const error = document.querySelector<HTMLElement>('[data-error]')!;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    error.hidden = true;
+    const button = form.querySelector('button')!;
+    button.disabled = true;
+    try {
+      const res = await fetch('/statistik/daten.php', { method: 'POST', body: new FormData(form), cache: 'no-store' });
+      if (res.status === 401) throw new Error('Das Passwort stimmt nicht.');
+      const days = (await res.json().catch(() => null)) as Days | null;
+      if (days) return show(days, false);
+      if (import.meta.env.DEV) return show(sample(), true);
+      throw new Error('Die Zahlen konnten nicht geladen werden.');
+    } catch (err) {
+      error.textContent = err instanceof Error ? err.message : 'Die Zahlen konnten nicht geladen werden.';
+      error.hidden = false;
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  .stats {
+    display: grid;
+    gap: 1.5rem;
+    padding-block: clamp(48px, 7vw, 88px) clamp(80px, 10vw, 140px);
+  }
+
+  h1 {
+    font-size: var(--fs-xl);
+  }
+
+  .login {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 480px;
+    padding: 28px;
+  }
+
+  label {
+    font-weight: 600;
+  }
+
+  .login-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  input {
+    flex: 1 1 200px;
+    min-height: 48px;
+    padding: 0 1rem;
+    border: 1px solid var(--c-line);
+    border-radius: var(--radius);
+    background: var(--c-bg);
+    font: inherit;
+  }
+
+  .error {
+    color: var(--c-brand);
+    font-weight: 600;
+  }
+
+  .result {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .result[hidden],
+  .login[hidden] {
+    display: none;
+  }
+
+  .hint,
+  .tile-sub,
+  .chart :global(.bar-label) {
+    color: #6b6259;
+  }
+
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tile {
+    display: grid;
+    gap: 0.4rem;
+    padding: 28px;
+  }
+
+  .tile-label {
+    font-weight: 600;
+  }
+
+  .tile-value {
+    font-family: var(--f-serif);
+    font-size: var(--fs-xxl);
+    line-height: 1;
+    color: var(--c-brand);
+  }
+
+  .tile-sub {
+    font-size: var(--fs-small);
+  }
+
+  .chart-card {
+    display: grid;
+    gap: 1.5rem;
+    padding: clamp(24px, 4vw, 40px);
+  }
+
+  .chart-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  h2 {
+    font-size: var(--fs-md);
+  }
+
+  /* Umschalter wie auf der Preisseite */
+  .tablist {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 999px;
+    background: var(--c-bg);
+  }
+
+  .tab {
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: 999px;
+    background: none;
+    font: 600 var(--fs-small) / 1.2 var(--f-sans);
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .tab[aria-selected='true'] {
+    background: var(--c-pink);
+  }
+
+  .chart {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: end;
+    gap: clamp(4px, 1.2vw, 14px);
+    height: 260px;
+  }
+
+  .chart[data-range='day'] {
+    grid-template-columns: repeat(30, minmax(0, 1fr));
+    gap: clamp(2px, 0.5vw, 6px);
+  }
+
+  .chart :global(.bar-col) {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    justify-items: center;
+    gap: 6px;
+    height: 100%;
+    min-width: 0;
+  }
+
+  .chart :global(.bar-value) {
+    font-size: var(--fs-small);
+    font-weight: 600;
+  }
+
+  .chart :global(.bar) {
+    align-self: end;
+    width: 100%;
+    min-height: 2px;
+    border-radius: 6px 6px 0 0;
+    background: var(--c-pink);
+  }
+
+  .chart :global(.bar-col:last-child .bar) {
+    background: var(--c-brand);
+  }
+
+  .chart :global(.bar-label) {
+    font-size: var(--fs-xs);
+    white-space: nowrap;
+  }
+
+  /* Tage: Werte und Beschriftungen kleiner, damit 30 Balken nebeneinander passen */
+  .chart[data-range='day'] :global(.bar-value),
+  .chart[data-range='day'] :global(.bar-label) {
+    font-size: 10px;
+  }
+
+  @media (max-width: 720px) {
+    .tiles {
+      grid-template-columns: 1fr;
+    }
+
+    .chart {
+      height: 200px;
+    }
+
+    /* Handy: bei 30 Tagen nur jede fünfte Beschriftung */
+    .chart[data-range='day'] :global(.bar-value) {
+      display: none;
+    }
+
+    .chart[data-range='day'] :global(.bar-col:not(:nth-child(5n)) .bar-label) {
+      visibility: hidden;
+    }
+  }
+</style>

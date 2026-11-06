@@ -282,4 +282,33 @@ if (smtpSenden($config, $absender, $empfaenger, $mail) !== '') {
     antwort(502, ['ok' => false, 'fehler' => 'Versand']);
 }
 
+// Für die interne Statistik (/statistik/): Terminanfragen pro Tag zählen.
+// Gespeichert wird nur „Tag: Anzahl“ in formular-zaehler.json neben der Konfiguration, keine Personendaten.
+function terminZaehlen(string $pfad): void
+{
+    $datei = @fopen($pfad, 'c+');
+    if ($datei === false) {
+        error_log('Formular: Zähler nicht beschreibbar');
+        return;
+    }
+    flock($datei, LOCK_EX);
+    $zaehler = json_decode((string) stream_get_contents($datei), true);
+    $zaehler = is_array($zaehler) ? $zaehler : [];
+    $heute = (new DateTimeImmutable('now', new DateTimeZone('Europe/Berlin')))->format('Y-m-d');
+    $zaehler[$heute] = (int) ($zaehler[$heute] ?? 0) + 1;
+    // nur gut ein Jahr aufheben
+    $grenze = (new DateTimeImmutable('-400 days', new DateTimeZone('Europe/Berlin')))->format('Y-m-d');
+    $zaehler = array_filter($zaehler, fn ($tag) => $tag >= $grenze, ARRAY_FILTER_USE_KEY);
+    ksort($zaehler);
+    ftruncate($datei, 0);
+    rewind($datei);
+    fwrite($datei, json_encode($zaehler));
+    flock($datei, LOCK_UN);
+    fclose($datei);
+}
+
+if ($betreff === 'Terminanfrage') {
+    terminZaehlen(dirname(__DIR__) . '/formular-zaehler.json');
+}
+
 antwort(200, ['ok' => true]);
