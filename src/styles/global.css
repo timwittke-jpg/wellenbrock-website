@@ -105,8 +105,8 @@ h1,
 h2,
 h3 {
   font-family: var(--f-serif);
-  /* alle Überschriften in Medium */
-  font-weight: 500;
+  /* alle Überschriften in 520 (etwas kräftiger als Medium) */
+  font-weight: 520;
   line-height: var(--lh-heading);
   margin: 0;
   text-wrap: balance;
