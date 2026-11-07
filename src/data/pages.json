@@ -589,7 +589,7 @@
         "cards": [
           {
             "title": "Telefon",
-            "html": "<p>{telefon}<br>Mo–Fr: 09:00 – 20:00 </p><p>Anrufen</p>",
+            "html": "<p>{telefon}<br>Mo–Fr: 09:00 – 21:00 </p><p>Anrufen</p>",
             "buttons": []
           },
           {
@@ -604,7 +604,7 @@
           },
           {
             "title": "Behandlungszeiten",
-            "html": "<p>Mo–Fr: 09:00 – 20:00 <br>Sa: Nach Absprache</p>",
+            "html": "<p>Mo–Fr: 09:00 – 21:00 <br>Sa: Nach Absprache</p>",
             "buttons": []
           }
         ],
