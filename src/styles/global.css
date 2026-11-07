@@ -45,7 +45,7 @@
   /* Desktop: Startseitenbild, 48px Abstand zum Fensterrand */
   --wide: min(100% - 96px, 1440px);
   --gutter: clamp(16px, 4vw, 32px);
-  --header-h: 88px;
+  --header-h: 80px;
 
   /*
     Schriftsystem (Figma „New fonts“): Cooper Medium (500) für Überschriften,
