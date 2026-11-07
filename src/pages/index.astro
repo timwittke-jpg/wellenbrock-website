@@ -354,11 +354,17 @@ const faqSchema = {
 
   /* Leistungen */
   .services {
-    /* einzige Sektion breiter als die Seitenbreite: höchstens 1440px inkl. 24px Rand */
-    max-width: 1440px;
+    /* Handy/Tablet: Seitenbreite (Formel von .container) */
+    width: min(100% - 2 * var(--gutter), var(--container));
     margin-inline: auto;
-    padding-inline: 24px;
     text-align: center;
+  }
+
+  /* Desktop: so breit wie das Teamfoto (48px Abstand zum Fensterrand, höchstens 1440px) */
+  @media (min-width: 881px) {
+    .services {
+      width: var(--wide);
+    }
   }
 
   /* vier Karten nebeneinander, je 24px Innenabstand und 24px Lücke */
@@ -483,11 +489,6 @@ const faqSchema = {
   }
 
   @media (max-width: 960px) {
-    /* Seitenrand wie bei den übrigen Abschnitten */
-    .services {
-      padding-inline: var(--gutter);
-    }
-
     .service-grid {
       grid-template-columns: 1fr;
       max-width: 560px;
