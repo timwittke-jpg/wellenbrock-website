@@ -140,6 +140,18 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
     remedies.forEach((r) => r.addEventListener('change', syncConsent));
     syncConsent(); // falls ein Heilmittel schon vorausgewählt ist
 
+    // Interne Statistik: Klicks auf „Absenden“ im Terminformular zählen (nur „Tag: Anzahl“, keine Inhalte).
+    // Doppelklicks innerhalb von 2 Sekunden zählen einmal.
+    const subject = form.querySelector<HTMLInputElement>('[name="betreff"]')?.value;
+    if (form.dataset.endpoint && subject === 'Terminanfrage') {
+      let lastClick = 0;
+      form.querySelector('button[type="submit"]')?.addEventListener('click', () => {
+        if (Date.now() - lastClick < 2000) return;
+        lastClick = Date.now();
+        navigator.sendBeacon?.('/statistik/klick.php');
+      });
+    }
+
     const showSuccess = () => {
       form.reset();
       if (form.dataset.success) {

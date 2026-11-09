@@ -1,5 +1,5 @@
 ---
-// Interne Übersicht: Anzahl der Terminanfragen über die Website (nicht in Suchmaschinen).
+// Interne Übersicht: Terminanfragen über die Website und Klicks auf „Absenden“ (nicht in Suchmaschinen).
 // Die Zahlen kommen nach Passworteingabe aus statistik/daten.php. Gespeichert wird nur „Tag: Anzahl“, keine Personendaten.
 import Base from '../layouts/Base.astro';
 ---
@@ -18,21 +18,25 @@ import Base from '../layouts/Base.astro';
     </form>
 
     <div class="result" data-result hidden>
-      <p class="hint" data-hint>Anzahl der erfolgreich abgeschickten Terminanfragen.</p>
+      <p class="hint" data-hint>
+        <span class="key key--req"></span> erfolgreich verschickte Terminanfragen
+        <span class="slash">/</span>
+        <span class="key key--click"></span> Klicks auf „Absenden“ im Terminformular
+      </p>
 
       <ul class="tiles">
         <li class="card tile">
           <span class="tile-label">Heute</span>
-          <span class="tile-value" data-tile="day">0</span>
+          <span class="tile-value"><span class="v-req" data-tile="day">0</span><span class="slash">/</span><span class="v-click" data-tile-click="day">0</span></span>
         </li>
         <li class="card tile">
           <span class="tile-label">Diese Woche</span>
-          <span class="tile-value" data-tile="week">0</span>
+          <span class="tile-value"><span class="v-req" data-tile="week">0</span><span class="slash">/</span><span class="v-click" data-tile-click="week">0</span></span>
           <span class="tile-sub" data-tile-sub="week"></span>
         </li>
         <li class="card tile">
           <span class="tile-label">Dieser Monat</span>
-          <span class="tile-value" data-tile="month">0</span>
+          <span class="tile-value"><span class="v-req" data-tile="month">0</span><span class="slash">/</span><span class="v-click" data-tile-click="month">0</span></span>
           <span class="tile-sub" data-tile-sub="month"></span>
         </li>
       </ul>
@@ -54,6 +58,7 @@ import Base from '../layouts/Base.astro';
 
 <script>
   type Days = Record<string, number>;
+  type Data = { anfragen: Days; klicks: Days };
   type Range = 'day' | 'week' | 'month';
 
   const pad = (n: number) => String(n).padStart(2, '0');
@@ -102,50 +107,69 @@ import Base from '../layouts/Base.astro';
 
   const titles: Record<Range, string> = { day: 'Letzte 30 Tage', week: 'Letzte 12 Wochen', month: 'Letzte 12 Monate' };
 
-  function renderChart(days: Days, range: Range) {
-    const list = bars(days, range);
-    const max = Math.max(1, ...list.map(([, , v]) => v));
+  function renderChart(data: Data, range: Range) {
+    const list = bars(data.anfragen, range);
+    const clicks = bars(data.klicks, range).map(([, , v]) => v);
+    const max = Math.max(1, ...list.map(([, , v]) => v), ...clicks);
+    const pct = (v: number) => Math.round((v / max) * 100);
     document.querySelector('[data-chart-title]')!.textContent = titles[range];
     const chart = document.querySelector<HTMLElement>('[data-chart]')!;
     chart.dataset.range = range;
     chart.innerHTML = list
       .map(
-        ([label, tip, v]) => `<div class="bar-col" title="${tip}: ${v}">
-          <span class="bar-value">${v}</span>
-          <span class="bar" style="height:${Math.round((v / max) * 100)}%"></span>
+        ([label, tip, v], i) => `<div class="bar-col" title="${tip}: ${v} Anfragen, ${clicks[i]} Klicks">
+          <span class="bar-value">${v}/${clicks[i]}</span>
+          <span class="bars">
+            <span class="bar bar--click" style="height:${pct(clicks[i])}%"></span>
+            <span class="bar bar--req" style="height:${pct(v)}%"></span>
+          </span>
           <span class="bar-label">${label}</span>
         </div>`,
       )
       .join('');
   }
 
-  function show(days: Days, demo: boolean) {
+  function show(data: Data, demo: boolean) {
     const ws = weekStart(today);
-    const set = (sel: string, text: string) => (document.querySelector(sel)!.textContent = text);
-    set('[data-tile="day"]', String(days[dayKey(today)] ?? 0));
-    set('[data-tile="week"]', String(sumDays(days, ws, 7)));
-    set('[data-tile-sub="week"]', `Vorwoche ${sumDays(days, addDays(ws, -7), 7)}`);
-    set('[data-tile="month"]', String(monthSum(days, today.getFullYear(), today.getMonth())));
     const prev = new Date(today.getFullYear(), today.getMonth() - 1, 1);
-    set('[data-tile-sub="month"]', `Vormonat ${monthSum(days, prev.getFullYear(), prev.getMonth())}`);
-    if (demo) set('[data-hint]', 'Vorschau mit Beispielzahlen (lokaler Server).');
+    const set = (sel: string, text: string) => (document.querySelector(sel)!.textContent = text);
+    // Kennzahlen je Zähler: heute, diese Woche, Vorwoche, dieser Monat, Vormonat
+    const figures = (days: Days) => ({
+      day: days[dayKey(today)] ?? 0,
+      week: sumDays(days, ws, 7),
+      prevWeek: sumDays(days, addDays(ws, -7), 7),
+      month: monthSum(days, today.getFullYear(), today.getMonth()),
+      prevMonth: monthSum(days, prev.getFullYear(), prev.getMonth()),
+    });
+    const req = figures(data.anfragen);
+    const click = figures(data.klicks);
+    for (const k of ['day', 'week', 'month'] as const) {
+      set(`[data-tile="${k}"]`, String(req[k]));
+      set(`[data-tile-click="${k}"]`, String(click[k]));
+    }
+    set('[data-tile-sub="week"]', `Vorwoche ${req.prevWeek} / ${click.prevWeek}`);
+    set('[data-tile-sub="month"]', `Vormonat ${req.prevMonth} / ${click.prevMonth}`);
+    if (demo) document.querySelector('[data-hint]')!.append(' – Vorschau mit Beispielzahlen (lokaler Server).');
 
     const tabs = [...document.querySelectorAll<HTMLButtonElement>('.tab')];
     tabs.forEach((tab) =>
       tab.addEventListener('click', () => {
         tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
-        renderChart(days, tab.dataset.range as Range);
+        renderChart(data, tab.dataset.range as Range);
       }),
     );
-    renderChart(days, 'day');
+    renderChart(data, 'day');
 
     document.querySelector<HTMLElement>('[data-login]')!.hidden = true;
     document.querySelector<HTMLElement>('[data-result]')!.hidden = false;
   }
 
   // Beispielzahlen nur für die Vorschau im lokalen Server (dort läuft kein PHP)
-  const sample = (): Days =>
-    Object.fromEntries(Array.from({ length: 400 }, (_, i) => [dayKey(addDays(today, -i)), (i * 7) % 5]));
+  const sample = (): Data => {
+    const anfragen = Object.fromEntries(Array.from({ length: 400 }, (_, i) => [dayKey(addDays(today, -i)), (i * 7) % 5]));
+    const klicks = Object.fromEntries(Object.entries(anfragen).map(([k, v], i) => [k, v + (i % 3)]));
+    return { anfragen, klicks };
+  };
 
   const form = document.querySelector<HTMLFormElement>('[data-login]')!;
   const error = document.querySelector<HTMLElement>('[data-error]')!;
@@ -158,8 +182,8 @@ import Base from '../layouts/Base.astro';
     try {
       const res = await fetch('/statistik/daten.php', { method: 'POST', body: new FormData(form), cache: 'no-store' });
       if (res.status === 401) throw new Error('Das Passwort stimmt nicht.');
-      const days = (await res.json().catch(() => null)) as Days | null;
-      if (days) return show(days, false);
+      const json = (await res.json().catch(() => null)) as Partial<Data> | null;
+      if (json) return show({ anfragen: json.anfragen ?? {}, klicks: json.klicks ?? {} }, false);
       if (import.meta.env.DEV) return show(sample(), true);
       throw new Error('Die Zahlen konnten nicht geladen werden.');
     } catch (err) {
@@ -250,10 +274,46 @@ import Base from '../layouts/Base.astro';
   }
 
   .tile-value {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3em;
     font-family: var(--f-serif);
     font-size: var(--fs-xxl);
     line-height: 1;
+  }
+
+  /* Anfragen in Magenta, Klicks in Pfirsich, dazwischen ein Schrägstrich */
+  .v-req {
     color: var(--c-brand);
+  }
+
+  .v-click {
+    color: var(--c-peach);
+  }
+
+  .slash {
+    font-weight: 400;
+  }
+
+  .key {
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 0.2em;
+    border-radius: 3px;
+    vertical-align: -0.05em;
+  }
+
+  .key--req {
+    background: var(--c-brand);
+  }
+
+  .key--click {
+    background: var(--c-peach);
+  }
+
+  .hint .slash {
+    margin-inline: 0.4em;
   }
 
   .tile-sub {
@@ -328,15 +388,36 @@ import Base from '../layouts/Base.astro';
     font-weight: 600;
   }
 
+  /* Klicks (Pfirsich) hinten, Anfragen (Rosa) davor; der aktuelle Zeitraum kräftiger */
+  .chart :global(.bars) {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
   .chart :global(.bar) {
-    align-self: end;
+    position: absolute;
+    bottom: 0;
     width: 100%;
     min-height: 2px;
     border-radius: 6px 6px 0 0;
+  }
+
+  .chart :global(.bar--click) {
+    background: var(--c-peach-soft);
+  }
+
+  .chart :global(.bar--req) {
+    left: 20%;
+    width: 60%;
     background: var(--c-pink);
   }
 
-  .chart :global(.bar-col:last-child .bar) {
+  .chart :global(.bar-col:last-child .bar--click) {
+    background: var(--c-peach);
+  }
+
+  .chart :global(.bar-col:last-child .bar--req) {
     background: var(--c-brand);
   }
 

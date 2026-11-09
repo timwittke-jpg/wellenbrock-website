@@ -2,7 +2,8 @@
 /*
   Zahlen für die interne Statistikseite (/statistik/), nur mit Passwort.
 
-  POST passwort=…  → {"2026-11-06": 3, …} (Anzahl Terminanfragen pro Tag)
+  POST passwort=…  → {"anfragen": {"2026-11-06": 3, …}, "klicks": {"2026-11-06": 5, …}}
+  (erfolgreich verschickte Terminanfragen und Klicks auf „Absenden“, jeweils pro Tag)
 
   Das Passwort steht als 'statistik_passwort' in formular-config.php eine Ebene über dem Webordner
   (nicht im Git-Repo, nicht über das Web abrufbar). Ohne diesen Eintrag bleibt die Statistik gesperrt.
@@ -39,7 +40,16 @@ if (strlen($soll) < 12 || !hash_equals($soll, $ist)) {
     antwort(401, ['ok' => false]);
 }
 
-$pfad = $ordner . '/formular-zaehler.json';
-$daten = is_file($pfad) ? json_decode((string) file_get_contents($pfad), true) : [];
+// „Tag: Anzahl“ aus einer Zählerdatei (fehlt sie, gibt es noch keine Zahlen)
+function tage(string $pfad): object
+{
+    $daten = is_file($pfad) ? json_decode((string) file_get_contents($pfad), true) : [];
+    return is_array($daten) ? (object) $daten : new stdClass();
+}
 
-echo json_encode(is_array($daten) ? (object) $daten : new stdClass(), JSON_UNESCAPED_UNICODE);
+echo json_encode([
+    // erfolgreich verschickte Terminanfragen (formular.php)
+    'anfragen' => tage($ordner . '/formular-zaehler.json'),
+    // Klicks auf „Absenden“ im Terminformular (statistik/klick.php)
+    'klicks' => tage($ordner . '/formular-klicks.json'),
+], JSON_UNESCAPED_UNICODE);
