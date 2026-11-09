@@ -81,14 +81,6 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
             </label>
           ))}
         </div>
-        <!-- Gesundheitsdaten (Art. 9 DSGVO): Pflicht, sobald ein Heilmittel angekreuzt ist -->
-        <label class="check health-consent">
-          <input type="checkbox" name="einwilligung_gesundheitsdaten" value="ja" />
-          <span>
-            Ich willige ausdrücklich ein, dass meine Angaben zu Heilmitteln (Gesundheitsdaten) zur Terminvergabe
-            verarbeitet werden. Die Einwilligung kann ich jederzeit widerrufen.
-          </span>
-        </label>
       </fieldset>
     )
   }
@@ -98,10 +90,25 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
     <textarea id={`${uid}-msg`} name="nachricht" rows="5"></textarea>
   </div>
 
-  <label class="check consent">
-    <input type="checkbox" name="datenschutz" value="ja" required />
-    <span>Ich stimme der Verarbeitung meiner Angaben gemäß der <a class="inline-link" href="/datenschutz/">Datenschutzerklärung</a> zu. <span class="req">(Pflichtfeld)</span></span>
-  </label>
+  <div class="consents">
+    <label class="check consent">
+      <input type="checkbox" name="datenschutz" value="ja" required />
+      <span>Ich stimme der Verarbeitung meiner Angaben gemäß der <a class="inline-link" href="/datenschutz/">Datenschutzerklärung</a> zu. <span class="req">(Pflichtfeld)</span></span>
+    </label>
+
+    {
+      // Gesundheitsdaten (Art. 9 DSGVO): Pflicht, sobald ein Heilmittel angekreuzt ist
+      remedies.length > 0 && (
+        <label class="check health-consent">
+          <input type="checkbox" name="einwilligung_gesundheitsdaten" value="ja" />
+          <span>
+            Ich willige ausdrücklich ein, dass meine Angaben zu Heilmitteln (Gesundheitsdaten) zur Terminvergabe
+            verarbeitet werden. Die Einwilligung kann ich jederzeit widerrufen.
+          </span>
+        </label>
+      )
+    }
+  </div>
 
   <!-- „Bist du ein Mensch?“: Der Browser löst im Hintergrund eine kleine Rechenaufgabe, ohne Bilderrätsel -->
   <altcha-widget class="human-check" name="altcha" language="de" type="checkbox" configuration={altchaConfig}></altcha-widget>
@@ -285,8 +292,10 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
     accent-color: var(--c-brand);
   }
 
-  .health-consent {
-    margin-top: 1.25rem;
+  /* Datenschutz und darunter (nur Terminformular) die Einwilligung zu Gesundheitsdaten */
+  .consents {
+    display: grid;
+    gap: 1rem;
   }
 
   /* Einwilligungen (Datenschutz, Gesundheitsdaten) einheitlich klein */
