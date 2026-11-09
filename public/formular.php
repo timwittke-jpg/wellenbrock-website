@@ -177,7 +177,6 @@ if ($name === '') $fehlt[] = 'name';
 // E-Mail: im Terminformular freiwillig (die Praxis ruft zurück), sonst Pflicht; wenn angegeben, muss sie gültig sein
 if ($email !== '' ? !filter_var($email, FILTER_VALIDATE_EMAIL) : $betreff !== 'Terminanfrage') $fehlt[] = 'email';
 if ($telefon === '') $fehlt[] = 'telefon';
-if (feld('datenschutz') !== 'ja') $fehlt[] = 'datenschutz';
 if ($heilmittel && !$einwilligungGesundheit) $fehlt[] = 'einwilligung_gesundheitsdaten';
 if ($betreff === 'Bewerbung' && $stelle === '') $fehlt[] = 'stelle';
 if ($fehlt) {
@@ -204,7 +203,7 @@ $zeilen[] = 'Nachricht:';
 $zeilen[] = $nachricht !== '' ? $nachricht : '(keine)';
 $zeilen[] = '';
 $zeilen[] = '--';
-$zeilen[] = 'Datenschutzerklärung zugestimmt: ja';
+$zeilen[] = 'Hinweis auf die Datenschutzerklärung wurde vor dem Absenden angezeigt.';
 $zeilen[] = 'Gesendet am ' . (new DateTime('now', new DateTimeZone('Europe/Berlin')))->format('d.m.Y \u\m H:i \U\h\r');
 $zeilen[] = $email !== ''
     ? 'Antworten geht direkt an die Absender-Adresse.'

@@ -91,15 +91,16 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
   </div>
 
   <div class="consents">
-    <label class="check consent">
-      <input type="checkbox" name="datenschutz" value="ja" required />
-      <span>Ich stimme der Verarbeitung meiner Angaben gemäß der <a class="inline-link" href="/datenschutz/">Datenschutzerklärung</a> zu. <span class="req">(Pflichtfeld)</span></span>
-    </label>
+    <!-- Kein Häkchen nötig: Anfragen werden zur Bearbeitung bzw. Terminvereinbarung verarbeitet (Art. 6 Abs. 1 lit. b DSGVO) -->
+    <p class="consent">
+      Mit dem Absenden verwenden wir deine Angaben, um deine Anfrage zu bearbeiten. Mehr dazu in unserer
+      <a class="inline-link" href="/datenschutz/">Datenschutzerklärung</a>.
+    </p>
 
     {
-      // Gesundheitsdaten (Art. 9 DSGVO): Pflicht, sobald ein Heilmittel angekreuzt ist
+      // Gesundheitsdaten (Art. 9 DSGVO): erscheint und ist Pflicht, sobald ein Heilmittel angekreuzt ist
       remedies.length > 0 && (
-        <label class="check health-consent">
+        <label class="check health-consent" hidden>
           <input type="checkbox" name="einwilligung_gesundheitsdaten" value="ja" />
           <span>
             Ich willige ausdrücklich ein, dass meine Angaben zu Heilmitteln (Gesundheitsdaten) zur Terminvergabe
@@ -141,11 +142,15 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
   document.querySelectorAll<HTMLFormElement>('form.form').forEach((form) => {
     // Zeitsperre: Menschen brauchen für das Formular länger als ein paar Sekunden, Bots nicht
     const loadedAt = Date.now();
-    // Einwilligung zu Gesundheitsdaten nur verlangen, wenn Heilmittel angegeben sind
+    // Einwilligung zu Gesundheitsdaten nur zeigen und verlangen, wenn Heilmittel angegeben sind
     const healthConsent = form.querySelector<HTMLInputElement>('[name="einwilligung_gesundheitsdaten"]');
     const remedies = [...form.querySelectorAll<HTMLInputElement>('[name="heilmittel[]"]')];
     const syncConsent = () => {
-      if (healthConsent) healthConsent.required = remedies.some((r) => r.checked);
+      if (!healthConsent) return;
+      const needed = remedies.some((r) => r.checked);
+      healthConsent.required = needed;
+      healthConsent.closest('label')!.hidden = !needed;
+      if (!needed) healthConsent.checked = false;
     };
     remedies.forEach((r) => r.addEventListener('change', syncConsent));
     syncConsent(); // falls ein Heilmittel schon vorausgewählt ist
@@ -302,6 +307,14 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
   .health-consent,
   .consent {
     font-size: var(--fs-small);
+  }
+
+  .consent {
+    line-height: 1.5;
+  }
+
+  .health-consent[hidden] {
+    display: none;
   }
 
   /* ALTCHA-Kästchen im Stil der Formularfelder */
