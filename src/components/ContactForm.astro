@@ -6,6 +6,8 @@ interface Props {
   submitLabel: string;
   remedies?: string[];
   phoneRequired?: boolean;
+  // Terminformular: E-Mail freiwillig (die Praxis ruft zurück)
+  emailRequired?: boolean;
   // Seite, auf die nach erfolgreichem Absenden weitergeleitet wird
   successUrl?: string;
   // Bewerbungsformular: Auswahl „Ich bewerbe mich als“
@@ -19,6 +21,7 @@ const {
   submitLabel,
   remedies = [],
   phoneRequired = true,
+  emailRequired = true,
   successUrl,
   positions = [],
   messageLabel = 'Nachricht',
@@ -45,8 +48,8 @@ const altchaConfig = JSON.stringify(altchaChallengeUrl ? { challenge: altchaChal
   </div>
   <div class="row">
     <div class="field">
-      <label for={`${uid}-email`}>E-Mail <span class="req">(Pflichtfeld)</span></label>
-      <input id={`${uid}-email`} name="email" type="email" autocomplete="email" required />
+      <label for={`${uid}-email`}>E-Mail {emailRequired && <span class="req">(Pflichtfeld)</span>}</label>
+      <input id={`${uid}-email`} name="email" type="email" autocomplete="email" required={emailRequired} />
     </div>
     <div class="field">
       <label for={`${uid}-tel`}>Telefonnummer {phoneRequired && <span class="req">(Pflichtfeld)</span>}</label>

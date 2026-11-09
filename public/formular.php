@@ -174,7 +174,8 @@ $einwilligungGesundheit = feld('einwilligung_gesundheitsdaten') === 'ja';
 
 $fehlt = [];
 if ($name === '') $fehlt[] = 'name';
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $fehlt[] = 'email';
+// E-Mail: im Terminformular freiwillig (die Praxis ruft zurück), sonst Pflicht; wenn angegeben, muss sie gültig sein
+if ($email !== '' ? !filter_var($email, FILTER_VALIDATE_EMAIL) : $betreff !== 'Terminanfrage') $fehlt[] = 'email';
 if ($telefon === '') $fehlt[] = 'telefon';
 if (feld('datenschutz') !== 'ja') $fehlt[] = 'datenschutz';
 if ($heilmittel && !$einwilligungGesundheit) $fehlt[] = 'einwilligung_gesundheitsdaten';
@@ -188,7 +189,7 @@ $zeilen = [
     "Neue $betreff über die Website",
     '',
     "Name: $name",
-    "E-Mail: $email",
+    'E-Mail: ' . ($email !== '' ? $email : '(keine Angabe)'),
     "Telefon: $telefon",
 ];
 if ($stelle !== '') {
@@ -205,7 +206,9 @@ $zeilen[] = '';
 $zeilen[] = '--';
 $zeilen[] = 'Datenschutzerklärung zugestimmt: ja';
 $zeilen[] = 'Gesendet am ' . (new DateTime('now', new DateTimeZone('Europe/Berlin')))->format('d.m.Y \u\m H:i \U\h\r');
-$zeilen[] = 'Antworten geht direkt an die Absender-Adresse.';
+$zeilen[] = $email !== ''
+    ? 'Antworten geht direkt an die Absender-Adresse.'
+    : 'Keine E-Mail angegeben – bitte telefonisch zurückmelden.';
 $text = implode("\r\n", $zeilen);
 
 $absender = (string) $config['absender'];
@@ -216,13 +219,16 @@ $kopf = [
     'Date: ' . date('r'),
     'From: ' . $kodiere((string) ($config['absender_name'] ?? 'Website')) . " <$absender>",
     "To: <$empfaenger>",
-    'Reply-To: ' . $kodiere($name) . " <$email>",
     'Subject: ' . $kodiere("$betreff von $name"),
     'Message-ID: <' . bin2hex(random_bytes(12)) . '@' . substr(strrchr($absender, '@'), 1) . '>',
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
     'Content-Transfer-Encoding: base64',
 ];
+// Antwort-Adresse nur, wenn eine E-Mail angegeben wurde
+if ($email !== '') {
+    $kopf[] = 'Reply-To: ' . $kodiere($name) . " <$email>";
+}
 $mail = implode("\r\n", $kopf) . "\r\n\r\n" . chunk_split(base64_encode($text), 76, "\r\n");
 
 // Versand per SMTP (SSL, Port 465) über das Postfach aus der Konfiguration

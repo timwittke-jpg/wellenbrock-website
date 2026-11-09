@@ -58,7 +58,7 @@ const remedies = [
       <p class="hint">
         Am schnellsten geht es telefonisch: <a href={practice.phoneHref}>{practice.phoneDisplay}</a>, {practice.hoursDisplay}.
       </p>
-      <ContactForm subject="Terminanfrage" submitLabel="Terminanfrage senden" remedies={remedies} successUrl="/termin-angefragt/" />
+      <ContactForm subject="Terminanfrage" submitLabel="Terminanfrage senden" remedies={remedies} emailRequired={false} successUrl="/termin-angefragt/" />
     </div>
   </section>
 
